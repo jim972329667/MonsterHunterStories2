@@ -26,6 +26,10 @@ namespace MonsterHunterStories2
         public Egg(uint address)
 		{
 			mAddress = address;
+			for (uint i = 0; i < 9; i++)
+			{
+				Genes.Add(new Gene(address + 8 + 4 * i));
+			}
 		}
 		public uint ID
 		{
@@ -36,6 +40,30 @@ namespace MonsterHunterStories2
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ID)));
 			}
 		}
+
+		public uint Smell
+		{
+			get { return SaveData.Instance().ReadNumber(mAddress+4, 1); }
+			set
+			{
+				SaveData.Instance().WriteNumber(mAddress+4, 1, value);
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Smell)));
+			}
+		}
+		public String Name
+		{
+			get { 
+				byte[] str = SaveData.Instance().ReadValue(mAddress, 2); 
+				string strr = byteToHexStr(str);
+				return strr;
+			}
+			set
+			{
+				byte[] str = StrToHexByte(value);
+				SaveData.Instance().WriteValue(mAddress, str);
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
+			}
+		}
 		public static string byteToHexStr(byte[] bytes)
 		{
 			string returnStr = "";
@@ -43,6 +71,7 @@ namespace MonsterHunterStories2
 			{
 				for (int i = 0; i < bytes.Length; i++)
 				{
+					if (i % 2 == 0&&i != 0 ) returnStr += " ";
 					returnStr += bytes[i].ToString("X2");
 				}
 			}
@@ -60,10 +89,10 @@ namespace MonsterHunterStories2
 			return returnBytes;
 		}
 
-		public string Smell
+		public string Place
 		{
 			get {
-				byte[] str = SaveData.Instance().ReadValue(mAddress, 120);
+				byte[] str = SaveData.Instance().ReadValue(mAddress+44, 76);
 				string strr = "";
 				if (SaveData.Instance().ReadNumber(mAddress, 4) == 0)
                 {
@@ -76,7 +105,28 @@ namespace MonsterHunterStories2
 			{
 				byte[] str = StrToHexByte(value);
 				SaveData.Instance().WriteValue(mAddress, str);
-				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Smell)));
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Place)));
+			}
+		}
+		public string AllHex
+		{
+			get
+			{
+				byte[] str = SaveData.Instance().ReadValue(mAddress, 120);
+				string strr = "";
+				if (SaveData.Instance().ReadNumber(mAddress, 4) == 0)
+				{
+					strr = "None";
+				}
+				else strr = byteToHexStr(str);
+
+				return strr;
+			}
+			set
+			{
+				byte[] str = StrToHexByte(value);
+				SaveData.Instance().WriteValue(mAddress, str);
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(AllHex)));
 			}
 		}
 	}

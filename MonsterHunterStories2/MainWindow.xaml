@@ -232,8 +232,6 @@
                                         </ComboBox>
                                         <Label Content=" ID"/>
                                         <TextBox Text="{Binding ID, UpdateSourceTrigger=PropertyChanged}" Width="60"/>
-                                        <Label Content=" Get"/>
-                                        <TextBox Text="{Binding Get}" Width="60"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
@@ -282,17 +280,77 @@
                     </ListBox>
                 </DockPanel>
             </TabItem>
-            <TabItem Header="宠物蛋测试" Margin="-2,-2,-2,0">
+            <TabItem Header="宠物蛋测试1" Margin="-2,-2,-2,0">
                 <ListBox x:Name="ListBoxArmor1" ItemsSource="{Binding Eggs}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
                                 <Label Content=" ID"/>
-                                <TextBox Text="{Binding Smell, UpdateSourceTrigger=PropertyChanged}" MaxWidth="460" TextWrapping="Wrap"/>
+                                <TextBox Text="{Binding AllHex, UpdateSourceTrigger=PropertyChanged}" MaxWidth="460" TextWrapping="Wrap"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
+            </TabItem>
+            <TabItem Header="宠物蛋测试2" Margin="-2,-2,-2,0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <ListBox x:Name="ListBoxMonster1" ItemsSource="{Binding Eggs}" DisplayMemberPath="Name"/>
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition Height="5*"/>
+                        </Grid.RowDefinitions>
+                        <Label Content="ID"/>
+                        <TextBox Grid.Column="1" Text="{Binding SelectedItem.ID, ElementName=ListBoxMonster1, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Label Grid.Row="1" Content="Smell"/>
+                        <ComboBox Grid.Row="1" Grid.Column="1" SelectedIndex="{Binding SelectedItem.Smell, ElementName=ListBoxMonster1}">
+                            <ComboBoxItem Content="Common"/>
+                            <ComboBoxItem Content="Good"/>
+                            <ComboBoxItem Content="Amazing"/>
+                        </ComboBox>
+                        <Label Grid.Row="2" Content="Place"/>
+                        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding SelectedItem.Place, ElementName=ListBoxMonster1, UpdateSourceTrigger=PropertyChanged}" Grid.RowSpan="5"  TextWrapping="Wrap"/>
+                    </Grid>
+                    <TabControl Grid.Column="2">
+                        <TabItem Header="{x:Static prop:Resources.MainMonsterTabGene}">
+                            <ListBox ItemsSource="{Binding SelectedItem.Genes, ElementName=ListBoxMonster1}">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Label Content="ID"/>
+                                            <TextBox Text="{Binding ID, UpdateSourceTrigger=PropertyChanged}" Width="50"/>
+                                            <Label Content="Lock"/>
+                                            <CheckBox IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
+                                            <Label Content="Stack"/>
+                                            <ComboBox SelectedIndex="{Binding Stack}">
+                                                <ComboBoxItem Content="Default"/>
+                                                <ComboBoxItem Content="+1"/>
+                                                <ComboBoxItem Content="+2"/>
+                                            </ComboBox>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
             </TabItem>
         </TabControl>
     </DockPanel>

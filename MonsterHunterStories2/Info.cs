@@ -9,6 +9,7 @@ namespace MonsterHunterStories2
 		public List<KeyValuesInfo> Item { get; private set; } = new List<KeyValuesInfo>();
 		public List<KeyValuesInfo> Monster { get; private set; } = new List<KeyValuesInfo>();
 		public List<KeyValuesInfo> RideAction { get; private set; } = new List<KeyValuesInfo>();
+		//public List<KeyValuesInfo> Genes { get; private set; } = new List<KeyValuesInfo>();
 
 		private Info() { }
 
@@ -42,9 +43,11 @@ namespace MonsterHunterStories2
 			AppendList("info\\item.txt", Item);
 			AppendList("info\\monster.txt", Monster);
 			AppendList("info\\ride.txt", RideAction);
+			//AppendList("info\\gene.txt", Genes);
 			Item.Sort();
 			Monster.Sort();
 			RideAction.Sort();
+			//Genes.Sort();
 		}
 
 		private void AppendList<Type>(String filename, List<Type> items)

@@ -1,15 +1,14 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
 namespace MonsterHunterStories2
 {
-	class Equipment : INotifyPropertyChanged
+	class Weapon : INotifyPropertyChanged
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
 
 		private readonly uint mAddress;
 
-		public Equipment(uint address)
+		public Weapon(uint address)
 		{
 			mAddress = address;
 		}
@@ -38,12 +37,6 @@ namespace MonsterHunterStories2
 		{
 			get { return SaveData.Instance().ReadNumber(mAddress + 4, 2); }
 			set { Util.WriteNumber(mAddress + 4, 2, value, 1, 0xFFFF); }
-		}
-
-		public uint Get
-		{
-			get { return SaveData.Instance().ReadNumber(mAddress + 18, 1); }
-			set { SaveData.Instance().WriteNumber(mAddress + 18, 1, value); }
 		}
 	}
 }

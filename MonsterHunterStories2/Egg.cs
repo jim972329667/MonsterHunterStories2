@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Collections.ObjectModel;
 
 namespace MonsterHunterStories2
 {
@@ -13,120 +8,34 @@ namespace MonsterHunterStories2
 		public event PropertyChangedEventHandler PropertyChanged;
 		public ObservableCollection<Gene> Genes { get; set; } = new ObservableCollection<Gene>();
 
-		private readonly uint mAddress;
+		public uint Address { get; private set; }
 
-        //public Egg(uint address)
-        //{
-        //    mAddress = address;
-        //    for (uint i = 0; i < 9; i++)
-        //    {
-        //        Genes.Add(new Gene(address + 8 + 4 * i));
-        //    }
-        //}
-        public Egg(uint address)
+		public Egg(uint address)
 		{
-			mAddress = address;
+			Address = address;
 			for (uint i = 0; i < 9; i++)
 			{
 				Genes.Add(new Gene(address + 8 + 4 * i));
 			}
 		}
+
 		public uint ID
 		{
-			get { return SaveData.Instance().ReadNumber(mAddress, 4); }
+			get { return SaveData.Instance().ReadNumber(Address, 4); }
 			set
 			{
-				SaveData.Instance().WriteNumber(mAddress, 4, value);
+				SaveData.Instance().WriteNumber(Address, 4, value);
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ID)));
 			}
 		}
 
 		public uint Smell
 		{
-			get { return SaveData.Instance().ReadNumber(mAddress+4, 1); }
+			get { return SaveData.Instance().ReadNumber(Address + 4, 1); }
 			set
 			{
-				SaveData.Instance().WriteNumber(mAddress+4, 1, value);
+				Util.WriteNumber(Address + 4, 1, value, 0, 2);
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Smell)));
-			}
-		}
-		public String Name
-		{
-			get { 
-				byte[] str = SaveData.Instance().ReadValue(mAddress, 2); 
-				string strr = byteToHexStr(str);
-				return strr;
-			}
-			set
-			{
-				byte[] str = StrToHexByte(value);
-				SaveData.Instance().WriteValue(mAddress, str);
-				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
-			}
-		}
-		public static string byteToHexStr(byte[] bytes)
-		{
-			string returnStr = "";
-			if (bytes != null)
-			{
-				for (int i = 0; i < bytes.Length; i++)
-				{
-					if (i % 2 == 0&&i != 0 ) returnStr += " ";
-					returnStr += bytes[i].ToString("X2");
-				}
-			}
-			return returnStr;
-		}
-
-		public static byte[] StrToHexByte(string hexString)
-		{
-			hexString = hexString.Replace(" ", "");
-			if ((hexString.Length % 2) != 0)
-				hexString += " ";
-			byte[] returnBytes = new byte[hexString.Length / 2];
-			for (int i = 0; i < returnBytes.Length; i++)
-				returnBytes[i] = Convert.ToByte(hexString.Substring(i * 2, 2), 16);
-			return returnBytes;
-		}
-
-		public string Place
-		{
-			get {
-				byte[] str = SaveData.Instance().ReadValue(mAddress+44, 76);
-				string strr = "";
-				if (SaveData.Instance().ReadNumber(mAddress, 4) == 0)
-                {
-					strr = "None";
-				}
-				else strr = byteToHexStr(str);
-
-				return strr; }
-			set
-			{
-				byte[] str = StrToHexByte(value);
-				SaveData.Instance().WriteValue(mAddress, str);
-				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Place)));
-			}
-		}
-		public string AllHex
-		{
-			get
-			{
-				byte[] str = SaveData.Instance().ReadValue(mAddress, 120);
-				string strr = "";
-				if (SaveData.Instance().ReadNumber(mAddress, 4) == 0)
-				{
-					strr = "None";
-				}
-				else strr = byteToHexStr(str);
-
-				return strr;
-			}
-			set
-			{
-				byte[] str = StrToHexByte(value);
-				SaveData.Instance().WriteValue(mAddress, str);
-				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(AllHex)));
 			}
 		}
 	}

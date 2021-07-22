@@ -79,6 +79,15 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
+        ///   查找类似 PlayTime 的本地化字符串。
+        /// </summary>
+        public static string MainBasicPlayTime {
+            get {
+                return ResourceManager.GetString("MainBasicPlayTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Body Type 的本地化字符串。
         /// </summary>
         public static string MainCharacterBodyType {
@@ -160,20 +169,245 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Append Egg 的本地化字符串。
+        /// </summary>
+        public static string MainEggAppendEgg {
+            get {
+                return ResourceManager.GetString("MainEggAppendEgg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Copy Hex 的本地化字符串。
+        /// </summary>
+        public static string MainEggCopyHex {
+            get {
+                return ResourceManager.GetString("MainEggCopyHex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Paste Hex 的本地化字符串。
+        /// </summary>
+        public static string MainEggPasteHex {
+            get {
+                return ResourceManager.GetString("MainEggPasteHex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Smell 的本地化字符串。
+        /// </summary>
+        public static string MainEggSmell {
+            get {
+                return ResourceManager.GetString("MainEggSmell", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Amazing 的本地化字符串。
+        /// </summary>
+        public static string MainEggSmellTypeAmazing {
+            get {
+                return ResourceManager.GetString("MainEggSmellTypeAmazing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Good 的本地化字符串。
+        /// </summary>
+        public static string MainEggSmellTypeGood {
+            get {
+                return ResourceManager.GetString("MainEggSmellTypeGood", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Normal 的本地化字符串。
+        /// </summary>
+        public static string MainEggSmellTypeNormal {
+            get {
+                return ResourceManager.GetString("MainEggSmellTypeNormal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Stack 的本地化字符串。
+        /// </summary>
+        public static string MainEggStack {
+            get {
+                return ResourceManager.GetString("MainEggStack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Stack Max 的本地化字符串。
+        /// </summary>
+        public static string MainEggStackMax {
+            get {
+                return ResourceManager.GetString("MainEggStackMax", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Gene 的本地化字符串。
+        /// </summary>
+        public static string MainEggTabGene {
+            get {
+                return ResourceManager.GetString("MainEggTabGene", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Unlock 的本地化字符串。
+        /// </summary>
+        public static string MainEggUnlock {
+            get {
+                return ResourceManager.GetString("MainEggUnlock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Body 的本地化字符串。
+        /// </summary>
+        public static string MainEquipmentArmorBody {
+            get {
+                return ResourceManager.GetString("MainEquipmentArmorBody", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Decorative parts 的本地化字符串。
+        /// </summary>
+        public static string MainEquipmentArmorDecorative {
+            get {
+                return ResourceManager.GetString("MainEquipmentArmorDecorative", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Armor 的本地化字符串。
         /// </summary>
-        public static string MainEquipmentArmor {
+        public static string MainEquipmentTabArmor {
             get {
-                return ResourceManager.GetString("MainEquipmentArmor", resourceCulture);
+                return ResourceManager.GetString("MainEquipmentTabArmor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Talisman 的本地化字符串。
+        /// </summary>
+        public static string MainEquipmentTabTalisman {
+            get {
+                return ResourceManager.GetString("MainEquipmentTabTalisman", resourceCulture);
             }
         }
         
         /// <summary>
         ///   查找类似 Weapon 的本地化字符串。
         /// </summary>
-        public static string MainEquipmentWeapon {
+        public static string MainEquipmentTabWeapon {
             get {
-                return ResourceManager.GetString("MainEquipmentWeapon", resourceCulture);
+                return ResourceManager.GetString("MainEquipmentTabWeapon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Rarity 的本地化字符串。
+        /// </summary>
+        public static string MainEquipmentTalismanRarity {
+            get {
+                return ResourceManager.GetString("MainEquipmentTalismanRarity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Skill 1 的本地化字符串。
+        /// </summary>
+        public static string MainEquipmentTalismanSkill1 {
+            get {
+                return ResourceManager.GetString("MainEquipmentTalismanSkill1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Skill 2 的本地化字符串。
+        /// </summary>
+        public static string MainEquipmentTalismanSkill2 {
+            get {
+                return ResourceManager.GetString("MainEquipmentTalismanSkill2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Type 的本地化字符串。
+        /// </summary>
+        public static string MainEquipmentType {
+            get {
+                return ResourceManager.GetString("MainEquipmentType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Bow 的本地化字符串。
+        /// </summary>
+        public static string MainEquipmentWeaponB {
+            get {
+                return ResourceManager.GetString("MainEquipmentWeaponB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Gunlance 的本地化字符串。
+        /// </summary>
+        public static string MainEquipmentWeaponG {
+            get {
+                return ResourceManager.GetString("MainEquipmentWeaponG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Great Sword 的本地化字符串。
+        /// </summary>
+        public static string MainEquipmentWeaponGS {
+            get {
+                return ResourceManager.GetString("MainEquipmentWeaponGS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Hammer 的本地化字符串。
+        /// </summary>
+        public static string MainEquipmentWeaponH {
+            get {
+                return ResourceManager.GetString("MainEquipmentWeaponH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Hunting Horn 的本地化字符串。
+        /// </summary>
+        public static string MainEquipmentWeaponHH {
+            get {
+                return ResourceManager.GetString("MainEquipmentWeaponHH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Sword &amp; Shield 的本地化字符串。
+        /// </summary>
+        public static string MainEquipmentWeaponSS {
+            get {
+                return ResourceManager.GetString("MainEquipmentWeaponSS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Append/Search Item 的本地化字符串。
+        /// </summary>
+        public static string MainItemAppend {
+            get {
+                return ResourceManager.GetString("MainItemAppend", resourceCulture);
             }
         }
         
@@ -232,11 +466,119 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
+        ///   查找类似 CurrentHP 的本地化字符串。
+        /// </summary>
+        public static string MainMonsterCurrentHP {
+            get {
+                return ResourceManager.GetString("MainMonsterCurrentHP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Dragon Attack 的本地化字符串。
+        /// </summary>
+        public static string MainMonsterDragonAttack {
+            get {
+                return ResourceManager.GetString("MainMonsterDragonAttack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Dragon Defense 的本地化字符串。
+        /// </summary>
+        public static string MainMonsterDragonDefense {
+            get {
+                return ResourceManager.GetString("MainMonsterDragonDefense", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Fire Attack 的本地化字符串。
+        /// </summary>
+        public static string MainMonsterFireAttack {
+            get {
+                return ResourceManager.GetString("MainMonsterFireAttack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Fire Defense 的本地化字符串。
+        /// </summary>
+        public static string MainMonsterFireDefense {
+            get {
+                return ResourceManager.GetString("MainMonsterFireDefense", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 HP 的本地化字符串。
+        /// </summary>
+        public static string MainMonsterHP {
+            get {
+                return ResourceManager.GetString("MainMonsterHP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Ice Attack 的本地化字符串。
+        /// </summary>
+        public static string MainMonsterIceAttack {
+            get {
+                return ResourceManager.GetString("MainMonsterIceAttack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Ice Defense 的本地化字符串。
+        /// </summary>
+        public static string MainMonsterIceDefense {
+            get {
+                return ResourceManager.GetString("MainMonsterIceDefense", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 MaxHP 的本地化字符串。
+        /// </summary>
+        public static string MainMonsterMaxHP {
+            get {
+                return ResourceManager.GetString("MainMonsterMaxHP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Speed 的本地化字符串。
+        /// </summary>
+        public static string MainMonsterMaxSpeed {
+            get {
+                return ResourceManager.GetString("MainMonsterMaxSpeed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Name 的本地化字符串。
         /// </summary>
         public static string MainMonsterName {
             get {
                 return ResourceManager.GetString("MainMonsterName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Normal Attack 的本地化字符串。
+        /// </summary>
+        public static string MainMonsterNormalAttack {
+            get {
+                return ResourceManager.GetString("MainMonsterNormalAttack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Normal Defense 的本地化字符串。
+        /// </summary>
+        public static string MainMonsterNormalDefense {
+            get {
+                return ResourceManager.GetString("MainMonsterNormalDefense", resourceCulture);
             }
         }
         
@@ -250,6 +592,33 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Stack 的本地化字符串。
+        /// </summary>
+        public static string MainMonsterStack {
+            get {
+                return ResourceManager.GetString("MainMonsterStack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Stack Max 的本地化字符串。
+        /// </summary>
+        public static string MainMonsterStackMax {
+            get {
+                return ResourceManager.GetString("MainMonsterStackMax", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Bonus 的本地化字符串。
+        /// </summary>
+        public static string MainMonsterTabBonus {
+            get {
+                return ResourceManager.GetString("MainMonsterTabBonus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Gene 的本地化字符串。
         /// </summary>
         public static string MainMonsterTabGene {
@@ -259,11 +628,74 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Info 的本地化字符串。
+        /// </summary>
+        public static string MainMonsterTabInfo {
+            get {
+                return ResourceManager.GetString("MainMonsterTabInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Thunder Attack 的本地化字符串。
+        /// </summary>
+        public static string MainMonsterThunderAttack {
+            get {
+                return ResourceManager.GetString("MainMonsterThunderAttack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Thunder Defense 的本地化字符串。
+        /// </summary>
+        public static string MainMonsterThunderDefense {
+            get {
+                return ResourceManager.GetString("MainMonsterThunderDefense", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Type 的本地化字符串。
         /// </summary>
         public static string MainMonsterType {
             get {
                 return ResourceManager.GetString("MainMonsterType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Unlock 的本地化字符串。
+        /// </summary>
+        public static string MainMonsterUnlock {
+            get {
+                return ResourceManager.GetString("MainMonsterUnlock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Water Attack 的本地化字符串。
+        /// </summary>
+        public static string MainMonsterWaterAttack {
+            get {
+                return ResourceManager.GetString("MainMonsterWaterAttack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Water Defense 的本地化字符串。
+        /// </summary>
+        public static string MainMonsterWaterDefense {
+            get {
+                return ResourceManager.GetString("MainMonsterWaterDefense", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 None 的本地化字符串。
+        /// </summary>
+        public static string MainNoneType {
+            get {
+                return ResourceManager.GetString("MainNoneType", resourceCulture);
             }
         }
         
@@ -282,6 +714,15 @@ namespace MonsterHunterStories2.Properties {
         public static string MainTabCharacter {
             get {
                 return ResourceManager.GetString("MainTabCharacter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Egg 的本地化字符串。
+        /// </summary>
+        public static string MainTabEgg {
+            get {
+                return ResourceManager.GetString("MainTabEgg", resourceCulture);
             }
         }
         
@@ -309,60 +750,6 @@ namespace MonsterHunterStories2.Properties {
         public static string MainTabMonster {
             get {
                 return ResourceManager.GetString("MainTabMonster", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 Bow 的本地化字符串。
-        /// </summary>
-        public static string MainWeaponB {
-            get {
-                return ResourceManager.GetString("MainWeaponB", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 Gunlance 的本地化字符串。
-        /// </summary>
-        public static string MainWeaponG {
-            get {
-                return ResourceManager.GetString("MainWeaponG", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 Great Sword 的本地化字符串。
-        /// </summary>
-        public static string MainWeaponGS {
-            get {
-                return ResourceManager.GetString("MainWeaponGS", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 Hammer 的本地化字符串。
-        /// </summary>
-        public static string MainWeaponH {
-            get {
-                return ResourceManager.GetString("MainWeaponH", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 Hunting Horn 的本地化字符串。
-        /// </summary>
-        public static string MainWeaponHH {
-            get {
-                return ResourceManager.GetString("MainWeaponHH", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 Sword &amp;amp; Shield 的本地化字符串。
-        /// </summary>
-        public static string MainWeaponSS {
-            get {
-                return ResourceManager.GetString("MainWeaponSS", resourceCulture);
             }
         }
     }

@@ -15,10 +15,16 @@ namespace MonsterHunterStories2
 			TYPE_ITEM,
 			TYPE_MONSTER,
 			TYPE_RAIDACTION,
+			TYPE_GENE,
+			TYPE_WEAPON,
+			TYPE_ARMOR,
+			TYPE_TALISMAN,
+			TYPE_TALISMAN_SKILL,
 		}
 
 		public uint ID { get; set; }
 		public eType Type { get; set; } = eType.TYPE_ITEM;
+		public uint WeaponType { get; set; }
 
 		public ChoiceWindow()
 		{
@@ -29,6 +35,8 @@ namespace MonsterHunterStories2
 		{
 			CreateItemList("");
 			TextBoxFilter.Focus();
+			WeaponTypeArea.Visibility = Type == eType.TYPE_WEAPON ? Visibility.Visible : Visibility.Collapsed;
+			ComboBoxWeaponType.SelectedIndex = (int)WeaponType;
 		}
 
 		private void TextBoxFilter_TextChanged(object sender, TextChangedEventArgs e)
@@ -46,10 +54,18 @@ namespace MonsterHunterStories2
 			ButtonDecision_Click(sender, null);
 		}
 
+		private void ComboBoxItem_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+			WeaponType = (uint)ComboBoxWeaponType.SelectedIndex;
+			CreateItemList(TextBoxFilter.Text);
+			TextBoxFilter.Focus();
+		}
+
 		private void ButtonDecision_Click(object sender, RoutedEventArgs e)
 		{
 			var item = (KeyValuesInfo)ListBoxItem.SelectedItem;
 			ID = item.Key;
+			DialogResult = true;
 			Close();
 		}
 
@@ -60,6 +76,11 @@ namespace MonsterHunterStories2
 
 			if (Type == eType.TYPE_MONSTER) infos = Info.Instance().Monster;
 			else if (Type == eType.TYPE_RAIDACTION) infos = Info.Instance().RideAction;
+			else if (Type == eType.TYPE_GENE) infos = Info.Instance().Gene;
+			else if (Type == eType.TYPE_WEAPON) infos = Info.Instance().Weapon[WeaponType];
+			else if (Type == eType.TYPE_ARMOR) infos = Info.Instance().Armor;
+			else if (Type == eType.TYPE_TALISMAN) infos = Info.Instance().Talisman;
+			else if (Type == eType.TYPE_TALISMAN_SKILL) infos = Info.Instance().TalismanSkill;
 
 			foreach (var info in infos)
 			{

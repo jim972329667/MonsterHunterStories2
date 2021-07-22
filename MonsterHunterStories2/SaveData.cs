@@ -222,7 +222,7 @@ namespace MonsterHunterStories2
 
 		private uint CalcAddress(uint address)
 		{
-			return address;
+			return address + Adventure;
 		}
 
 		private void Backup()
@@ -238,5 +238,7 @@ namespace MonsterHunterStories2
 				String.Format("{0:0000}-{1:00}-{2:00} {3:00}-{4:00}", now.Year, now.Month, now.Day, now.Hour, now.Minute));
 			System.IO.File.Copy(mFileName, path, true);
 		}
+
+		
 	}
 }

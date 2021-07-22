@@ -123,6 +123,9 @@
   <data name="MainBasicMoney" xml:space="preserve">
     <value>Money</value>
   </data>
+  <data name="MainBasicPlayTime" xml:space="preserve">
+    <value>PlayTime</value>
+  </data>
   <data name="MainCharacterBodyType" xml:space="preserve">
     <value>Body Type</value>
   </data>
@@ -150,11 +153,86 @@
   <data name="MainCharacterVoice" xml:space="preserve">
     <value>Voice</value>
   </data>
-  <data name="MainEquipmentArmor" xml:space="preserve">
+  <data name="MainEggAppendEgg" xml:space="preserve">
+    <value>Append Egg</value>
+  </data>
+  <data name="MainEggCopyHex" xml:space="preserve">
+    <value>Copy Hex</value>
+  </data>
+  <data name="MainEggPasteHex" xml:space="preserve">
+    <value>Paste Hex</value>
+  </data>
+  <data name="MainEggSmell" xml:space="preserve">
+    <value>Smell</value>
+  </data>
+  <data name="MainEggSmellTypeAmazing" xml:space="preserve">
+    <value>Amazing</value>
+  </data>
+  <data name="MainEggSmellTypeGood" xml:space="preserve">
+    <value>Good</value>
+  </data>
+  <data name="MainEggSmellTypeNormal" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="MainEggStack" xml:space="preserve">
+    <value>Stack</value>
+  </data>
+  <data name="MainEggStackMax" xml:space="preserve">
+    <value>Stack Max</value>
+  </data>
+  <data name="MainEggTabGene" xml:space="preserve">
+    <value>Gene</value>
+  </data>
+  <data name="MainEggUnlock" xml:space="preserve">
+    <value>Unlock</value>
+  </data>
+  <data name="MainEquipmentArmorBody" xml:space="preserve">
+    <value>Body</value>
+  </data>
+  <data name="MainEquipmentArmorDecorative" xml:space="preserve">
+    <value>Decorative parts</value>
+  </data>
+  <data name="MainEquipmentTabArmor" xml:space="preserve">
     <value>Armor</value>
   </data>
-  <data name="MainEquipmentWeapon" xml:space="preserve">
+  <data name="MainEquipmentTabTalisman" xml:space="preserve">
+    <value>Talisman</value>
+  </data>
+  <data name="MainEquipmentTabWeapon" xml:space="preserve">
     <value>Weapon</value>
+  </data>
+  <data name="MainEquipmentTalismanRarity" xml:space="preserve">
+    <value>Rarity</value>
+  </data>
+  <data name="MainEquipmentTalismanSkill1" xml:space="preserve">
+    <value>Skill 1</value>
+  </data>
+  <data name="MainEquipmentTalismanSkill2" xml:space="preserve">
+    <value>Skill 2</value>
+  </data>
+  <data name="MainEquipmentType" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="MainEquipmentWeaponB" xml:space="preserve">
+    <value>Bow</value>
+  </data>
+  <data name="MainEquipmentWeaponG" xml:space="preserve">
+    <value>Gunlance</value>
+  </data>
+  <data name="MainEquipmentWeaponGS" xml:space="preserve">
+    <value>Great Sword</value>
+  </data>
+  <data name="MainEquipmentWeaponH" xml:space="preserve">
+    <value>Hammer</value>
+  </data>
+  <data name="MainEquipmentWeaponHH" xml:space="preserve">
+    <value>Hunting Horn</value>
+  </data>
+  <data name="MainEquipmentWeaponSS" xml:space="preserve">
+    <value>Sword &amp; Shield</value>
+  </data>
+  <data name="MainItemAppend" xml:space="preserve">
+    <value>Append/Search Item</value>
   </data>
   <data name="MainMenuAbout" xml:space="preserve">
     <value>_About</value>
@@ -174,23 +252,92 @@
   <data name="MainMenuFileSaveAs" xml:space="preserve">
     <value>Save _As...</value>
   </data>
+  <data name="MainMonsterCurrentHP" xml:space="preserve">
+    <value>CurrentHP</value>
+  </data>
+  <data name="MainMonsterDragonAttack" xml:space="preserve">
+    <value>Dragon Attack</value>
+  </data>
+  <data name="MainMonsterDragonDefense" xml:space="preserve">
+    <value>Dragon Defense</value>
+  </data>
+  <data name="MainMonsterFireAttack" xml:space="preserve">
+    <value>Fire Attack</value>
+  </data>
+  <data name="MainMonsterFireDefense" xml:space="preserve">
+    <value>Fire Defense</value>
+  </data>
+  <data name="MainMonsterHP" xml:space="preserve">
+    <value>HP</value>
+  </data>
+  <data name="MainMonsterIceAttack" xml:space="preserve">
+    <value>Ice Attack</value>
+  </data>
+  <data name="MainMonsterIceDefense" xml:space="preserve">
+    <value>Ice Defense</value>
+  </data>
+  <data name="MainMonsterMaxHP" xml:space="preserve">
+    <value>MaxHP</value>
+  </data>
+  <data name="MainMonsterMaxSpeed" xml:space="preserve">
+    <value>Speed</value>
+  </data>
   <data name="MainMonsterName" xml:space="preserve">
     <value>Name</value>
+  </data>
+  <data name="MainMonsterNormalAttack" xml:space="preserve">
+    <value>Normal Attack</value>
+  </data>
+  <data name="MainMonsterNormalDefense" xml:space="preserve">
+    <value>Normal Defense</value>
   </data>
   <data name="MainMonsterRideAction" xml:space="preserve">
     <value>RideAction</value>
   </data>
+  <data name="MainMonsterStack" xml:space="preserve">
+    <value>Stack</value>
+  </data>
+  <data name="MainMonsterStackMax" xml:space="preserve">
+    <value>Stack Max</value>
+  </data>
+  <data name="MainMonsterTabBonus" xml:space="preserve">
+    <value>Bonus</value>
+  </data>
   <data name="MainMonsterTabGene" xml:space="preserve">
     <value>Gene</value>
   </data>
+  <data name="MainMonsterTabInfo" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="MainMonsterThunderAttack" xml:space="preserve">
+    <value>Thunder Attack</value>
+  </data>
+  <data name="MainMonsterThunderDefense" xml:space="preserve">
+    <value>Thunder Defense</value>
+  </data>
   <data name="MainMonsterType" xml:space="preserve">
     <value>Type</value>
+  </data>
+  <data name="MainMonsterUnlock" xml:space="preserve">
+    <value>Unlock</value>
+  </data>
+  <data name="MainMonsterWaterAttack" xml:space="preserve">
+    <value>Water Attack</value>
+  </data>
+  <data name="MainMonsterWaterDefense" xml:space="preserve">
+    <value>Water Defense</value>
+  </data>
+  <data name="MainNoneType" xml:space="preserve">
+    <value>None</value>
   </data>
   <data name="MainTabBasic" xml:space="preserve">
     <value>Basic</value>
   </data>
   <data name="MainTabCharacter" xml:space="preserve">
     <value>Character</value>
+  </data>
+  <data name="MainTabEgg" xml:space="preserve">
+    <value>Egg</value>
   </data>
   <data name="MainTabEquipment" xml:space="preserve">
     <value>Equipment</value>
@@ -200,23 +347,5 @@
   </data>
   <data name="MainTabMonster" xml:space="preserve">
     <value>Monster</value>
-  </data>
-  <data name="MainWeaponB" xml:space="preserve">
-    <value>Bow</value>
-  </data>
-  <data name="MainWeaponG" xml:space="preserve">
-    <value>Gunlance</value>
-  </data>
-  <data name="MainWeaponGS" xml:space="preserve">
-    <value>Great Sword</value>
-  </data>
-  <data name="MainWeaponH" xml:space="preserve">
-    <value>Hammer</value>
-  </data>
-  <data name="MainWeaponHH" xml:space="preserve">
-    <value>Hunting Horn</value>
-  </data>
-  <data name="MainWeaponSS" xml:space="preserve">
-    <value>Sword &amp;amp; Shield</value>
   </data>
 </root>

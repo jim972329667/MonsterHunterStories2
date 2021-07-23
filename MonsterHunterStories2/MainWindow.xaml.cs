@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using Microsoft.Win32;
+using System.Linq;
 
 namespace MonsterHunterStories2
 {
@@ -148,7 +149,24 @@ namespace MonsterHunterStories2
         {
 			Clipboard.SetText(All_Hex.Text);
 		}
-
+		private void ButtonFileOpen(object sender, RoutedEventArgs e)
+		{
+			var dlg = new OpenFileDialog();
+			dlg.DefaultExt = ".mhs2egg";
+			dlg.Filter = "蛋文件|*.mhs2egg";
+			if (dlg.ShowDialog() == false) return;
+			Byte[] mBuffer = null;
+			if (System.IO.File.Exists(dlg.FileName) == false) return;
+			mBuffer = System.IO.File.ReadAllBytes(dlg.FileName);
+			var hexText = new System.Text.StringBuilder();
+			for (int i = 0; i < mBuffer.Length - 12; i++)
+			{
+				if (i % 2 == 0 && i != 0) hexText.Append(" ");
+				hexText.Append(mBuffer[i + 12].ToString("X2"));
+			}
+			Clipboard.SetText(hexText.ToString());
+			ButtonPasteEggHex_Click(sender, e);
+		}
 		private void ButtonPasteEggHex_Click(object sender, RoutedEventArgs e)
 		{
 			int index = ListBoxEgg.SelectedIndex;

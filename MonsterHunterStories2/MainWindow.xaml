@@ -75,7 +75,7 @@
                     </Grid>
                     <Label Grid.Row="1" Content="{x:Static prop:Resources.MainBasicMoney}"/>
                     <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Money, UpdateSourceTrigger=PropertyChanged}"/>
-                    <Button Grid.Row="2" Grid.Column="1" Content="All Guide" Click="ButtonBaseGuide_Click"></Button>
+                    <!--<Button Grid.Row="2" Grid.Column="1" Content="All Guide" Click="ButtonBaseGuide_Click"></Button>-->
                 </Grid>
             </TabItem>
             <TabItem Header="{x:Static prop:Resources.MainTabCharacter}">
@@ -359,6 +359,7 @@
                             <RowDefinition/>
                             <RowDefinition Height="8*"/>
                             <RowDefinition Height="4*"/>
+                            <RowDefinition Height="2*"/>
                         </Grid.RowDefinitions>
                         <Label Content="ID"/>
                         <TextBox Grid.Column="1" Text="{Binding ElementName=ListBoxEgg, Path=SelectedItem.ID, UpdateSourceTrigger=PropertyChanged}"/>
@@ -370,14 +371,15 @@
                         </ComboBox>
                         <TextBox x:Name="All_Hex" Grid.Row="2" Grid.ColumnSpan="2" Text="{Binding ElementName=ListBoxEgg, Path=SelectedItem.Address, Mode=OneWay, Converter={StaticResource EggAddress2HexStringConverter},
                             UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" IsReadOnly="True"/>
-                        <Grid Grid.Row="3" Grid.ColumnSpan="2">
+                        <Grid Grid.Row="3" Grid.ColumnSpan="2" >
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-                            <Button Content ="{x:Static prop:Resources.MainEggCopyHex}" Margin="10" Click="ButtonCopyEggHex_Click"/>
-                            <Button Grid.Column="1" Content ="{x:Static prop:Resources.MainEggPasteHex}" Margin="10" Click="ButtonPasteEggHex_Click"/>
+                            <Button Grid.Row="4" Content ="{x:Static prop:Resources.MainEggCopyHex}" Margin="10" Click="ButtonCopyEggHex_Click"/>
+                            <Button Grid.Row="4" Grid.Column="1" Content ="{x:Static prop:Resources.MainEggPasteHex}" Margin="10" Click="ButtonPasteEggHex_Click"/>                            
                         </Grid>
+                        <Button Grid.Row="4"  Content ="添加蛋(mhs2egg格式)" Margin="10" Click="ButtonFileOpen" Grid.ColumnSpan="2"/>
                     </Grid>
                     <TabControl Grid.Column="2">
                         <TabItem Header="{x:Static prop:Resources.MainEggTabGene}">

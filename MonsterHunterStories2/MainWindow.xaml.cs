@@ -151,21 +151,38 @@ namespace MonsterHunterStories2
 		}
 		private void ButtonFileOpen(object sender, RoutedEventArgs e)
 		{
+			Byte[] mBuffer = null;
 			var dlg = new OpenFileDialog();
+			dlg.Multiselect = true;
 			dlg.DefaultExt = ".mhs2egg";
 			dlg.Filter = "蛋文件|*.mhs2egg";
 			if (dlg.ShowDialog() == false) return;
-			Byte[] mBuffer = null;
-			if (System.IO.File.Exists(dlg.FileName) == false) return;
-			mBuffer = System.IO.File.ReadAllBytes(dlg.FileName);
-			var hexText = new System.Text.StringBuilder();
-			for (int i = 0; i < mBuffer.Length - 12; i++)
+			int index = ListBoxEgg.SelectedIndex;
+			foreach (string file in dlg.FileNames)
 			{
-				if (i % 2 == 0 && i != 0) hexText.Append(" ");
-				hexText.Append(mBuffer[i + 12].ToString("X2"));
-			}
-			Clipboard.SetText(hexText.ToString());
-			ButtonPasteEggHex_Click(sender, e);
+				if (System.IO.File.Exists(dlg.FileName) == false) return;
+				if (index < 0)
+                {
+					MessageBox.Show("请选择一个蛋的格子！");
+					return;
+				}
+				if (index < 12)
+                {
+					mBuffer = System.IO.File.ReadAllBytes(file);
+					var hexText = new System.Text.StringBuilder();
+					for (int i = 0; i < mBuffer.Length - 12; i++)
+					{
+						if (i % 2 == 0 && i != 0) hexText.Append(" ");
+						hexText.Append(mBuffer[i + 12].ToString("X2"));
+					}
+					Clipboard.SetText(hexText.ToString());
+					ButtonPasteEggHex_Click(sender, e);
+					Array.Clear(mBuffer, 0, mBuffer.Length);
+					index++;
+					ListBoxEgg.SelectedIndex = index;
+				}
+				else return;
+			}	
 		}
 		private void ButtonPasteEggHex_Click(object sender, RoutedEventArgs e)
 		{

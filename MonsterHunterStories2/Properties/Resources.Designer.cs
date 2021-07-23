@@ -466,6 +466,24 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
+        ///   查找类似 All Kinship Max 的本地化字符串。
+        /// </summary>
+        public static string MainMonsterAllKinshipMax {
+            get {
+                return ResourceManager.GetString("MainMonsterAllKinshipMax", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Battles Won 的本地化字符串。
+        /// </summary>
+        public static string MainMonsterBattlesWon {
+            get {
+                return ResourceManager.GetString("MainMonsterBattlesWon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 CurrentHP 的本地化字符串。
         /// </summary>
         public static string MainMonsterCurrentHP {
@@ -534,6 +552,15 @@ namespace MonsterHunterStories2.Properties {
         public static string MainMonsterIceDefense {
             get {
                 return ResourceManager.GetString("MainMonsterIceDefense", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Lifetime Battles 的本地化字符串。
+        /// </summary>
+        public static string MainMonsterLifetimeBattles {
+            get {
+                return ResourceManager.GetString("MainMonsterLifetimeBattles", resourceCulture);
             }
         }
         

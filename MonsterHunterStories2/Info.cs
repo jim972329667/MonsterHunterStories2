@@ -80,8 +80,8 @@ namespace MonsterHunterStories2
 					items.Add(type);
 				}
 			}
-
 			items.Sort();
 		}
+		
 	}
 }

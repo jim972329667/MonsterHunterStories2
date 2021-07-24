@@ -1,7 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-using System.Drawing;
-using System.Windows;
+﻿using System.ComponentModel;
 using System.Windows.Media.Imaging;
 
 namespace MonsterHunterStories2

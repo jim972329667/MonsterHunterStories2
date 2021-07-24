@@ -61,6 +61,7 @@ namespace MonsterHunterStories2
 			AppendList("info\\talisman.txt", Talisman);
 			AppendList("info\\talisman_skill.txt", TalismanSkill);
 			AppendList("info\\GeneSkill.txt", GeneSkill);
+			
 		}
 
 		private void AppendList<Type>(String filename, List<Type> items)

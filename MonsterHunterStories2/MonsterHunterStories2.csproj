@@ -59,6 +59,7 @@
     <Compile Include="AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converter\GeneID2SkillConverter.cs" />
     <Compile Include="Core\Armor.cs" />
     <Compile Include="Converter\ArmorID2NameConverter.cs" />
     <Compile Include="Core\Character.cs" />

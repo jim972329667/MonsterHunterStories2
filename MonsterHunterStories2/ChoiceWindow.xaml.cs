@@ -16,6 +16,7 @@ namespace MonsterHunterStories2
 			TYPE_MONSTER,
 			TYPE_RAIDACTION,
 			TYPE_GENE,
+			TYPE_GENESKILL,
 			TYPE_WEAPON,
 			TYPE_ARMOR,
 			TYPE_TALISMAN,
@@ -81,6 +82,7 @@ namespace MonsterHunterStories2
 			else if (Type == eType.TYPE_ARMOR) infos = Info.Instance().Armor;
 			else if (Type == eType.TYPE_TALISMAN) infos = Info.Instance().Talisman;
 			else if (Type == eType.TYPE_TALISMAN_SKILL) infos = Info.Instance().TalismanSkill;
+			else if (Type == eType.TYPE_GENESKILL) infos = Info.Instance().GeneSkill;
 
 			foreach (var info in infos)
 			{

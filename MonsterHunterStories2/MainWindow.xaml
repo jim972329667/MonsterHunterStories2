@@ -209,6 +209,7 @@
                             <Grid>
                                 <Grid.Resources>
                                     <local:GeneID2NameConverter x:Key="GeneID2NameConverter"/>
+                                    <local:GeneID2SkillConverter x:Key="GeneID2SkillConverter"/>
                                 </Grid.Resources>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
@@ -231,7 +232,7 @@
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2SkillConverter}}"/>
                                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                                         <Label Content="🔒" />
                                         <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
@@ -255,7 +256,7 @@
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2SkillConverter}}"/>
                                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                                         <Label Content="🔒" />
                                         <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
@@ -279,7 +280,7 @@
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2SkillConverter}}"/>
                                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                                         <Label Content="🔒" />
                                         <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
@@ -303,7 +304,7 @@
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2SkillConverter}}"/>
                                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                                         <Label Content="🔒" />
                                         <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
@@ -327,7 +328,7 @@
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2SkillConverter}}"/>
                                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                                         <Label Content="🔒" />
                                         <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
@@ -351,7 +352,7 @@
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2SkillConverter}}"/>
                                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                                         <Label Content="🔒" />
                                         <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
@@ -375,7 +376,7 @@
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2SkillConverter}}"/>
                                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                                         <Label Content="🔒" />
                                         <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
@@ -399,7 +400,7 @@
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2SkillConverter}}"/>
                                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                                         <Label Content="🔒" />
                                         <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
@@ -423,7 +424,7 @@
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2SkillConverter}}"/>
                                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                                         <Label Content="🔒" />
                                         <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
@@ -602,6 +603,7 @@
                             <Grid>
                                 <Grid.Resources>
                                     <local:GeneID2NameConverter x:Key="GeneID2NameConverter"/>
+                                    <local:GeneID2SkillConverter x:Key="GeneID2SkillConverter"/>
                                 </Grid.Resources>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
@@ -624,7 +626,7 @@
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2SkillConverter}}"/>
                                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                                         <Label Content="🔒" />
                                         <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
@@ -648,7 +650,7 @@
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2SkillConverter}}"/>
                                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                                         <Label Content="🔒" />
                                         <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
@@ -672,7 +674,7 @@
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2SkillConverter}}"/>
                                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                                         <Label Content="🔒" />
                                         <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
@@ -696,7 +698,7 @@
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2SkillConverter}}"/>
                                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                                         <Label Content="🔒" />
                                         <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
@@ -720,7 +722,7 @@
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2SkillConverter}}"/>
                                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                                         <Label Content="🔒" />
                                         <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
@@ -744,7 +746,7 @@
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2SkillConverter}}"/>
                                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                                         <Label Content="🔒" />
                                         <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
@@ -768,7 +770,7 @@
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2SkillConverter}}"/>
                                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                                         <Label Content="🔒" />
                                         <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
@@ -792,7 +794,7 @@
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2SkillConverter}}"/>
                                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                                         <Label Content="🔒" />
                                         <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
@@ -816,7 +818,7 @@
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2SkillConverter}}"/>
                                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                                         <Label Content="🔒" />
                                         <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>

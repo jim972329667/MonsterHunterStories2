@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Drawing;
 
 namespace MonsterHunterStories2
 {
@@ -13,6 +14,8 @@ namespace MonsterHunterStories2
 		public ObservableCollection<Monster> Monsters { get; set; } = new ObservableCollection<Monster>();
 		public ObservableCollection<Egg> Eggs { get; set; } = new ObservableCollection<Egg>();
 		public ObservableCollection<Guide> Guides { get; set; } = new ObservableCollection<Guide>();
+
+
 		public ViewModel()
 		{
 			foreach(var itemInfo in Info.Instance().Item)
@@ -71,6 +74,7 @@ namespace MonsterHunterStories2
 				Guide guide = new Guide(Util.Guide_ADDRESS + Util.Guide_SIZE * i);
 				Guides.Add(guide);
 			}
+
 		}
 
 		public uint Money

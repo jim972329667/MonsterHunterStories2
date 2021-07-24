@@ -13,6 +13,8 @@ namespace MonsterHunterStories2
 	{
 		public MainWindow()
 		{
+			//初始化图片
+			Gene.Bitmaps();
 			InitializeComponent();
 		}
 

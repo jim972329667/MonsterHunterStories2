@@ -9,7 +9,7 @@
         WindowStartupLocation="CenterScreen"
         AllowDrop="True" Drop="Window_Drop" PreviewDragOver="Window_PreviewDragOver"
         Closed="Window_Closed"
-        Title="{x:Static prop:Resources.ApplicationTitle}" Height="550" Width="750">
+        Title="{x:Static prop:Resources.ApplicationTitle}" Height="590" Width="900">
     <Window.DataContext>
         <local:ViewModel/>
     </Window.DataContext>
@@ -152,7 +152,7 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="120"/>
                         <ColumnDefinition/>
-                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
                     <DockPanel>
                         <Button DockPanel.Dock="Bottom" Content="{x:Static prop:Resources.MainMonsterAllKinshipMax}" Click="ButtonBaseAllKinship"></Button>
@@ -206,33 +206,242 @@
                     </Grid>
                     <TabControl Grid.Column="2">
                         <TabItem Header="{x:Static prop:Resources.MainMonsterTabGene}">
-                            <DockPanel>
-                                <Button DockPanel.Dock="Bottom" Content="{x:Static prop:Resources.MainMonsterStackMax}" Click="ButtonMonsterGeneStackMax_Click"/>
-                                <Button DockPanel.Dock="Bottom" Content="{x:Static prop:Resources.MainMonsterUnlock}" Click="ButtonMonsterGeneUnlock_Click"/>
-                                <ListBox ItemsSource="{Binding ElementName=ListBoxMonster, Path=SelectedItem.Genes}">
-                                    <ListBox.Resources>
-                                        <local:GeneID2NameConverter x:Key="GeneID2NameConverter"/>
-                                    </ListBox.Resources>
-                                    <ListBox.ItemTemplate>
-                                        <DataTemplate>
-                                            <StackPanel Orientation="Horizontal">
-                                                <Label Content="🔒"/>
-                                                <CheckBox IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
-                                                <Label Content="{x:Static prop:Resources.MainMonsterStack}"/>
-                                                <ComboBox SelectedIndex="{Binding Stack}" Width="70">
-                                                    <ComboBoxItem Content="Default"/>
-                                                    <ComboBoxItem Content="+1"/>
-                                                    <ComboBoxItem Content="+2"/>
-                                                </ComboBox>
-                                                <Label Content=" ID"/>
-                                                <TextBox Text="{Binding ID, UpdateSourceTrigger=PropertyChanged}" Width="40"/>
-                                                <Button Content="..." Click="ButtonChoiceGenes_Click"/>
-                                                <Label Content="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </ListBox.ItemTemplate>
-                                </ListBox>
-                            </DockPanel>
+                            <Grid>
+                                <Grid.Resources>
+                                    <local:GeneID2NameConverter x:Key="GeneID2NameConverter"/>
+                                </Grid.Resources>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="20"/>
+                                </Grid.RowDefinitions>
+                                <Button Grid.Row="3" Grid.ColumnSpan="3" Content="{x:Static prop:Resources.MainMonsterStackMax}" Click="ButtonMonsterGeneStackMax_Click"/>
+                                <Button Grid.Row="4" Grid.ColumnSpan="3" Content="{x:Static prop:Resources.MainMonsterUnlock}" Click="ButtonMonsterGeneUnlock_Click"/>
+                                
+                                <Grid Grid.Row="0" Grid.Column="0" DataContext="{Binding ElementName=ListBoxMonster,Path=SelectedItem.Genes[0]}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="3*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label Content="🔒" />
+                                        <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
+                                        <Label Content="{x:Static prop:Resources.MainMonsterStack}"/>
+                                        <ComboBox SelectedIndex="{Binding Stack}">
+                                            <ComboBoxItem Content="Default"/>
+                                            <ComboBoxItem Content="+1"/>
+                                            <ComboBoxItem Content="+2"/>
+                                        </ComboBox>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label Content=" ID"/>
+                                        <TextBox Text="{Binding ID, UpdateSourceTrigger=PropertyChanged}" MinWidth="35"/>
+                                        <Button Content="..." Click="ButtonChoiceGenes_Click"/>
+                                        <Label Content="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    </StackPanel>
+                                </Grid>
+                                <Grid Grid.Row="0" Grid.Column="1" DataContext="{Binding ElementName=ListBoxMonster,Path=SelectedItem.Genes[1]}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="3*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label Content="🔒" />
+                                        <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
+                                        <Label Content="{x:Static prop:Resources.MainMonsterStack}"/>
+                                        <ComboBox SelectedIndex="{Binding Stack}">
+                                            <ComboBoxItem Content="Default"/>
+                                            <ComboBoxItem Content="+1"/>
+                                            <ComboBoxItem Content="+2"/>
+                                        </ComboBox>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label Content=" ID"/>
+                                        <TextBox Text="{Binding ID, UpdateSourceTrigger=PropertyChanged}" MinWidth="35"/>
+                                        <Button Content="..." Click="ButtonChoiceGenes_Click"/>
+                                        <Label Content="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    </StackPanel>
+                                </Grid>
+                                <Grid Grid.Row="0" Grid.Column="2" DataContext="{Binding ElementName=ListBoxMonster,Path=SelectedItem.Genes[2]}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="3*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label Content="🔒" />
+                                        <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
+                                        <Label Content="{x:Static prop:Resources.MainMonsterStack}"/>
+                                        <ComboBox SelectedIndex="{Binding Stack}">
+                                            <ComboBoxItem Content="Default"/>
+                                            <ComboBoxItem Content="+1"/>
+                                            <ComboBoxItem Content="+2"/>
+                                        </ComboBox>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label Content=" ID"/>
+                                        <TextBox Text="{Binding ID, UpdateSourceTrigger=PropertyChanged}" MinWidth="35"/>
+                                        <Button Content="..." Click="ButtonChoiceGenes_Click"/>
+                                        <Label Content="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    </StackPanel>
+                                </Grid>
+                                <Grid Grid.Row="1" Grid.Column="0" DataContext="{Binding ElementName=ListBoxMonster,Path=SelectedItem.Genes[3]}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="3*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label Content="🔒" />
+                                        <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
+                                        <Label Content="{x:Static prop:Resources.MainMonsterStack}"/>
+                                        <ComboBox SelectedIndex="{Binding Stack}">
+                                            <ComboBoxItem Content="Default"/>
+                                            <ComboBoxItem Content="+1"/>
+                                            <ComboBoxItem Content="+2"/>
+                                        </ComboBox>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label Content=" ID"/>
+                                        <TextBox Text="{Binding ID, UpdateSourceTrigger=PropertyChanged}" MinWidth="35"/>
+                                        <Button Content="..." Click="ButtonChoiceGenes_Click"/>
+                                        <Label Content="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    </StackPanel>
+                                </Grid>
+                                <Grid Grid.Row="1" Grid.Column="1" DataContext="{Binding ElementName=ListBoxMonster,Path=SelectedItem.Genes[4]}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="3*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label Content="🔒" />
+                                        <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
+                                        <Label Content="{x:Static prop:Resources.MainMonsterStack}"/>
+                                        <ComboBox SelectedIndex="{Binding Stack}">
+                                            <ComboBoxItem Content="Default"/>
+                                            <ComboBoxItem Content="+1"/>
+                                            <ComboBoxItem Content="+2"/>
+                                        </ComboBox>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label Content=" ID"/>
+                                        <TextBox Text="{Binding ID, UpdateSourceTrigger=PropertyChanged}" MinWidth="35"/>
+                                        <Button Content="..." Click="ButtonChoiceGenes_Click"/>
+                                        <Label Content="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    </StackPanel>
+                                </Grid>
+                                <Grid Grid.Row="1" Grid.Column="2" DataContext="{Binding ElementName=ListBoxMonster,Path=SelectedItem.Genes[5]}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="3*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label Content="🔒" />
+                                        <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
+                                        <Label Content="{x:Static prop:Resources.MainMonsterStack}"/>
+                                        <ComboBox SelectedIndex="{Binding Stack}">
+                                            <ComboBoxItem Content="Default"/>
+                                            <ComboBoxItem Content="+1"/>
+                                            <ComboBoxItem Content="+2"/>
+                                        </ComboBox>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label Content=" ID"/>
+                                        <TextBox Text="{Binding ID, UpdateSourceTrigger=PropertyChanged}" MinWidth="35"/>
+                                        <Button Content="..." Click="ButtonChoiceGenes_Click"/>
+                                        <Label Content="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    </StackPanel>
+                                </Grid>
+                                <Grid Grid.Row="2" Grid.Column="0" DataContext="{Binding ElementName=ListBoxMonster,Path=SelectedItem.Genes[6]}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="3*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label Content="🔒" />
+                                        <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
+                                        <Label Content="{x:Static prop:Resources.MainMonsterStack}"/>
+                                        <ComboBox SelectedIndex="{Binding Stack}">
+                                            <ComboBoxItem Content="Default"/>
+                                            <ComboBoxItem Content="+1"/>
+                                            <ComboBoxItem Content="+2"/>
+                                        </ComboBox>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label Content=" ID"/>
+                                        <TextBox Text="{Binding ID, UpdateSourceTrigger=PropertyChanged}" MinWidth="35"/>
+                                        <Button Content="..." Click="ButtonChoiceGenes_Click"/>
+                                        <Label Content="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    </StackPanel>
+                                </Grid>
+                                <Grid Grid.Row="2" Grid.Column="1" DataContext="{Binding ElementName=ListBoxMonster,Path=SelectedItem.Genes[7]}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="3*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label Content="🔒" />
+                                        <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
+                                        <Label Content="{x:Static prop:Resources.MainMonsterStack}"/>
+                                        <ComboBox SelectedIndex="{Binding Stack}">
+                                            <ComboBoxItem Content="Default"/>
+                                            <ComboBoxItem Content="+1"/>
+                                            <ComboBoxItem Content="+2"/>
+                                        </ComboBox>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label Content=" ID"/>
+                                        <TextBox Text="{Binding ID, UpdateSourceTrigger=PropertyChanged}" MinWidth="35"/>
+                                        <Button Content="..." Click="ButtonChoiceGenes_Click"/>
+                                        <Label Content="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    </StackPanel>
+                                </Grid>
+                                <Grid Grid.Row="2" Grid.Column="2" DataContext="{Binding ElementName=ListBoxMonster,Path=SelectedItem.Genes[8]}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="3*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label Content="🔒" />
+                                        <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
+                                        <Label Content="{x:Static prop:Resources.MainMonsterStack}"/>
+                                        <ComboBox SelectedIndex="{Binding Stack}">
+                                            <ComboBoxItem Content="Default"/>
+                                            <ComboBoxItem Content="+1"/>
+                                            <ComboBoxItem Content="+2"/>
+                                        </ComboBox>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label Content=" ID"/>
+                                        <TextBox Text="{Binding ID, UpdateSourceTrigger=PropertyChanged}" MinWidth="35"/>
+                                        <Button Content="..." Click="ButtonChoiceGenes_Click"/>
+                                        <Label Content="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Grid>
                         </TabItem>
                         <TabItem Header="{x:Static prop:Resources.MainMonsterTabInfo}">
                             <Grid>
@@ -337,7 +546,7 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="120"/>
                         <ColumnDefinition/>
-                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
                     <DockPanel>
                         <Button DockPanel.Dock="Bottom" Content="{x:Static prop:Resources.MainEggAppendEgg}" Click="ButtonAppendEgg_Click"/>
@@ -390,33 +599,242 @@
                     </Grid>
                     <TabControl Grid.Column="2">
                         <TabItem Header="{x:Static prop:Resources.MainEggTabGene}">
-                            <DockPanel>
-                                <Button DockPanel.Dock="Bottom" Content="{x:Static prop:Resources.MainEggStackMax}" Click="ButtonEggGeneStackMax_Click"/>
-                                <Button DockPanel.Dock="Bottom" Content="{x:Static prop:Resources.MainEggUnlock}" Click="ButtonEggGeneUnlock_Click"/>
-                                <ListBox ItemsSource="{Binding ElementName=ListBoxEgg, Path=SelectedItem.Genes}">
-                                    <ListBox.Resources>
-                                        <local:GeneID2NameConverter x:Key="GeneID2NameConverter"/>
-                                    </ListBox.Resources>
-                                    <ListBox.ItemTemplate>
-                                        <DataTemplate>
-                                            <StackPanel Orientation="Horizontal">
-                                                <Label Content="🔒"/>
-                                                <CheckBox IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
-                                                <Label Content="{x:Static prop:Resources.MainEggStack}"/>
-                                                <ComboBox SelectedIndex="{Binding Stack}" Width="70">
-                                                    <ComboBoxItem Content="Default"/>
-                                                    <ComboBoxItem Content="+1"/>
-                                                    <ComboBoxItem Content="+2"/>
-                                                </ComboBox>
-                                                <Label Content=" ID"/>
-                                                <TextBox Text="{Binding ID, UpdateSourceTrigger=PropertyChanged}" Width="40"/>
-                                                <Button Content="..." Click="ButtonChoiceGenes_Click"/>
-                                                <Label Content="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </ListBox.ItemTemplate>
-                                </ListBox>
-                            </DockPanel>
+                            <Grid>
+                                <Grid.Resources>
+                                    <local:GeneID2NameConverter x:Key="GeneID2NameConverter"/>
+                                </Grid.Resources>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="20"/>
+                                </Grid.RowDefinitions>
+                                <Button Grid.Row="3" Grid.ColumnSpan="3" Content="{x:Static prop:Resources.MainEggStackMax}" Click="ButtonEggGeneStackMax_Click"/>
+                                <Button Grid.Row="4" Grid.ColumnSpan="3" Content="{x:Static prop:Resources.MainEggUnlock}" Click="ButtonEggGeneUnlock_Click"/>
+
+                                <Grid Grid.Row="0" Grid.Column="0" DataContext="{Binding ElementName=ListBoxEgg,Path=SelectedItem.Genes[0]}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="3*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label Content="🔒" />
+                                        <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
+                                        <Label Content="{x:Static prop:Resources.MainEggStack}"/>
+                                        <ComboBox SelectedIndex="{Binding Stack}">
+                                            <ComboBoxItem Content="Default"/>
+                                            <ComboBoxItem Content="+1"/>
+                                            <ComboBoxItem Content="+2"/>
+                                        </ComboBox>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label Content=" ID"/>
+                                        <TextBox Text="{Binding ID, UpdateSourceTrigger=PropertyChanged}" MinWidth="35"/>
+                                        <Button Content="..." Click="ButtonChoiceGenes_Click"/>
+                                        <Label Content="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    </StackPanel>
+                                </Grid>
+                                <Grid Grid.Row="0" Grid.Column="1" DataContext="{Binding ElementName=ListBoxEgg,Path=SelectedItem.Genes[1]}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="3*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label Content="🔒" />
+                                        <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
+                                        <Label Content="{x:Static prop:Resources.MainEggStack}"/>
+                                        <ComboBox SelectedIndex="{Binding Stack}">
+                                            <ComboBoxItem Content="Default"/>
+                                            <ComboBoxItem Content="+1"/>
+                                            <ComboBoxItem Content="+2"/>
+                                        </ComboBox>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label Content=" ID"/>
+                                        <TextBox Text="{Binding ID, UpdateSourceTrigger=PropertyChanged}" MinWidth="35"/>
+                                        <Button Content="..." Click="ButtonChoiceGenes_Click"/>
+                                        <Label Content="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    </StackPanel>
+                                </Grid>
+                                <Grid Grid.Row="0" Grid.Column="2" DataContext="{Binding ElementName=ListBoxEgg,Path=SelectedItem.Genes[2]}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="3*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label Content="🔒" />
+                                        <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
+                                        <Label Content="{x:Static prop:Resources.MainEggStack}"/>
+                                        <ComboBox SelectedIndex="{Binding Stack}">
+                                            <ComboBoxItem Content="Default"/>
+                                            <ComboBoxItem Content="+1"/>
+                                            <ComboBoxItem Content="+2"/>
+                                        </ComboBox>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label Content=" ID"/>
+                                        <TextBox Text="{Binding ID, UpdateSourceTrigger=PropertyChanged}" MinWidth="35"/>
+                                        <Button Content="..." Click="ButtonChoiceGenes_Click"/>
+                                        <Label Content="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    </StackPanel>
+                                </Grid>
+                                <Grid Grid.Row="1" Grid.Column="0" DataContext="{Binding ElementName=ListBoxEgg,Path=SelectedItem.Genes[3]}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="3*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label Content="🔒" />
+                                        <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
+                                        <Label Content="{x:Static prop:Resources.MainEggStack}"/>
+                                        <ComboBox SelectedIndex="{Binding Stack}">
+                                            <ComboBoxItem Content="Default"/>
+                                            <ComboBoxItem Content="+1"/>
+                                            <ComboBoxItem Content="+2"/>
+                                        </ComboBox>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label Content=" ID"/>
+                                        <TextBox Text="{Binding ID, UpdateSourceTrigger=PropertyChanged}" MinWidth="35"/>
+                                        <Button Content="..." Click="ButtonChoiceGenes_Click"/>
+                                        <Label Content="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    </StackPanel>
+                                </Grid>
+                                <Grid Grid.Row="1" Grid.Column="1" DataContext="{Binding ElementName=ListBoxEgg,Path=SelectedItem.Genes[4]}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="3*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label Content="🔒" />
+                                        <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
+                                        <Label Content="{x:Static prop:Resources.MainEggStack}"/>
+                                        <ComboBox SelectedIndex="{Binding Stack}">
+                                            <ComboBoxItem Content="Default"/>
+                                            <ComboBoxItem Content="+1"/>
+                                            <ComboBoxItem Content="+2"/>
+                                        </ComboBox>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label Content=" ID"/>
+                                        <TextBox Text="{Binding ID, UpdateSourceTrigger=PropertyChanged}" MinWidth="35"/>
+                                        <Button Content="..." Click="ButtonChoiceGenes_Click"/>
+                                        <Label Content="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    </StackPanel>
+                                </Grid>
+                                <Grid Grid.Row="1" Grid.Column="2" DataContext="{Binding ElementName=ListBoxEgg,Path=SelectedItem.Genes[5]}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="3*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label Content="🔒" />
+                                        <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
+                                        <Label Content="{x:Static prop:Resources.MainEggStack}"/>
+                                        <ComboBox SelectedIndex="{Binding Stack}">
+                                            <ComboBoxItem Content="Default"/>
+                                            <ComboBoxItem Content="+1"/>
+                                            <ComboBoxItem Content="+2"/>
+                                        </ComboBox>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label Content=" ID"/>
+                                        <TextBox Text="{Binding ID, UpdateSourceTrigger=PropertyChanged}" MinWidth="35"/>
+                                        <Button Content="..." Click="ButtonChoiceGenes_Click"/>
+                                        <Label Content="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    </StackPanel>
+                                </Grid>
+                                <Grid Grid.Row="2" Grid.Column="0" DataContext="{Binding ElementName=ListBoxEgg,Path=SelectedItem.Genes[6]}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="3*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label Content="🔒" />
+                                        <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
+                                        <Label Content="{x:Static prop:Resources.MainEggStack}"/>
+                                        <ComboBox SelectedIndex="{Binding Stack}">
+                                            <ComboBoxItem Content="Default"/>
+                                            <ComboBoxItem Content="+1"/>
+                                            <ComboBoxItem Content="+2"/>
+                                        </ComboBox>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label Content=" ID"/>
+                                        <TextBox Text="{Binding ID, UpdateSourceTrigger=PropertyChanged}" MinWidth="35"/>
+                                        <Button Content="..." Click="ButtonChoiceGenes_Click"/>
+                                        <Label Content="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    </StackPanel>
+                                </Grid>
+                                <Grid Grid.Row="2" Grid.Column="1" DataContext="{Binding ElementName=ListBoxEgg,Path=SelectedItem.Genes[7]}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="3*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label Content="🔒" />
+                                        <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
+                                        <Label Content="{x:Static prop:Resources.MainEggStack}"/>
+                                        <ComboBox SelectedIndex="{Binding Stack}">
+                                            <ComboBoxItem Content="Default"/>
+                                            <ComboBoxItem Content="+1"/>
+                                            <ComboBoxItem Content="+2"/>
+                                        </ComboBox>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label Content=" ID"/>
+                                        <TextBox Text="{Binding ID, UpdateSourceTrigger=PropertyChanged}" MinWidth="35"/>
+                                        <Button Content="..." Click="ButtonChoiceGenes_Click"/>
+                                        <Label Content="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    </StackPanel>
+                                </Grid>
+                                <Grid Grid.Row="2" Grid.Column="2" DataContext="{Binding ElementName=ListBoxEgg,Path=SelectedItem.Genes[8]}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="3*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label Content="🔒" />
+                                        <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
+                                        <Label Content="{x:Static prop:Resources.MainEggStack}"/>
+                                        <ComboBox SelectedIndex="{Binding Stack}">
+                                            <ComboBoxItem Content="Default"/>
+                                            <ComboBoxItem Content="+1"/>
+                                            <ComboBoxItem Content="+2"/>
+                                        </ComboBox>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Label Content=" ID"/>
+                                        <TextBox Text="{Binding ID, UpdateSourceTrigger=PropertyChanged}" MinWidth="35"/>
+                                        <Button Content="..." Click="ButtonChoiceGenes_Click"/>
+                                        <Label Content="{Binding ID, Converter={StaticResource GeneID2NameConverter}}"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Grid>
                         </TabItem>
                     </TabControl>
                 </Grid>

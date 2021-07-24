@@ -70,6 +70,16 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap icons_letsgo {
+            get {
+                object obj = ResourceManager.GetObject("icons_letsgo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Money 的本地化字符串。
         /// </summary>
         public static string MainBasicMoney {

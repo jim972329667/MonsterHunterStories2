@@ -1,14 +1,15 @@
-![DL Count](https://img.shields.io/github/downloads/turtle-insect/MonsterHunterStories2/total.svg)
-[![Build status](https://ci.appveyor.com/api/projects/status/mn3omca1bbq8jel9?svg=true)](https://ci.appveyor.com/project/turtle-insect/monsterhunterstories2)
+![DL Count](https://img.shields.io/github/downloads/jim972329667/MonsterHunterStories2/total.svg)
+[![Build status](https://ci.appveyor.com/api/projects/status/mn3omca1bbq8jel9?svg=true)](https://ci.appveyor.com/project/jim972329667/monsterhunterstories2)
 
 # Monster Hunter Stories 2
 Switch Monster Hunter Stories 2 SaveDate Editor  
 **Tested with demo version.**  
 **Do not connect to the network & Coop**
 
+The original author:<mail : turtle.insect@gmail.com>
 If you would like to donate, we would be happy to give me an [amazon gift](https://www.amazon.co.jp/dp/B004N3APGO)!  
-<mail : turtle.insect@gmail.com>
 
+Modified author:<mail : jim97232966@foxmail.com>
 
 # Official Game Site
 https://www.monsterhunter.com/stories2/uk/  
@@ -28,6 +29,7 @@ https://github.com/Andoryuuta/MHS2SaveKeygen
 ■Date Value Table  
 https://docs.google.com/spreadsheets/d/1ePQdOEW_MQfNVqc3drSmGQN_wdaOAljhINBGiRgggxY  
 https://docs.google.com/spreadsheets/d/1QzM9X34IfACPtRa_yWq2BZUidWJqs0l2K_Gs2023bO0
+https://docs.google.com/spreadsheets/d/1qBNgzddoG2V7swdZNFnwA0rNuQofPA_jhvfHo1OduGM
 
 # Execution Requirements
 * Windows OS

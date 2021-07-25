@@ -87,7 +87,6 @@
     <Compile Include="Core\Gene.cs" />
     <Compile Include="Converter\GeneID2NameConverter.cs" />
     <Compile Include="Core\GenePNG.cs" />
-    <Compile Include="Core\Guide.cs" />
     <Compile Include="ILineAnalysis.cs" />
     <Compile Include="Info.cs" />
     <Compile Include="Core\Item.cs" />

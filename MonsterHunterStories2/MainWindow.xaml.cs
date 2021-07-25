@@ -168,7 +168,7 @@ namespace MonsterHunterStories2
 					MessageBox.Show("请选择一个蛋的格子！");
 					return;
 				}
-				if (index < 12)
+				if (index < ListBoxEgg.SelectedItems.Count + 1)
                 {
 					mBuffer = System.IO.File.ReadAllBytes(file);
 					var hexText = new System.Text.StringBuilder();
@@ -319,15 +319,12 @@ namespace MonsterHunterStories2
 
 		private void ButtonBaseGuide_Click(object sender, RoutedEventArgs e)
 		{
-			ViewModel viewmodel = DataContext as ViewModel;
-			if (viewmodel == null) return;
-			foreach(Guide x in viewmodel.Guides)
+			foreach(int i in Util.GuideMonsterList)
             {
-				if (x == null) return;
-				x.Get = true;
-				x.Lv = 5;
+				uint x = Util.Guide_Monster + (uint)(i-1) * 2;
+				SaveData.Instance().WriteNumber(x, 2, 1);
 			}
-			MessageBox.Show("Success");
+			MessageBox.Show("Success!");
 		}
 
 		private void ButtonBaseAllKinship(object sender, RoutedEventArgs e)

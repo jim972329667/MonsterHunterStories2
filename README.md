@@ -50,7 +50,7 @@ https://docs.google.com/spreadsheets/d/1qBNgzddoG2V7swdZNFnwA0rNuQofPA_jhvfHo1Od
 
 # Special Thanks
 * [iSharingan](https://github.com/iSharingan)
-* [jim972329667](https://github.com/jim972329667)
+* [turtle-insect](https://github.com/turtle-insect)
 * [p-eis](https://github.com/p-eis)
 
 # GBA TEMP

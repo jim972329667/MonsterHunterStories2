@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using Microsoft.Win32;
+using System.Linq;
 
 namespace MonsterHunterStories2
 {
@@ -10,8 +11,12 @@ namespace MonsterHunterStories2
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+		private static readonly byte[] eggx = System.Text.Encoding.Default.GetBytes("MHS2_EGGx");
+		private static readonly int EggLength = eggx.Length % 4 == 0 ? eggx.Length : (eggx.Length / 4 * 4) + 4;
 		public MainWindow()
 		{
+			//初始化图片
+			GenePNG.Bitmaps();
 			InitializeComponent();
 		}
 
@@ -67,28 +72,33 @@ namespace MonsterHunterStories2
 
 		private void ButtonChoiceItem_Click(object sender, RoutedEventArgs e)
 		{
-			uint id = ChoiceDialog(ChoiceWindow.eType.TYPE_ITEM, 0);
+            ChoiceWindow dlg = new ChoiceWindow
+            {
+                Type = ChoiceWindow.eType.TYPE_ITEM
+            };
+            dlg.ListBoxItem.SelectionMode = SelectionMode.Extended;
+			dlg.ShowDialog();
 			ViewModel viewmodel = DataContext as ViewModel;
 			if (viewmodel == null) return;
-
-			// 重複チェック
-			for(int i = 0; i < viewmodel.Items.Count; i++)
-			{
-				if(viewmodel.Items[i].ID == id)
+			foreach (KeyValuesInfo items in dlg.ListBoxItem.SelectedItems)
+            {
+                uint id = items.Key;
+                for (int i = 0; i < viewmodel.Items.Count; i++)
 				{
-					ListBoxItem.SelectedIndex = i;
-					return;
+					if (viewmodel.Items[i].ID == id)
+					{
+						ListBoxItem.SelectedIndex = i;
+						return;
+					}
 				}
+                Item item = new Item(Util.ItemIDAddress(id))
+                {
+                    ID = id,
+                    Count = 1
+                };
+                viewmodel.Items.Add(item);
+				SaveData.Instance().WriteBit(Util.ITEMSETTING_ADDRESS + id / 8, id % 8, true);
 			}
-
-			// アイテム追加
-			Item item = new Item(Util.ItemIDAddress(id));
-			item.ID = id;
-			item.Count = 1;
-			viewmodel.Items.Add(item);
-
-			// アイテム持ちのフラグ設定
-			SaveData.Instance().WriteBit(Util.ITEMSETTING_ADDRESS + id / 8, id % 8, true);
 		}
 
 		private void ButtonChoiceMonster_Click(object sender, RoutedEventArgs e)
@@ -144,12 +154,67 @@ namespace MonsterHunterStories2
 			SaveData.Instance().WriteNumber(Util.EGG_COUNT_ADDRESS, 1, count + 1);
 		}
 
-        private void ButtonCopyEggHex_Click(object sender, RoutedEventArgs e)
+		private void ButtonEggFileOpen(object sender, RoutedEventArgs e)
         {
-			Clipboard.SetText(All_Hex.Text);
+            OpenFileDialog dlg = new OpenFileDialog
+            {
+                Multiselect = true,
+                DefaultExt = ".mhs2egg",
+                Filter = "蛋文件|*.mhs2egg"
+            };
+            if (dlg.ShowDialog() != false)
+            {
+                int index = ListBoxEgg.SelectedIndex;
+                foreach (string file in dlg.FileNames)
+                {
+                    if (System.IO.File.Exists(dlg.FileName))
+                    {
+                        if (index < 0)
+                        {
+                            _ = MessageBox.Show("请选择一个蛋的格子！");
+                            return;
+                        }
+                        if (index < ListBoxEgg.SelectedItems.Count + 1)
+                        {
+                            byte[] mBuffer = System.IO.File.ReadAllBytes(file);
+                            var hexText = new System.Text.StringBuilder();
+                            for (int i = 0; i < mBuffer.Length - EggLength; i++)
+                            {
+                                if (i % 2 == 0 && i != 0) hexText.Append(" ");
+                                hexText.Append(mBuffer[i + EggLength].ToString("X2"));
+                            }
+                            Clipboard.SetText(hexText.ToString());
+                            AddEggFromFile(sender, e);
+                            Array.Clear(mBuffer, 0, mBuffer.Length);
+                            index++;
+                            ListBoxEgg.SelectedIndex = index;
+                        }
+                    }
+                }
+            }
+        }
+        private void ButtonEggFileSave(object sender, RoutedEventArgs e)
+		{
+            
+            SaveFileDialog dlg = new SaveFileDialog
+            {
+                DefaultExt = ".mhs2egg",
+                Filter = "蛋文件|*.mhs2egg"
+            };
+            if (dlg.ShowDialog() != false)
+            {
+				var egg = ListBoxEgg.SelectedItem as Egg;
+				if (egg != null)
+				{
+					byte[] mBuffer = SaveData.Instance().ReadValue(egg.Address, Util.EGG_SIZE);
+					byte[] byteAll = new byte[EggLength + mBuffer.Length];
+					Array.Copy(eggx, 0, byteAll, 0, eggx.Length);
+					Array.Copy(mBuffer, 0, byteAll, EggLength, mBuffer.Length);
+					System.IO.File.WriteAllBytes(dlg.FileName, byteAll);
+				}
+			}
 		}
-
-		private void ButtonPasteEggHex_Click(object sender, RoutedEventArgs e)
+		private void AddEggFromFile(object sender, RoutedEventArgs e)
 		{
 			int index = ListBoxEgg.SelectedIndex;
 			if (index < 0) return;
@@ -282,15 +347,12 @@ namespace MonsterHunterStories2
 
 		private void ButtonBaseGuide_Click(object sender, RoutedEventArgs e)
 		{
-			ViewModel viewmodel = DataContext as ViewModel;
-			if (viewmodel == null) return;
-			foreach(Guide x in viewmodel.Guides)
+			foreach(int i in Util.GuideMonsterList)
             {
-				if (x == null) return;
-				x.Get = true;
-				x.Lv = 5;
+				uint x = Util.Guide_Monster + (uint)(i-1) * 2;
+				SaveData.Instance().WriteNumber(x, 2, 1);
 			}
-			MessageBox.Show("Success");
+			MessageBox.Show("Success!");
 		}
 
 		private void ButtonBaseAllKinship(object sender, RoutedEventArgs e)
@@ -304,6 +366,26 @@ namespace MonsterHunterStories2
                 {
 					x.LifetimeBattles = 300;
 					//x.BattlesWon = 100;
+                }
+			}
+			MessageBox.Show("Success");
+		}
+		private void ButtonItemAllMax(object sender, RoutedEventArgs e)
+		{
+			ViewModel viewmodel = DataContext as ViewModel;
+			if (viewmodel == null) return;
+			foreach (Item x in viewmodel.Items)
+			{
+				if (x == null) return;
+				if (x.ID != 0 && x.ID < 1751)
+				{
+                    if (x.ID <= 1225 || x.ID >= 1426)
+                    {
+						if (x.ID <= 1638 || x.ID >= 1728)
+						{
+							x.Count = 900;
+						}
+                    }
                 }
 			}
 			MessageBox.Show("Success");

@@ -10,6 +10,7 @@ namespace MonsterHunterStories2
 		public List<KeyValuesInfo> Monster { get; private set; } = new List<KeyValuesInfo>();
 		public List<KeyValuesInfo> RideAction { get; private set; } = new List<KeyValuesInfo>();
 		public List<KeyValuesInfo> Gene { get; private set; } = new List<KeyValuesInfo>();
+		public List<KeyValuesInfo> GeneSkill { get; private set; } = new List<KeyValuesInfo>();
 		public Dictionary<uint, List<KeyValuesInfo>> Weapon { get; private set; } = new Dictionary<uint, List<KeyValuesInfo>>();
 		public List<KeyValuesInfo> Armor { get; private set; } = new List<KeyValuesInfo>();
 		public List<KeyValuesInfo> Talisman { get; private set; } = new List<KeyValuesInfo>();
@@ -59,6 +60,8 @@ namespace MonsterHunterStories2
 			AppendList("info\\armor.txt", Armor);
 			AppendList("info\\talisman.txt", Talisman);
 			AppendList("info\\talisman_skill.txt", TalismanSkill);
+			AppendList("info\\GeneSkill.txt", GeneSkill);
+			
 		}
 
 		private void AppendList<Type>(String filename, List<Type> items)
@@ -80,8 +83,8 @@ namespace MonsterHunterStories2
 					items.Add(type);
 				}
 			}
-
 			items.Sort();
 		}
+		
 	}
 }

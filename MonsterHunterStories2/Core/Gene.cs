@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Windows.Media.Imaging;
 
 namespace MonsterHunterStories2
 {
@@ -8,11 +9,13 @@ namespace MonsterHunterStories2
 
 		private readonly uint mAddress;
 
+
+
 		public Gene(uint address)
 		{
 			mAddress = address;
 		}
-
+		
 		public uint ID
 		{
 			get { return SaveData.Instance().ReadNumber(mAddress, 2); }
@@ -20,6 +23,7 @@ namespace MonsterHunterStories2
 			{
 				SaveData.Instance().WriteNumber(mAddress, 2, value);
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ID)));
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(GeneImage)));
 			}
 		}
 
@@ -42,5 +46,14 @@ namespace MonsterHunterStories2
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Stack)));
 			}
 		}
+		public BitmapSource GeneImage
+        {
+            get
+			{
+				return GenePNG.IDBitmap(ID);
+			}
+        }
+		
+
 	}
 }

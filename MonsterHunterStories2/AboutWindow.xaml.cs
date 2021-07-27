@@ -17,5 +17,13 @@ namespace MonsterHunterStories2
 		{
 			System.Diagnostics.Process.Start("http://turtleinsect.php.xdomain.jp/");
 		}
+		private void LabelGH_MouseDown(object sender, MouseButtonEventArgs e)
+		{
+			System.Diagnostics.Process.Start("https://github.com/jim972329667/MonsterHunterStories2/");
+		}
+		private void LabelLT_MouseDown(object sender, MouseButtonEventArgs e)
+		{
+			System.Diagnostics.Process.Start("https://www.91wii.com/thread-253594-1-1.html");
+		}
 	}
 }

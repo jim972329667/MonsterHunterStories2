@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using Microsoft.Win32;
 using System.Linq;
+using System.Collections;
 
 namespace MonsterHunterStories2
 {
@@ -376,18 +377,38 @@ namespace MonsterHunterStories2
 			foreach (Item x in viewmodel.Items)
 			{
 				if (x == null) return;
-				if (x.ID != 0 && x.ID < 1751)
+				if (!((IList)Item.Itemlist).Contains(x.ID))
 				{
-                    if (x.ID <= 1225 || x.ID >= 1426)
-                    {
-						if (x.ID <= 1638 || x.ID >= 1728)
-						{
-							x.Count = 900;
-						}
-                    }
-                }
+					x.Count = 900;
+				}
 			}
 			MessageBox.Show("Success");
 		}
+		//private void Button111(object sender, RoutedEventArgs e)
+  //      {
+		//	const string Path = "C:/Users/jim97/Desktop/info/new2.txt";
+		//	OpenFileDialog dlg = new OpenFileDialog();
+		//	if (dlg.ShowDialog() != false)
+		//	{
+		//		if (System.IO.File.Exists(dlg.FileName))
+		//		{
+		//			string[] lines = System.IO.File.ReadAllLines(dlg.FileName);
+  //                  for (int i = 0; i < lines.Length - 2; i++)
+  //                  {
+  //                      string x = lines[i+2];
+		//				string y = lines[i];
+		//				if(i % 3 == 0 && i <= 3138)
+  //                      {
+		//					//if (i <= 3138)
+		//					//{
+		//					//	System.IO.File.AppendAllText(Path, y + ";");
+		//					//}
+		//					System.IO.File.AppendAllText(Path, x + "\n");
+		//				}
+//                  }
+		//		}
+		//		MessageBox.Show("Success");
+		//	}
+		//}
 	}
 }

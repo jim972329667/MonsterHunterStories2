@@ -40,6 +40,7 @@
                 <ComboBoxItem Content="English"/>
                 <ComboBoxItem Content="Korean"/>
                 <ComboBoxItem Content="中文"/>
+                <ComboBoxItem Content="繁體中文"/>
                 <ComboBoxItem Content="French"/>
             </ComboBox>
             <CheckBox Margin="10,0,0,0" IsChecked="{Binding Path=PCConfirm, Source={x:Static prop:Settings.Default}}" VerticalAlignment="Center"  BorderBrush="#FFFE0000">
@@ -50,6 +51,7 @@
                 <ComboBoxItem Content="Switch"/>
                 <ComboBoxItem Content="PC"/>
             </ComboBox>
+            <!--<Button Content="111" Click="Button111"/>-->
         </ToolBar>
         <TabControl>
             <TabItem Header="{x:Static prop:Resources.MainTabBasic}">
@@ -975,6 +977,7 @@
                     <ListBox x:Name="ListBoxItem" ItemsSource="{Binding Items}">
                         <ListBox.Resources>
                             <local:ItemID2NameConverter x:Key="ItemID2NameConverter"/>
+                            <local:ItemID2DescriptionConcerter x:Key="ItemID2DescriptionConcerter"/>
                         </ListBox.Resources>
                         <ListBox.ItemTemplate>
                             <DataTemplate>
@@ -982,7 +985,8 @@
                                     <Label Content="Count"/>
                                     <TextBox Text="{Binding Count, UpdateSourceTrigger=PropertyChanged}" Width="60"/>
                                     <Label Margin="5,0,0,0" Content=" Name"/>
-                                    <Label Content="{Binding ID, Converter={StaticResource ItemID2NameConverter}}"/>
+                                    <TextBlock Margin="5,0,0,0" Text="{Binding ID, Converter={StaticResource ItemID2NameConverter}}" TextWrapping="Wrap" Width="150" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    <TextBlock Margin="10,0,0,0" Text="{Binding ID, Converter={StaticResource ItemID2DescriptionConcerter}}" TextWrapping="Wrap" Width="450" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>

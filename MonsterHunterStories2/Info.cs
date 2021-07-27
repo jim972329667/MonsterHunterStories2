@@ -7,6 +7,7 @@ namespace MonsterHunterStories2
 	{
 		private static Info mThis;
 		public List<KeyValuesInfo> Item { get; private set; } = new List<KeyValuesInfo>();
+		public List<KeyValuesInfo> ItemDescription { get; private set; } = new List<KeyValuesInfo>();
 		public List<KeyValuesInfo> Monster { get; private set; } = new List<KeyValuesInfo>();
 		public List<KeyValuesInfo> RideAction { get; private set; } = new List<KeyValuesInfo>();
 		public List<KeyValuesInfo> Gene { get; private set; } = new List<KeyValuesInfo>();
@@ -61,7 +62,7 @@ namespace MonsterHunterStories2
 			AppendList("info\\talisman.txt", Talisman);
 			AppendList("info\\talisman_skill.txt", TalismanSkill);
 			AppendList("info\\GeneSkill.txt", GeneSkill);
-			
+			AppendList("info\\ItemDescription.txt", ItemDescription);
 		}
 
 		private void AppendList<Type>(String filename, List<Type> items)

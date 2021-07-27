@@ -379,7 +379,7 @@ namespace MonsterHunterStories2
 				if (x == null) return;
 				if (!((IList)Item.Itemlist).Contains(x.ID))
 				{
-					x.Count = 900;
+					if(x.ID <= 1750) x.Count = 900;
 				}
 			}
 			MessageBox.Show("Success");

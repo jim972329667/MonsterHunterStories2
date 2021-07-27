@@ -485,6 +485,15 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Save for Convert 的本地化字符串。
+        /// </summary>
+        public static string MainMenuSaveforConvert {
+            get {
+                return ResourceManager.GetString("MainMenuSaveforConvert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 All Kinship Max 的本地化字符串。
         /// </summary>
         public static string MainMonsterAllKinshipMax {

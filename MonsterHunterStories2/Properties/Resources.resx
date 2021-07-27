@@ -259,6 +259,9 @@
   <data name="MainMenuFileSaveAs" xml:space="preserve">
     <value>Save _As...</value>
   </data>
+  <data name="MainMenuSaveforConvert" xml:space="preserve">
+    <value>Save for Convert</value>
+  </data>
   <data name="MainMonsterAllKinshipMax" xml:space="preserve">
     <value>All Kinship Max</value>
   </data>

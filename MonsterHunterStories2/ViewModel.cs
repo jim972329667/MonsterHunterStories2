@@ -85,7 +85,11 @@ namespace MonsterHunterStories2
 				SaveData.Instance().WriteNumber(64, 4, time);
 			}
 		}
-
+		public uint SaveConvert
+        {
+			get { return SaveData.Instance().ReadNumber(0, 1); }
+			set { Util.WriteNumber(0, 1, value, 0, 1); }
+		}
 		public uint PlayTimeMinute
 		{
 			get {return SaveData.Instance().ReadNumber(64, 4) / 60 % 60;}

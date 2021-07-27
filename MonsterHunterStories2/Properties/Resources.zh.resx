@@ -255,6 +255,9 @@
   <data name="MainMenuFileSaveAs" xml:space="preserve">
     <value>另存为...(_A)</value>
   </data>
+  <data name="MainMenuSaveforConvert" xml:space="preserve">
+    <value>存档格式</value>
+  </data>
   <data name="MainMonsterAllKinshipMax" xml:space="preserve">
     <value>所有随从牵绊最大</value>
   </data>

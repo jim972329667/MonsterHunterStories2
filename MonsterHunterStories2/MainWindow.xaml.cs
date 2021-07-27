@@ -55,7 +55,6 @@ namespace MonsterHunterStories2
 		{
 			var dlg = new SaveFileDialog();
 			if (dlg.ShowDialog() == false) return;
-
 			SaveData.Instance().SaveAs(dlg.FileName);
 		}
 
@@ -349,7 +348,7 @@ namespace MonsterHunterStories2
 		{
 			foreach(int i in Util.GuideMonsterList)
             {
-				uint x = Util.Guide_Monster + (uint)(i-1) * 2;
+				uint x = Util.Guide_Monster + (uint)(i - 1) * 2;
 				SaveData.Instance().WriteNumber(x, 2, 1);
 			}
 			MessageBox.Show("Success!");

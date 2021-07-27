@@ -55,3 +55,6 @@ https://docs.google.com/spreadsheets/d/1qBNgzddoG2V7swdZNFnwA0rNuQofPA_jhvfHo1Od
 
 # GBA TEMP
 https://gbatemp.net/threads/monster-hunter-stories-2-demo-save-editor.590851/
+
+# 91wii
+https://bbs.naxgen.cn/thread-253594-1-1.html

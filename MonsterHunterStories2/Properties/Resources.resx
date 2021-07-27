@@ -160,11 +160,11 @@
   <data name="MainEggAppendEgg" xml:space="preserve">
     <value>Append Egg</value>
   </data>
-  <data name="MainEggCopyHex" xml:space="preserve">
-    <value>Copy Hex</value>
+  <data name="MainEggAppendEggFiles" xml:space="preserve">
+    <value>Append Egg Files(.mhs2egg)</value>
   </data>
-  <data name="MainEggPasteHex" xml:space="preserve">
-    <value>Paste Hex</value>
+  <data name="MainEggSaveEggFile" xml:space="preserve">
+    <value>Save Egg File(.mhs2egg)</value>
   </data>
   <data name="MainEggSmell" xml:space="preserve">
     <value>Smell</value>
@@ -234,6 +234,9 @@
   </data>
   <data name="MainEquipmentWeaponSS" xml:space="preserve">
     <value>Sword &amp; Shield</value>
+  </data>
+  <data name="MainItemAllMax" xml:space="preserve">
+    <value>Item All Max (Note that only items such as clothing are roughly excluded ,You need to check the number of items yourself)</value>
   </data>
   <data name="MainItemAppend" xml:space="preserve">
     <value>Append/Search Item</value>

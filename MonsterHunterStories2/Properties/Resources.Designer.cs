@@ -188,20 +188,20 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Copy Hex 的本地化字符串。
+        ///   查找类似 Append Egg Files(.mhs2egg) 的本地化字符串。
         /// </summary>
-        public static string MainEggCopyHex {
+        public static string MainEggAppendEggFiles {
             get {
-                return ResourceManager.GetString("MainEggCopyHex", resourceCulture);
+                return ResourceManager.GetString("MainEggAppendEggFiles", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   查找类似 Paste Hex 的本地化字符串。
+        ///   查找类似 Save Egg File(.mhs2egg) 的本地化字符串。
         /// </summary>
-        public static string MainEggPasteHex {
+        public static string MainEggSaveEggFile {
             get {
-                return ResourceManager.GetString("MainEggPasteHex", resourceCulture);
+                return ResourceManager.GetString("MainEggSaveEggFile", resourceCulture);
             }
         }
         
@@ -409,6 +409,15 @@ namespace MonsterHunterStories2.Properties {
         public static string MainEquipmentWeaponSS {
             get {
                 return ResourceManager.GetString("MainEquipmentWeaponSS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Item All Max (Note that only items such as clothing are roughly excluded ,You need to check the number of items yourself) 的本地化字符串。
+        /// </summary>
+        public static string MainItemAllMax {
+            get {
+                return ResourceManager.GetString("MainItemAllMax", resourceCulture);
             }
         }
         

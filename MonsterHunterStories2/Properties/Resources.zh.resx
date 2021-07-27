@@ -156,11 +156,11 @@
   <data name="MainEggAppendEgg" xml:space="preserve">
     <value>添加宠物蛋</value>
   </data>
-  <data name="MainEggCopyHex" xml:space="preserve">
-    <value>复制代码</value>
+  <data name="MainEggAppendEggFiles" xml:space="preserve">
+    <value>添加蛋(mhs2egg格式)</value>
   </data>
-  <data name="MainEggPasteHex" xml:space="preserve">
-    <value>粘贴代码</value>
+  <data name="MainEggSaveEggFile" xml:space="preserve">
+    <value>保存蛋文件(mhs2egg格式)</value>
   </data>
   <data name="MainEggSmell" xml:space="preserve">
     <value>气味</value>
@@ -175,10 +175,10 @@
     <value>普通的气味</value>
   </data>
   <data name="MainEggStack" xml:space="preserve">
-    <value>Stack</value>
+    <value>星级</value>
   </data>
   <data name="MainEggStackMax" xml:space="preserve">
-    <value>Stack Max</value>
+    <value>星级最大</value>
   </data>
   <data name="MainEggTabGene" xml:space="preserve">
     <value>基因</value>
@@ -230,6 +230,9 @@
   </data>
   <data name="MainEquipmentWeaponSS" xml:space="preserve">
     <value>单手剑</value>
+  </data>
+  <data name="MainItemAllMax" xml:space="preserve">
+    <value>所有物品最大（只是粗略的排除了服装等物品，修改完请自行核对物品数量）</value>
   </data>
   <data name="MainItemAppend" xml:space="preserve">
     <value>添加/搜索物品</value>
@@ -304,10 +307,10 @@
     <value>驾驭动作</value>
   </data>
   <data name="MainMonsterStack" xml:space="preserve">
-    <value>Stack</value>
+    <value>星级</value>
   </data>
   <data name="MainMonsterStackMax" xml:space="preserve">
-    <value>Stack Max</value>
+    <value>星级最大</value>
   </data>
   <data name="MainMonsterTabBonus" xml:space="preserve">
     <value>增强</value>

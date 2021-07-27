@@ -24,6 +24,6 @@
         <Label Grid.Row="4" Content="中文版项目 ： "/>
         <Label Grid.Row="4" Content=" https://github.com/jim972329667/MonsterHunterStories2" MouseDown="LabelGH_MouseDown" Foreground="Blue" Margin="70,0,0,0"/>
         <Label Grid.Row="5" Content="论坛地址 ：" />
-        <Label Grid.Row="5" Content=" https://www.91wii.com/thread-253594-1-1.html" MouseDown="LabelLT_MouseDown" Foreground="Blue" Margin="57,0,0,0"/>
+        <Label Grid.Row="5" Content=" https://bbs.naxgen.cn/thread-253594-1-1.html" MouseDown="LabelLT_MouseDown" Foreground="Blue" Margin="57,0,0,0"/>
     </Grid>
 </Window>

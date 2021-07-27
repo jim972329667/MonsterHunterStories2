@@ -23,7 +23,7 @@ namespace MonsterHunterStories2
 		}
 		private void LabelLT_MouseDown(object sender, MouseButtonEventArgs e)
 		{
-			System.Diagnostics.Process.Start("https://www.91wii.com/thread-253594-1-1.html");
+			System.Diagnostics.Process.Start("https://bbs.naxgen.cn/thread-253594-1-1.html");
 		}
 	}
 }

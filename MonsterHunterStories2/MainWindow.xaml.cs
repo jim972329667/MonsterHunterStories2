@@ -28,10 +28,9 @@ namespace MonsterHunterStories2
 
 		private void Window_Drop(object sender, DragEventArgs e)
 		{
-			String[] files = e.Data.GetData(DataFormats.FileDrop) as String[];
-			if (files == null) return;
+            if (!(e.Data.GetData(DataFormats.FileDrop) is String[] files)) return;
 
-			FileOpen(files[0]);
+            FileOpen(files[0]);
 		}
 
 		private void Window_Closed(object sender, EventArgs e)
@@ -103,22 +102,22 @@ namespace MonsterHunterStories2
 
 		private void ButtonChoiceMonster_Click(object sender, RoutedEventArgs e)
 		{
-			Monster monster = ListBoxMonster.SelectedItem as Monster;
-			if (monster == null) return;
+            if (!(ListBoxMonster.SelectedItem is Monster monster)) return;
 
-			monster.ID = ChoiceDialog(ChoiceWindow.eType.TYPE_MONSTER, monster.ID);
+            monster.ID = ChoiceDialog(ChoiceWindow.eType.TYPE_MONSTER, monster.ID);
 		}
 
 		private void ButtonChoiceWeapon_Click(object sender, RoutedEventArgs e)
 		{
-			Weapon weapon = (sender as Button)?.DataContext as Weapon;
-			if (weapon == null) return;
+            if (!((sender as Button)?.DataContext is Weapon weapon)) return;
 
-			var dlg = new ChoiceWindow();
-			dlg.ID = weapon.ID;
-			dlg.Type = ChoiceWindow.eType.TYPE_WEAPON;
-			dlg.WeaponType = weapon.Type;
-			if (dlg.WeaponType >= Info.Instance().Weapon.Count) dlg.WeaponType = 0;
+            var dlg = new ChoiceWindow
+            {
+                ID = weapon.ID,
+                Type = ChoiceWindow.eType.TYPE_WEAPON,
+                WeaponType = weapon.Type
+            };
+            if (dlg.WeaponType >= Info.Instance().Weapon.Count) dlg.WeaponType = 0;
 			if (dlg.ShowDialog() == false) return;
 
 			weapon.ID = dlg.ID;
@@ -127,26 +126,23 @@ namespace MonsterHunterStories2
 
 		private void ButtonChoiceRaidAction1_Click(object sender, RoutedEventArgs e)
 		{
-			Monster monster = ListBoxMonster.SelectedItem as Monster;
-			if (monster == null) return;
+            if (!(ListBoxMonster.SelectedItem is Monster monster)) return;
 
-			monster.RideAction1 = ChoiceDialog(ChoiceWindow.eType.TYPE_RAIDACTION, monster.RideAction1);
+            monster.RideAction1 = ChoiceDialog(ChoiceWindow.eType.TYPE_RAIDACTION, monster.RideAction1);
 		}
 
 		private void ButtonChoiceRaidAction2_Click(object sender, RoutedEventArgs e)
 		{
-			Monster monster = ListBoxMonster.SelectedItem as Monster;
-			if (monster == null) return;
+            if (!(ListBoxMonster.SelectedItem is Monster monster)) return;
 
-			monster.RideAction2 = ChoiceDialog(ChoiceWindow.eType.TYPE_RAIDACTION, monster.RideAction2);
+            monster.RideAction2 = ChoiceDialog(ChoiceWindow.eType.TYPE_RAIDACTION, monster.RideAction2);
 		}
 
 		private void ButtonAppendEgg_Click(object sender, RoutedEventArgs e)
 		{
-			ViewModel viewmodel = DataContext as ViewModel;
-			if (viewmodel == null) return;
+            if (!(DataContext is ViewModel viewmodel)) return;
 
-			uint count = (uint)viewmodel.Eggs.Count;
+            uint count = (uint)viewmodel.Eggs.Count;
 			if (count >= Util.EGG_COUNT) return;
 
 			Egg egg = new Egg(Util.EGG_ADDRESS + count * Util.EGG_SIZE);
@@ -171,10 +167,10 @@ namespace MonsterHunterStories2
                     {
                         if (index < 0)
                         {
-                            _ = MessageBox.Show("请选择一个蛋的格子！");
+                            _ = MessageBox.Show(Properties.Resources.ErrorForEggChoice);
                             return;
                         }
-                        if (index < ListBoxEgg.SelectedItems.Count + 1)
+                        if (index < ListBoxEgg.Items.Count + 1)
                         {
                             byte[] mBuffer = System.IO.File.ReadAllBytes(file);
                             var hexText = new System.Text.StringBuilder();
@@ -183,15 +179,15 @@ namespace MonsterHunterStories2
                                 if (i % 2 == 0 && i != 0) hexText.Append(" ");
                                 hexText.Append(mBuffer[i + EggLength].ToString("X2"));
                             }
-                            Clipboard.SetText(hexText.ToString());
-                            AddEggFromFile(sender, e);
+                            AddEggFromFile(hexText.ToString());
                             Array.Clear(mBuffer, 0, mBuffer.Length);
                             index++;
                             ListBoxEgg.SelectedIndex = index;
                         }
                     }
                 }
-            }
+				MessageBox.Show("Success");
+			}
         }
         private void ButtonEggFileSave(object sender, RoutedEventArgs e)
 		{
@@ -214,32 +210,20 @@ namespace MonsterHunterStories2
 				}
 			}
 		}
-		private void AddEggFromFile(object sender, RoutedEventArgs e)
+		private void AddEggFromFile(string info)
 		{
 			int index = ListBoxEgg.SelectedIndex;
 			if (index < 0) return;
 
-			var egg = ListBoxEgg.SelectedItem as Egg;
-			if (egg == null) return;
+            if (!(ListBoxEgg.SelectedItem is Egg egg)) return;
 
-			string info = Clipboard.GetText();
-			if (info.Replace(" ", "").Length != Util.EGG_SIZE * 2)
+            if (info.Replace(" ", "").Length != Util.EGG_SIZE * 2)
 			{
 				MessageBox.Show("Wrong Egg");
 				return;
 			}
-
-			ViewModel viewmodel = DataContext as ViewModel;
-			if (viewmodel == null) return;
-			try
-			{
-				Util.WriteHex(egg.Address, info);
-			}
-			catch
-			{
-				MessageBox.Show("Wrong Egg");
-				return;
-			}
+            if (!(DataContext is ViewModel viewmodel)) return;
+            Util.WriteHex(egg.Address, info);
 			viewmodel.Eggs.RemoveAt(index);
 			viewmodel.Eggs.Insert(index, new Egg(egg.Address));
 			ListBoxEgg.SelectedIndex = index;
@@ -247,18 +231,16 @@ namespace MonsterHunterStories2
 
 		private void ButtonChoiceGenes_Click(object sender, RoutedEventArgs e)
 		{
-			Gene gene = (sender as Button)?.DataContext as Gene;
-			if (gene == null) return;
+            if (!((sender as Button)?.DataContext is Gene gene)) return;
 
-			gene.ID = ChoiceDialog(ChoiceWindow.eType.TYPE_GENE, gene.ID);
+            gene.ID = ChoiceDialog(ChoiceWindow.eType.TYPE_GENE, gene.ID);
 		}
 
 		private void ButtonMonsterGeneStackMax_Click(object sender, RoutedEventArgs e)
 		{
-			Monster monster = ListBoxMonster.SelectedItem as Monster;			
-			if (monster == null) return;
+            if (!(ListBoxMonster.SelectedItem is Monster monster)) return;
 
-			foreach (var gene in monster.Genes)
+            foreach (var gene in monster.Genes)
 			{
 				gene.Stack = 2;
 			}
@@ -266,10 +248,9 @@ namespace MonsterHunterStories2
 
 		private void ButtonMonsterGeneUnlock_Click(object sender, RoutedEventArgs e)
 		{
-			Monster monster = ListBoxMonster.SelectedItem as Monster;
-			if (monster == null) return;
+            if (!(ListBoxMonster.SelectedItem is Monster monster)) return;
 
-			foreach (var gene in monster.Genes)
+            foreach (var gene in monster.Genes)
 			{
 				gene.Lock = false;
 			}
@@ -277,10 +258,9 @@ namespace MonsterHunterStories2
 
 		private void ButtonEggGeneStackMax_Click(object sender, RoutedEventArgs e)
 		{
-			Egg egg = ListBoxEgg.SelectedItem as Egg;
-			if (egg == null) return;
+            if (!(ListBoxEgg.SelectedItem is Egg egg)) return;
 
-			foreach (var gene in egg.Genes)
+            foreach (var gene in egg.Genes)
 			{
 				gene.Stack = 2;
 			}
@@ -288,10 +268,9 @@ namespace MonsterHunterStories2
 
 		private void ButtonEggGeneUnlock_Click(object sender, RoutedEventArgs e)
 		{
-			Egg egg = ListBoxEgg.SelectedItem as Egg;
-			if (egg == null) return;
+            if (!(ListBoxEgg.SelectedItem is Egg egg)) return;
 
-			foreach (var gene in egg.Genes)
+            foreach (var gene in egg.Genes)
 			{
 				gene.Lock = false;
 			}
@@ -299,42 +278,40 @@ namespace MonsterHunterStories2
 
 		private void ButtonChoiceArmor_Click(object sender, RoutedEventArgs e)
 		{
-			Armor armor = (sender as Button)?.DataContext as Armor;
-			if (armor == null) return;
+            if (!((sender as Button)?.DataContext is Armor armor)) return;
 
-			armor.ID = ChoiceDialog(ChoiceWindow.eType.TYPE_ARMOR, armor.ID);
+            armor.ID = ChoiceDialog(ChoiceWindow.eType.TYPE_ARMOR, armor.ID);
 		}
 
 		private void ButtonChoiceTalisman_Click(object sender, RoutedEventArgs e)
 		{
-			Talisman talisman = (sender as Button)?.DataContext as Talisman;
-			if (talisman == null) return;
+            if (!((sender as Button)?.DataContext is Talisman talisman)) return;
 
-			talisman.ID = ChoiceDialog(ChoiceWindow.eType.TYPE_TALISMAN, talisman.ID);
+            talisman.ID = ChoiceDialog(ChoiceWindow.eType.TYPE_TALISMAN, talisman.ID);
 		}
 
 		private void ButtonChoiceTalismanSkill1_Click(object sender, RoutedEventArgs e)
 		{
-			Talisman talisman = (sender as Button)?.DataContext as Talisman;
-			if (talisman == null) return;
+            if (!((sender as Button)?.DataContext is Talisman talisman)) return;
 
-			talisman.Skill1 = ChoiceDialog(ChoiceWindow.eType.TYPE_TALISMAN_SKILL, talisman.Skill1);
+            talisman.Skill1 = ChoiceDialog(ChoiceWindow.eType.TYPE_TALISMAN_SKILL, talisman.Skill1);
 		}
 
 		private void ButtonChoiceTalismanSkill2_Click(object sender, RoutedEventArgs e)
 		{
-			Talisman talisman = (sender as Button)?.DataContext as Talisman;
-			if (talisman == null) return;
+            if (!((sender as Button)?.DataContext is Talisman talisman)) return;
 
-			talisman.Skill2 = ChoiceDialog(ChoiceWindow.eType.TYPE_TALISMAN_SKILL, talisman.Skill2);
+            talisman.Skill2 = ChoiceDialog(ChoiceWindow.eType.TYPE_TALISMAN_SKILL, talisman.Skill2);
 		}
 
 		private uint ChoiceDialog(ChoiceWindow.eType type, uint id)
 		{
-			var dlg = new ChoiceWindow();
-			dlg.ID = id;
-			dlg.Type = type;
-			dlg.ShowDialog();
+            var dlg = new ChoiceWindow
+            {
+                ID = id,
+                Type = type
+            };
+            dlg.ShowDialog();
 			return dlg.ID;
 		}
 

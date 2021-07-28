@@ -120,6 +120,9 @@
   <data name="ApplicationTitle" xml:space="preserve">
     <value>怪物猎人物语2：毁灭之翼</value>
   </data>
+  <data name="ErrorForEggChoice" xml:space="preserve">
+    <value>请选择一个蛋格子！</value>
+  </data>
   <data name="MainBasicMoney" xml:space="preserve">
     <value>金币</value>
   </data>

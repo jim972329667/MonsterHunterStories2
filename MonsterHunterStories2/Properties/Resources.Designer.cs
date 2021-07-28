@@ -70,6 +70,15 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Please select a Egg cell ! 的本地化字符串。
+        /// </summary>
+        public static string ErrorForEggChoice {
+            get {
+                return ResourceManager.GetString("ErrorForEggChoice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
         public static System.Drawing.Bitmap Gene_Table {

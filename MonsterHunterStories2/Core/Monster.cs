@@ -22,10 +22,10 @@ namespace MonsterHunterStories2
 
 		public String Name
 		{
-			get { return SaveData.Instance().ReadText(mAddress, 18); }
+			get { return SaveData.Instance().ReadText(mAddress, 21); }
 			set
 			{
-				SaveData.Instance().WriteText(mAddress, 18, value);
+				SaveData.Instance().WriteText(mAddress, 21, value);
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
 			}
 		}

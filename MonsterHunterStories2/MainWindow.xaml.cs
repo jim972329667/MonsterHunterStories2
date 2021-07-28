@@ -2,8 +2,8 @@
 using System.Windows;
 using System.Windows.Controls;
 using Microsoft.Win32;
-using System.Linq;
 using System.Collections;
+using System.IO;
 
 namespace MonsterHunterStories2
 {
@@ -14,12 +14,12 @@ namespace MonsterHunterStories2
 	{
 		private static readonly byte[] eggx = System.Text.Encoding.Default.GetBytes("MHS2_EGGx");
 		private static readonly int EggLength = eggx.Length % 4 == 0 ? eggx.Length : (eggx.Length / 4 * 4) + 4;
-		public MainWindow()
+        public MainWindow()
 		{
 			//初始化图片
 			GenePNG.Bitmaps();
 			InitializeComponent();
-			DataBase.MainDataBase();
+			if (!File.Exists(@".\info\text.db")) MessageBox.Show("丢失数据库");
 		}
 
 		private void Window_PreviewDragOver(object sender, DragEventArgs e)
@@ -69,9 +69,16 @@ namespace MonsterHunterStories2
 			var dlg = new AboutWindow();
 			dlg.ShowDialog();
 		}
+		private void MenuAddDB_Click(object sender, RoutedEventArgs e)
+		{
+			var dlg = new AddDB();
+			dlg.ShowDialog();
+		}
 
 		private void ButtonChoiceItem_Click(object sender, RoutedEventArgs e)
 		{
+			bool Get = true;
+			bool AllHave = false;
             ChoiceWindow dlg = new ChoiceWindow
             {
                 Type = ChoiceWindow.eType.TYPE_ITEM
@@ -87,18 +94,27 @@ namespace MonsterHunterStories2
 				{
 					if (viewmodel.Items[i].ID == id)
 					{
-						ListBoxItem.SelectedIndex = i;
-						return;
+						Get = false;
+						AllHave = true;
+						break;
 					}
 				}
-                Item item = new Item(Util.ItemIDAddress(id))
-                {
-                    ID = id,
-                    Count = 1
-                };
-                viewmodel.Items.Add(item);
-				SaveData.Instance().WriteBit(Util.ITEMSETTING_ADDRESS + id / 8, id % 8, true);
+				if (Get)
+				{
+					AllHave = false;
+					Item item = new Item(Util.ItemIDAddress(id))
+					{
+						ID = id,
+						Count = 1
+					};
+					viewmodel.Items.Add(item);
+					SaveData.Instance().WriteBit(Util.ITEMSETTING_ADDRESS + id / 8, id % 8, true);
+				}
+				else Get = true;
+                
 			}
+            if (AllHave) MessageBox.Show("已经全部拥有!");
+			else MessageBox.Show("Success!");
 		}
 
 		private void ButtonChoiceMonster_Click(object sender, RoutedEventArgs e)
@@ -164,7 +180,7 @@ namespace MonsterHunterStories2
                 int index = ListBoxEgg.SelectedIndex;
                 foreach (string file in dlg.FileNames)
                 {
-                    if (System.IO.File.Exists(dlg.FileName))
+                    if (File.Exists(dlg.FileName))
                     {
                         if (index < 0)
                         {
@@ -173,7 +189,7 @@ namespace MonsterHunterStories2
                         }
                         if (index < ListBoxEgg.Items.Count + 1)
                         {
-                            byte[] mBuffer = System.IO.File.ReadAllBytes(file);
+                            byte[] mBuffer = File.ReadAllBytes(file);
                             var hexText = new System.Text.StringBuilder();
                             for (int i = 0; i < mBuffer.Length - EggLength; i++)
                             {
@@ -207,7 +223,7 @@ namespace MonsterHunterStories2
 					byte[] byteAll = new byte[EggLength + mBuffer.Length];
 					Array.Copy(eggx, 0, byteAll, 0, eggx.Length);
 					Array.Copy(mBuffer, 0, byteAll, EggLength, mBuffer.Length);
-					System.IO.File.WriteAllBytes(dlg.FileName, byteAll);
+					File.WriteAllBytes(dlg.FileName, byteAll);
 				}
 			}
 		}
@@ -362,6 +378,7 @@ namespace MonsterHunterStories2
 			}
 			MessageBox.Show("Success");
 		}
+		
 		//private void Button111(object sender, RoutedEventArgs e)
   //      {
 		//	const string Path = "C:/Users/jim97/Desktop/info/new2.txt";

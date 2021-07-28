@@ -27,6 +27,7 @@
                 <MenuItem Header="{x:Static prop:Resources.MainMenuFileExit}" Click="MenuItemFileExit_Click"/>
             </MenuItem>
             <MenuItem Header="{x:Static prop:Resources.MainMenuAbout}" Click="MenuItemAbout_Click"/>
+            <MenuItem Header="添加/更新数据库" Click="MenuAddDB_Click"/>
         </Menu>
         <ToolBar DockPanel.Dock="Top">
             <Button Height="32" ToolTip="Open" Click="MenuItemFileOpen_Click">
@@ -191,7 +192,7 @@
                         <Label Grid.Row="1" Content="Exp"/>
                         <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding ElementName=ListBoxMonster, Path=SelectedItem.Exp, UpdateSourceTrigger=PropertyChanged}"/>
                         <Label Grid.Row="2" Content="{x:Static prop:Resources.MainMonsterName}"/>
-                        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding ElementName=ListBoxMonster, Path=SelectedItem.Name, UpdateSourceTrigger=PropertyChanged}"/>
+                        <TextBox MaxLength="10"  Grid.Row="2" Grid.Column="1" Text="{Binding ElementName=ListBoxMonster, Path=SelectedItem.Name, UpdateSourceTrigger=PropertyChanged}"/>
                         <Label Grid.Row="3" Content="{x:Static prop:Resources.MainMonsterType}"/>
                         <DockPanel Grid.Row="3" Grid.Column="1">
                             <Button DockPanel.Dock="Right" Content="..." Click="ButtonChoiceMonster_Click"/>

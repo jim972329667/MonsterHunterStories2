@@ -9,7 +9,7 @@ namespace MonsterHunterStories2
 		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
 		{
 			uint id = (uint)value;
-			String Description = Info.Instance().Search(Info.Instance().ItemDescription, id)?.Value;
+			String Description = DataBase.GetConver(id, "ItemDescriptions");
 			if (String.IsNullOrEmpty(Description)) Description = Properties.Resources.MainNoneType;
 			return Description;
 		}

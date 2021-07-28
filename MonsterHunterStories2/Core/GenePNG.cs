@@ -16,7 +16,7 @@ namespace MonsterHunterStories2
         public static void Bitmaps()
         {
             int count = 0;
-            string filename = "info\\GenePNGID.txt";
+            //string filename = "info\\GenePNGID.txt";
             for (int j = 0; j < 4; j++)   //height
             {
                 for (int i = 0; i < 8; i++)   //Width
@@ -35,10 +35,10 @@ namespace MonsterHunterStories2
                     count++;
                 }
             }
-            Fileopen(filename);
+            //Fileopen(filename);
         }
 
-        public static Dictionary<uint, uint> GeneID = new Dictionary<uint, uint>();
+        //public static Dictionary<uint, uint> GeneID = new Dictionary<uint, uint>();
         
         public static BitmapSource ConvertBitmap(Bitmap source)
         {
@@ -59,7 +59,8 @@ namespace MonsterHunterStories2
             uint x = 0;
             try
             {
-                GeneID.TryGetValue(ID, out x);
+                //GeneID.TryGetValue(ID, out x);
+                x = DataBase.GetPNGID(ID);
                 if (x > 25) x = 0;
             }
             catch
@@ -69,21 +70,21 @@ namespace MonsterHunterStories2
             BitmapSource returnsource = ConvertBitmap(bparry[x]);
             return returnsource;
         }
-        private static void Fileopen(string FileName)
-        {
-            if (!System.IO.File.Exists(FileName)) return;
-            string[] lines = System.IO.File.ReadAllLines(FileName);
-            foreach (string line in lines)
-            {
-                if (line.Length < 3) continue;
-                if (line[0] == '#') continue;
-                string[] values = line.Split('\t');
-                if (values.Length < 2) continue;
-                if (string.IsNullOrEmpty(values[0])|| string.IsNullOrEmpty(values[1])) continue;
-                _ = uint.TryParse(values[0], out uint result1);
-                _ = uint.TryParse(values[1], out uint result2);
-                GeneID.Add(result1,result2);
-            }
-        }
+        //private static void Fileopen(string FileName)
+        //{
+        //    if (!System.IO.File.Exists(FileName)) return;
+        //    string[] lines = System.IO.File.ReadAllLines(FileName);
+        //    foreach (string line in lines)
+        //    {
+        //        if (line.Length < 3) continue;
+        //        if (line[0] == '#') continue;
+        //        string[] values = line.Split('\t');
+        //        if (values.Length < 2) continue;
+        //        if (string.IsNullOrEmpty(values[0]) || string.IsNullOrEmpty(values[1])) continue;
+        //        _ = uint.TryParse(values[0], out uint result1);
+        //        _ = uint.TryParse(values[1], out uint result2);
+        //        GeneID.Add(result1, result2);
+        //    }
+        //}
     }
 }

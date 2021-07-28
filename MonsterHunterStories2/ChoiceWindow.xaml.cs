@@ -84,7 +84,7 @@ namespace MonsterHunterStories2
 			else if (Type == eType.TYPE_TALISMAN) infos = Info.Instance().Talisman;
 			else if (Type == eType.TYPE_TALISMAN_SKILL) infos = Info.Instance().TalismanSkill;
 			else if (Type == eType.TYPE_GENESKILL) infos = Info.Instance().GeneSkill;
-			else if (Type == eType.TYPE_ITEM_DESCRIPTION) infos = Info.Instance().ItemDescription;
+			//else if (Type == eType.TYPE_ITEM_DESCRIPTION) infos = Info.Instance().ItemDescription;
 
 			foreach (var info in infos)
 			{

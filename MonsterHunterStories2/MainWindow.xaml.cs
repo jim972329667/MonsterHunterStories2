@@ -19,6 +19,7 @@ namespace MonsterHunterStories2
 			//初始化图片
 			GenePNG.Bitmaps();
 			InitializeComponent();
+			DataBase.MainDataBase();
 		}
 
 		private void Window_PreviewDragOver(object sender, DragEventArgs e)

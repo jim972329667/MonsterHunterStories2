@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MonsterHunterStories2"
         mc:Ignorable="d"
-        Title="AddDB" Height="200" Width="400">
+        Title="AddDB" Height="280" Width="400">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
@@ -28,5 +29,17 @@
             <ComboBoxItem Content="Rides"/>
         </ComboBox>
         <Button Content="添加" Grid.Row="1" Grid.Column="1" Margin="10" Click="Add_Click"/>
+        <Label Grid.Row="2"  Content="GenePNGID：" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="2" Grid.Column="1" 
+                   Text="ID    Pattern number
+                   ID    Pattern number
+                   ID    ......." 
+                   HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" Width="139" Margin="66.4,5.8,58.2,-0.2" Height="52"/>
+        <Label Grid.Row="3"  Content="Other File：" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="3" Grid.Column="1" 
+                   Text="ID	日本語	English	한국어	简体中文	繁體中文...
+                   ID	日本語	English	한국어	简体中文	繁體中文...
+                   ID		......" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" />
     </Grid>
 </Window>

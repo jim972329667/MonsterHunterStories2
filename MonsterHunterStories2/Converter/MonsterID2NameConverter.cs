@@ -9,8 +9,10 @@ namespace MonsterHunterStories2
 		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
 		{
 			uint id = (uint)value;
-			if (id == 0) return Properties.Resources.MainNoneType;
-			return Info.Instance().Search(Info.Instance().Monster, id)?.Value;
+			string name = DataBase.GetConver(id, "Monsters");
+			if (id == 0 || string.IsNullOrEmpty(name)) return "未知";
+			//return Info.Instance().Search(Info.Instance().Monster, id)?.Value;
+			return name;
 		}
 
 		public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

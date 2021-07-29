@@ -10,7 +10,7 @@ namespace MonsterHunterStories2
     /// </summary>
     public partial class AddDB : Window
     {
-        private List<KeyValuesInfo> items { get; set; } = new List<KeyValuesInfo>();
+        private List<KeyValuesInfo> Items { get; set; } = new List<KeyValuesInfo>();
 
         public static Dictionary<uint, uint> GeneID = new Dictionary<uint, uint>();
         public AddDB()
@@ -40,8 +40,8 @@ namespace MonsterHunterStories2
                     else
                     {
                         AppendList(dlg.FileName);
-                        DataBase.AddDB(DBName, items);
-                        items.Clear();
+                        DataBase.AddDB(DBName, Items);
+                        Items.Clear();
                     }
                     MessageBox.Show("Success!");
                 }
@@ -62,7 +62,7 @@ namespace MonsterHunterStories2
                     KeyValuesInfo type = new KeyValuesInfo();
                     if (type.Line(values))
                     {
-                        items.Add(type);
+                        Items.Add(type);
                     }
                 }
             }

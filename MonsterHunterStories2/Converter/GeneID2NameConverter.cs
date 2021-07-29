@@ -9,7 +9,8 @@ namespace MonsterHunterStories2
 		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
 		{
 			uint id = (uint)value;
-			String name = Info.Instance().Search(Info.Instance().Gene, id)?.Value;
+			//String name = Info.Instance().Search(Info.Instance().Gene, id)?.Value;
+			String name = DataBase.GetConver(id, "Genes");
 			if (String.IsNullOrEmpty(name)) name = "Gene ID: " + id.ToString();
 			return name;
 		}

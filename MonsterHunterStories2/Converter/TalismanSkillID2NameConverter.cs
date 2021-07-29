@@ -9,7 +9,8 @@ namespace MonsterHunterStories2
 		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
 		{
 			uint id = (uint)value;
-			String name = Info.Instance().Search(Info.Instance().TalismanSkill, id)?.Value;
+			//String name = Info.Instance().Search(Info.Instance().TalismanSkill, id)?.Value;
+			String name = DataBase.GetConver(id, "Talisman_Skills");
 			if (id == 0) name = Properties.Resources.MainNoneType;
 			if (String.IsNullOrEmpty(name)) name = "ID: " + id.ToString();
 			return name;

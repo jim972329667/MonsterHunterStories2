@@ -45,10 +45,10 @@ namespace MonsterHunterStories2
 
 		private void Init()
 		{
-			AppendList("info\\item.txt", Item);
-			AppendList("info\\monster.txt", Monster);
+			//AppendList("info\\Item.txt", Item);
+			//AppendList("info\\monster.txt", Monster);
 			AppendList("info\\ride.txt", RideAction);
-			AppendList("info\\gene.txt", Gene);
+			//AppendList("info\\Gene.txt", Gene);
 
 			String[] weapons = { "greatsword.txt", "swordshield.txt", "hammer.txt", "huntinghorn.txt", "gunlance.txt", "bow.txt" };
 			for (uint i = 0; i < weapons.Length; i++)
@@ -60,8 +60,8 @@ namespace MonsterHunterStories2
 			}
 			AppendList("info\\armor.txt", Armor);
 			AppendList("info\\talisman.txt", Talisman);
-			AppendList("info\\talisman_skill.txt", TalismanSkill);
-			AppendList("info\\GeneSkill.txt", GeneSkill);
+			//AppendList("info\\Talisman_skill.txt", TalismanSkill);
+			//AppendList("info\\GeneSkill.txt", GeneSkill);
 			//AppendList("info\\ItemDescription.txt", ItemDescription);
 		}
 

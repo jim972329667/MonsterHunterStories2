@@ -21,6 +21,11 @@
             <ComboBoxItem Content="ItemDescriptions"/>
             <ComboBoxItem Content="GenePNGIDs"/>
             <ComboBoxItem Content="GeneSkills"/>
+            <ComboBoxItem Content="Genes"/>
+            <ComboBoxItem Content="Talisman_skills"/>
+            <ComboBoxItem Content="Items"/>
+            <ComboBoxItem Content="Monsters"/>
+            <ComboBoxItem Content="Rides"/>
         </ComboBox>
         <Button Content="添加" Grid.Row="1" Grid.Column="1" Margin="10" Click="Add_Click"/>
     </Grid>

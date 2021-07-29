@@ -16,10 +16,20 @@ namespace MonsterHunterStories2
 		private static readonly int EggLength = eggx.Length % 4 == 0 ? eggx.Length : (eggx.Length / 4 * 4) + 4;
         public MainWindow()
 		{
+			Init();
+			InitializeComponent();
+			
+		}
+		private void Init()
+        {
 			//初始化图片
 			GenePNG.Bitmaps();
-			InitializeComponent();
-			if (!File.Exists(@".\info\text.db")) MessageBox.Show("丢失数据库");
+			//检查数据库
+			if (!File.Exists(@".\info\MHS2.db")) MessageBox.Show("丢失数据库文件");
+			else
+			{
+				if (DataBase.ChickDB() != null) MessageBox.Show(DataBase.ChickDB());
+			}
 		}
 
 		private void Window_PreviewDragOver(object sender, DragEventArgs e)
@@ -78,8 +88,8 @@ namespace MonsterHunterStories2
 		private void ButtonChoiceItem_Click(object sender, RoutedEventArgs e)
 		{
 			bool Get = true;
-			bool AllHave = false;
-            ChoiceWindow dlg = new ChoiceWindow
+			int num = 0;
+			ChoiceWindow dlg = new ChoiceWindow
             {
                 Type = ChoiceWindow.eType.TYPE_ITEM
             };
@@ -87,21 +97,22 @@ namespace MonsterHunterStories2
 			dlg.ShowDialog();
 			ViewModel viewmodel = DataContext as ViewModel;
 			if (viewmodel == null) return;
-			foreach (KeyValuesInfo items in dlg.ListBoxItem.SelectedItems)
+			if (dlg.DialogResult == false) return;
+			foreach (DataBase.ConverList items in dlg.ListBoxItem.SelectedItems)
             {
                 uint id = items.Key;
+				
                 for (int i = 0; i < viewmodel.Items.Count; i++)
 				{
 					if (viewmodel.Items[i].ID == id)
 					{
 						Get = false;
-						AllHave = true;
 						break;
 					}
 				}
 				if (Get)
 				{
-					AllHave = false;
+					num++;
 					Item item = new Item(Util.ItemIDAddress(id))
 					{
 						ID = id,
@@ -113,7 +124,7 @@ namespace MonsterHunterStories2
 				else Get = true;
                 
 			}
-            if (AllHave) MessageBox.Show("已经全部拥有!");
+            if (num == 0) MessageBox.Show("已经全部拥有!");
 			else MessageBox.Show("Success!");
 		}
 

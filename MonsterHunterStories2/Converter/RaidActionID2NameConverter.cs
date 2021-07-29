@@ -9,7 +9,7 @@ namespace MonsterHunterStories2
 		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
 		{
 			uint id = (uint)value;
-			return Info.Instance().Search(Info.Instance().RideAction, id)?.Value;
+			return DataBase.GetConver(id, "Rides");
 		}
 
 		public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

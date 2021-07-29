@@ -17,7 +17,7 @@ namespace MonsterHunterStories2
 
 		public ViewModel()
 		{
-			foreach(var itemInfo in Info.Instance().Item)
+			foreach(var itemInfo in DataBase.GetConverList("Items"))
 			{
 				uint address = Util.ItemIDAddress(itemInfo.Key);
 				Item item = new Item(address);

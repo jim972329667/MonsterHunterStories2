@@ -5,6 +5,7 @@ using Microsoft.Win32;
 using System.Collections;
 using System.IO;
 using LiteDB;
+using System.ComponentModel;
 
 namespace MonsterHunterStories2
 {
@@ -131,8 +132,8 @@ namespace MonsterHunterStories2
 				else Get = true;
                 
 			}
-            if (num == 0) MessageBox.Show("已经全部拥有!");
-			else MessageBox.Show("Success!");
+			if (num == 0) MessageBox.Show(Properties.Resources.MessageFailAddItem);
+			else MessageBox.Show(string.Format(Properties.Resources.MessageSuccessAddItem, num.ToString()));
 		}
 
 		private void ButtonChoiceMonster_Click(object sender, RoutedEventArgs e)
@@ -221,7 +222,7 @@ namespace MonsterHunterStories2
                         }
                     }
                 }
-				MessageBox.Show("Success");
+				MessageBox.Show(Properties.Resources.MessageSuccess);
 			}
         }
         private void ButtonEggFileSave(object sender, RoutedEventArgs e)
@@ -364,7 +365,7 @@ namespace MonsterHunterStories2
 				uint x = Util.Guide_Monster + (uint)(i - 1) * 2;
 				SaveData.Instance().WriteNumber(x, 2, 1);
 			}
-			MessageBox.Show("Success!");
+			MessageBox.Show(Properties.Resources.MessageSuccess);
 		}
 
 		private void ButtonBaseAllKinship(object sender, RoutedEventArgs e)
@@ -380,7 +381,7 @@ namespace MonsterHunterStories2
 					//x.BattlesWon = 100;
                 }
 			}
-			MessageBox.Show("Success");
+			MessageBox.Show(Properties.Resources.MessageSuccess);
 		}
 		private void ButtonItemAllMax(object sender, RoutedEventArgs e)
 		{
@@ -394,7 +395,7 @@ namespace MonsterHunterStories2
 					if(x.ID <= 1750) x.Count = 900;
 				}
 			}
-			MessageBox.Show("Success");
+			MessageBox.Show(Properties.Resources.MessageSuccess);
 		}
 		
 		//private void Button111(object sender, RoutedEventArgs e)

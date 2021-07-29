@@ -10,7 +10,7 @@ namespace MonsterHunterStories2
 		{
 			uint id = (uint)value;
 			string name = DataBase.GetConver(id, "Monsters");
-			if (id == 0 || string.IsNullOrEmpty(name)) return "未知";
+			if (id == 0 || string.IsNullOrEmpty(name)) return Properties.Resources.ErrorUnknowMonster;
 			//return Info.Instance().Search(Info.Instance().Monster, id)?.Value;
 			return name;
 		}

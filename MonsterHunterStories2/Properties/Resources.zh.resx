@@ -138,6 +138,9 @@
   <data name="ErrorLosingTXTFile" xml:space="preserve">
     <value>缺失数据文件：</value>
   </data>
+  <data name="ErrorUnknowMonster" xml:space="preserve">
+    <value>未知</value>
+  </data>
   <data name="MainBasicMoney" xml:space="preserve">
     <value>金币</value>
   </data>
@@ -383,5 +386,14 @@
   </data>
   <data name="MainTabMonster" xml:space="preserve">
     <value>随行兽</value>
+  </data>
+  <data name="MessageFailAddItem" xml:space="preserve">
+    <value>全部已经拥有了。</value>
+  </data>
+  <data name="MessageSuccess" xml:space="preserve">
+    <value>成功</value>
+  </data>
+  <data name="MessageSuccessAddItem" xml:space="preserve">
+    <value>成功添加 {0} 个物品</value>
   </data>
 </root>

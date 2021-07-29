@@ -1,4 +1,5 @@
 ﻿using LiteDB;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows;
@@ -20,10 +21,19 @@ namespace MonsterHunterStories2
             public uint ID { get; set; }
             public string[] LanguageList { get; set; }
         }
-        public class ConverList
+        public class ConverList : IComparable
         {
             public uint Key { get; set; }
             public string Value { get; set; }
+            public int CompareTo(object obj)
+            {
+                var dist = obj as ConverList;
+                if (dist == null) return 0;
+
+                if (Key < dist.Key) return -1;
+                else if (Key > dist.Key) return 1;
+                else return 0;
+            }
         }
 
         public static string Path = @".\info\MHS2.db";
@@ -156,6 +166,7 @@ namespace MonsterHunterStories2
                 };
                 ReturnList.Add(list);
             }
+            ReturnList.Sort();
             return ReturnList;
         }
         public static string ChickDB()

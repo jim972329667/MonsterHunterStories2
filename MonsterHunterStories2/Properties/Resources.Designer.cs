@@ -124,6 +124,15 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Unknow 的本地化字符串。
+        /// </summary>
+        public static string ErrorUnknowMonster {
+            get {
+                return ResourceManager.GetString("ErrorUnknowMonster", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
         public static System.Drawing.Bitmap Gene_Table {
@@ -868,6 +877,33 @@ namespace MonsterHunterStories2.Properties {
         public static string MainTabMonster {
             get {
                 return ResourceManager.GetString("MainTabMonster", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Have it all ! 的本地化字符串。
+        /// </summary>
+        public static string MessageFailAddItem {
+            get {
+                return ResourceManager.GetString("MessageFailAddItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Success 的本地化字符串。
+        /// </summary>
+        public static string MessageSuccess {
+            get {
+                return ResourceManager.GetString("MessageSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Successfully adding {0} items 的本地化字符串。
+        /// </summary>
+        public static string MessageSuccessAddItem {
+            get {
+                return ResourceManager.GetString("MessageSuccessAddItem", resourceCulture);
             }
         }
     }

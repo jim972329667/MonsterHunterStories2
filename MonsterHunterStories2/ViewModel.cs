@@ -17,15 +17,19 @@ namespace MonsterHunterStories2
 
 		public ViewModel()
 		{
-			foreach(var itemInfo in DataBase.GetConverList("Items"))
-			{
-				uint address = Util.ItemIDAddress(itemInfo.Key);
-				Item item = new Item(address);
-				if (item.ID == 0) continue;
-				if (item.Count == 0) continue;
+			if(DataBase.GetConverList("Items") != null)
+            {
+				foreach (var itemInfo in DataBase.GetConverList("Items"))
+				{
+					uint address = Util.ItemIDAddress(itemInfo.Key);
+					Item item = new Item(address);
+					if (item.ID == 0) continue;
+					if (item.Count == 0) continue;
 
-				Items.Add(item);
+					Items.Add(item);
+				}
 			}
+			
 
 			for (uint i = 0; i < Util.CHARACTER_COUNT; i++)
 			{

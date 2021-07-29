@@ -3,9 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:prop="clr-namespace:MonsterHunterStories2.Properties"
         xmlns:local="clr-namespace:MonsterHunterStories2"
         mc:Ignorable="d"
-        Title="AddDB" Height="280" Width="400">
+        Title="{x:Static prop:Resources.AddDBTitle}" Height="280" Width="400">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -17,7 +18,7 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Label Content="选择需要添加的数据库" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Text="{x:Static prop:Resources.AddDBSelect}" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"/>
         <ComboBox Grid.Column="1" x:Name="AddDBList" Margin="10">
             <ComboBoxItem Content="ItemDescriptions"/>
             <ComboBoxItem Content="GenePNGIDs"/>
@@ -28,7 +29,7 @@
             <ComboBoxItem Content="Monsters"/>
             <ComboBoxItem Content="Rides"/>
         </ComboBox>
-        <Button Content="添加" Grid.Row="1" Grid.Column="1" Margin="10" Click="Add_Click"/>
+        <Button Content="{x:Static prop:Resources.AddDBUpdateButton}" Grid.Row="1" Grid.Column="1" Margin="10" Click="Add_Click"/>
         <Label Grid.Row="2"  Content="GenePNGID：" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <TextBlock Grid.Row="2" Grid.Column="1" 
                    Text="ID    Pattern number

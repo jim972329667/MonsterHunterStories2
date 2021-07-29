@@ -46,6 +46,10 @@ namespace MonsterHunterStories2
         {
             
         }
+        private static int GetMax(int num1, int num2)
+        {
+            return num1 > num2 ? num1 : num2;
+        }
         public static void AddDB(string DBName , List<KeyValuesInfo> items)
         {
             db.Dispose();
@@ -53,12 +57,42 @@ namespace MonsterHunterStories2
             var col = newdb.GetCollection<DB_General>(DBName);
             foreach (KeyValuesInfo x in items)
             {
-                var customer = new DB_General
+                var u = col.FindOne(a => a.ID == x.Key);
+                if(u != null)
                 {
-                    ID = x.Key,
-                    LanguageList = x.Values
-                };
-                col.Upsert(customer);
+                    int maxlength = GetMax(u.LanguageList.Length, x.Values.Length);
+                    string[] returnvalue = new string[maxlength];
+                    for (int i = 0; i < maxlength; i++)
+                    {
+                        if (i < x.Values.Length)
+                        {
+                            if (x.Values[i] == "")
+                                returnvalue[i] = u.LanguageList[i];
+                            else returnvalue[i] = x.Values[i];
+                        }
+                        else
+                        {
+                            returnvalue[i] = u.LanguageList[i];
+                        }
+                    }
+                    var customer = new DB_General
+                    {
+                        ID = x.Key,
+                        LanguageList = returnvalue
+                    };
+                    col.EnsureIndex(a => a.ID);
+                    col.Upsert(customer);
+                }
+                else
+                {
+                    var customer = new DB_General
+                    {
+                        ID = x.Key,
+                        LanguageList = x.Values
+                    };
+                    col.EnsureIndex(a => a.ID);
+                    col.Upsert(customer);
+                }    
             }
             newdb.Dispose();
             db = new LiteDatabase("Filename = info\\MHS2.db; ReadOnly=true");
@@ -76,6 +110,7 @@ namespace MonsterHunterStories2
                     ID = x.Key,
                     PNGID = x.Value
                 };
+                col.EnsureIndex(a => a.ID);
                 col.Upsert(customer);
             }
             newdb.Dispose();
@@ -130,7 +165,7 @@ namespace MonsterHunterStories2
             {
                 if(!db.CollectionExists(DBTABLE[i]))
                 {
-                    LosingTXT += "丢失数据：" + DBTABLE[i].Substring(0, DBTABLE[i].Length - 1) + ".txt\n";
+                    LosingTXT += Properties.Resources.ErrorLosingTXTFile + DBTABLE[i].Substring(0, DBTABLE[i].Length - 1) + ".txt\n";
                 }
             }
             return LosingTXT;

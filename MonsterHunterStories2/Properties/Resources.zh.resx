@@ -117,11 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddDBSelect" xml:space="preserve">
+    <value>选择你要添加的数据库</value>
+  </data>
+  <data name="AddDBTitle" xml:space="preserve">
+    <value>更新数据库</value>
+  </data>
+  <data name="AddDBUpdateButton" xml:space="preserve">
+    <value>升级</value>
+  </data>
   <data name="ApplicationTitle" xml:space="preserve">
     <value>怪物猎人物语2：毁灭之翼</value>
   </data>
   <data name="ErrorForEggChoice" xml:space="preserve">
     <value>请选择一个蛋格子！</value>
+  </data>
+  <data name="ErrorLosingDBFile" xml:space="preserve">
+    <value>丢失数据库文件！</value>
+  </data>
+  <data name="ErrorLosingTXTFile" xml:space="preserve">
+    <value>缺失数据文件：</value>
   </data>
   <data name="MainBasicMoney" xml:space="preserve">
     <value>金币</value>
@@ -260,6 +275,9 @@
   </data>
   <data name="MainMenuSaveforConvert" xml:space="preserve">
     <value>存档格式</value>
+  </data>
+  <data name="MainMenuUpdateDB" xml:space="preserve">
+    <value>添加/更新数据库</value>
   </data>
   <data name="MainMonsterAllKinshipMax" xml:space="preserve">
     <value>所有随从牵绊最大</value>

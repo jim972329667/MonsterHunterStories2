@@ -17,7 +17,6 @@ namespace MonsterHunterStories2
         {
             InitializeComponent();
         }
-        private static string xname = "ID\tPattern number";
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             if(AddDBList.SelectedItem != null)

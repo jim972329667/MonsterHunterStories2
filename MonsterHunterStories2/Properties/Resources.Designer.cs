@@ -61,6 +61,33 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Please select a data to update : 的本地化字符串。
+        /// </summary>
+        public static string AddDBSelect {
+            get {
+                return ResourceManager.GetString("AddDBSelect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Update DB file 的本地化字符串。
+        /// </summary>
+        public static string AddDBTitle {
+            get {
+                return ResourceManager.GetString("AddDBTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Update 的本地化字符串。
+        /// </summary>
+        public static string AddDBUpdateButton {
+            get {
+                return ResourceManager.GetString("AddDBUpdateButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Monster Hunter Stories 2 的本地化字符串。
         /// </summary>
         public static string ApplicationTitle {
@@ -75,6 +102,24 @@ namespace MonsterHunterStories2.Properties {
         public static string ErrorForEggChoice {
             get {
                 return ResourceManager.GetString("ErrorForEggChoice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Lost database file ! 的本地化字符串。
+        /// </summary>
+        public static string ErrorLosingDBFile {
+            get {
+                return ResourceManager.GetString("ErrorLosingDBFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Lost txt file : 的本地化字符串。
+        /// </summary>
+        public static string ErrorLosingTXTFile {
+            get {
+                return ResourceManager.GetString("ErrorLosingTXTFile", resourceCulture);
             }
         }
         
@@ -499,6 +544,15 @@ namespace MonsterHunterStories2.Properties {
         public static string MainMenuSaveforConvert {
             get {
                 return ResourceManager.GetString("MainMenuSaveforConvert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Add or Upgrade Database 的本地化字符串。
+        /// </summary>
+        public static string MainMenuUpdateDB {
+            get {
+                return ResourceManager.GetString("MainMenuUpdateDB", resourceCulture);
             }
         }
         

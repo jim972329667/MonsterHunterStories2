@@ -27,7 +27,7 @@
                 <MenuItem Header="{x:Static prop:Resources.MainMenuFileExit}" Click="MenuItemFileExit_Click"/>
             </MenuItem>
             <MenuItem Header="{x:Static prop:Resources.MainMenuAbout}" Click="MenuItemAbout_Click"/>
-            <MenuItem Header="添加/更新数据库" Click="MenuAddDB_Click"/>
+            <MenuItem Header="{x:Static prop:Resources.MainMenuUpdateDB}" Click="MenuAddDB_Click"/>
         </Menu>
         <ToolBar DockPanel.Dock="Top">
             <Button Height="32" ToolTip="Open" Click="MenuItemFileOpen_Click">

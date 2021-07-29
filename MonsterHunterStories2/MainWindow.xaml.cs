@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using Microsoft.Win32;
 using System.Collections;
 using System.IO;
+using LiteDB;
 
 namespace MonsterHunterStories2
 {
@@ -25,7 +26,13 @@ namespace MonsterHunterStories2
 			//初始化图片
 			GenePNG.Bitmaps();
 			//检查数据库
-			if (!File.Exists(@".\info\MHS2.db")) MessageBox.Show("丢失数据库文件");
+			if (!File.Exists(@".\info\MHS2.db"))
+			{
+				MessageBox.Show(Properties.Resources.ErrorLosingDBFile);
+				LiteDatabase db = new LiteDatabase("Filename = info\\MHS2.db");
+				db.Dispose();
+				if (DataBase.ChickDB() != null) MessageBox.Show(DataBase.ChickDB());
+			}
 			else
 			{
 				if (DataBase.ChickDB() != null) MessageBox.Show(DataBase.ChickDB());

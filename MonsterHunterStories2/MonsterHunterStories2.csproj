@@ -77,10 +77,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AboutWindow.xaml.cs">
+    <Compile Include="WPF\AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddDB.xaml.cs">
+    <Compile Include="WPF\AddDB.xaml.cs">
       <DependentUpon>AddDB.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converter\GeneID2SkillConverter.cs" />
@@ -89,7 +89,7 @@
     <Compile Include="Converter\ArmorID2NameConverter.cs" />
     <Compile Include="Core\Character.cs" />
     <Compile Include="Converter\CharacterVisibleConverter.cs" />
-    <Compile Include="ChoiceWindow.xaml.cs">
+    <Compile Include="WPF\ChoiceWindow.xaml.cs">
       <DependentUpon>ChoiceWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Core\Egg.cs" />
@@ -97,13 +97,12 @@
     <Compile Include="Core\Gene.cs" />
     <Compile Include="Converter\GeneID2NameConverter.cs" />
     <Compile Include="Core\GenePNG.cs" />
-    <Compile Include="DataBase.cs" />
-    <Compile Include="ILineAnalysis.cs" />
-    <Compile Include="Info.cs" />
+    <Compile Include="Util\DataBase.cs" />
+    <Compile Include="Util\ILineAnalysis.cs" />
     <Compile Include="Core\Item.cs" />
     <Compile Include="Converter\ItemID2NameConverter.cs" />
     <Compile Include="Core\Monster.cs" />
-    <Compile Include="KeyValuesInfo.cs" />
+    <Compile Include="Util\KeyValuesInfo.cs" />
     <Compile Include="Converter\MonsterID2NameConverter.cs" />
     <Compile Include="Properties\Resources.zh.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -111,23 +110,23 @@
       <DependentUpon>Resources.zh.resx</DependentUpon>
     </Compile>
     <Compile Include="Converter\RaidActionID2NameConverter.cs" />
-    <Compile Include="SaveData.cs" />
+    <Compile Include="Util\SaveData.cs" />
     <Compile Include="Core\Talisman.cs" />
     <Compile Include="Converter\TalismanID2NameConverter.cs" />
     <Compile Include="Converter\TalismanSkillID2NameConverter.cs" />
-    <Compile Include="Util.cs" />
-    <Compile Include="ViewModel.cs" />
+    <Compile Include="Util\Util.cs" />
+    <Compile Include="Util\ViewModel.cs" />
     <Compile Include="Core\Weapon.cs" />
     <Compile Include="Converter\WeaponID2NameConverter.cs" />
-    <Page Include="AboutWindow.xaml">
+    <Page Include="WPF\AboutWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AddDB.xaml">
+    <Page Include="WPF\AddDB.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ChoiceWindow.xaml">
+    <Page Include="WPF\ChoiceWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

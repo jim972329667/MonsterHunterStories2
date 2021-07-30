@@ -314,6 +314,7 @@ namespace MonsterHunterStories2
         }
         public static void UpdateDB_Weapon(List<DB_Equipment> items)
         {
+            int language = Properties.Settings.Default.Langage;
             db.Dispose();
             var newdb = new LiteDatabase(Path);
             var col = newdb.GetCollection<DB_Equipment>("Weapons");
@@ -324,6 +325,15 @@ namespace MonsterHunterStories2
                 {
                     col.EnsureIndex(a => a.Keys);
                     col.Upsert(x);
+                }
+                else
+                {
+                    if (x.LanguageList.Length <= language) language = 0;
+                    if (old.LanguageList[language] == "" || old.LanguageList[language] == null)
+                    {
+                        col.EnsureIndex(a => a.Keys);
+                        col.Upsert(x);
+                    }
                 }
             }
             newdb.Dispose();

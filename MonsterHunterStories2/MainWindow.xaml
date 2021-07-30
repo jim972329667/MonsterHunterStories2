@@ -26,8 +26,8 @@
                 <Separator/>
                 <MenuItem Header="{x:Static prop:Resources.MainMenuFileExit}" Click="MenuItemFileExit_Click"/>
             </MenuItem>
-            <MenuItem Header="{x:Static prop:Resources.MainMenuAbout}" Click="MenuItemAbout_Click"/>
-            <MenuItem Header="{x:Static prop:Resources.MainMenuUpdateDB}" Click="MenuAddDB_Click"/>
+            <MenuItem Header="{x:Static prop:Resources.MainMenuAbout}" Click="MenuItemAbout_Click" Margin="10,0,0,0"/>
+            <MenuItem Header="{x:Static prop:Resources.MainMenuUpdateDB}" Click="MenuAddDB_Click" Margin="10,0,0,0"/>
         </Menu>
         <ToolBar DockPanel.Dock="Top">
             <Button Height="32" ToolTip="Open" Click="MenuItemFileOpen_Click">
@@ -36,7 +36,7 @@
             <Button Height="32" ToolTip="Save" Click="MenuItemFileSave_Click">
                 <Image Source="{StaticResource Save}"/>
             </Button>
-            <ComboBox x:Name="LanguageBox" Margin="10,0,0,0" SelectedIndex="{Binding Path=Langage, Source={x:Static prop:Settings.Default}}">
+            <ComboBox x:Name="LanguageBox" Margin="10,0,0,0" SelectedIndex="{Binding Path=Langage, Source={x:Static prop:Settings.Default}}" Width="80">
                 <ComboBoxItem Content="Japanese"/>
                 <ComboBoxItem Content="English"/>
                 <ComboBoxItem Content="Korean"/>
@@ -47,7 +47,7 @@
             <CheckBox Margin="10,0,0,0" IsChecked="{Binding Path=PCConfirm, Source={x:Static prop:Settings.Default}}" VerticalAlignment="Center"  BorderBrush="#FFFE0000">
                 <Label Content="PC?" VerticalAlignment="Center"/>
             </CheckBox>
-            <Label Margin="20,0,0,0" Content="{x:Static prop:Resources.MainMenuSaveforConvert}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Margin="10,0,0,0" Content="{x:Static prop:Resources.MainMenuSaveforConvert}" HorizontalAlignment="Center" VerticalAlignment="Center" />
             <ComboBox SelectedIndex="{Binding SaveConvert}">
                 <ComboBoxItem Content="Switch"/>
                 <ComboBoxItem Content="PC"/>
@@ -233,7 +233,7 @@
                                 </Grid.RowDefinitions>
                                 <Button Grid.Row="3" Grid.ColumnSpan="3" Content="{x:Static prop:Resources.MainMonsterStackMax}" Click="ButtonMonsterGeneStackMax_Click"/>
                                 <Button Grid.Row="4" Grid.ColumnSpan="3" Content="{x:Static prop:Resources.MainMonsterUnlock}" Click="ButtonMonsterGeneUnlock_Click"/>
-                                
+
                                 <Grid Grid.Row="0" Grid.Column="0" DataContext="{Binding ElementName=ListBoxMonster,Path=SelectedItem.Genes[0]}">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="3*"/>
@@ -522,7 +522,7 @@
                                 <Label Content="{x:Static prop:Resources.MainMonsterHP}"/>
                                 <TextBox Grid.Column="1" Text="{Binding ElementName=ListBoxMonster, Path=SelectedItem.HPBonus, UpdateSourceTrigger=PropertyChanged}"/>
                                 <Label  Grid.Row="1" Content="{x:Static prop:Resources.MainMonsterNormalAttack}"/>
-                                <TextBox  Grid.Row="1" Grid.Column="1" Text="{Binding ElementName=ListBoxMonster, Path=SelectedItem.NormalElementAttackBonus, UpdateSourceTrigger=PropertyChanged}"/>                                
+                                <TextBox  Grid.Row="1" Grid.Column="1" Text="{Binding ElementName=ListBoxMonster, Path=SelectedItem.NormalElementAttackBonus, UpdateSourceTrigger=PropertyChanged}"/>
                                 <Label Grid.Row="2" Content="{x:Static prop:Resources.MainMonsterFireAttack}"/>
                                 <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding ElementName=ListBoxMonster, Path=SelectedItem.FireElementAttackBonus, UpdateSourceTrigger=PropertyChanged}"/>
                                 <Label Grid.Row="3" Content="{x:Static prop:Resources.MainMonsterWaterAttack}"/>
@@ -607,7 +607,7 @@
                             <Button Grid.Column="1" Margin="10" Click="ButtonEggFileSave">
                                 <TextBlock Text="{x:Static prop:Resources.MainEggSaveEggFile}" TextWrapping="Wrap" />
                             </Button>
-                        </Grid>        
+                        </Grid>
                     </Grid>
                     <TabControl Grid.Column="2">
                         <TabItem Header="{x:Static prop:Resources.MainEggTabGene}">

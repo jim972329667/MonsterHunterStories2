@@ -12,7 +12,7 @@ namespace MonsterHunterStories2
 			//String name = Info.Instance().Search(Info.Instance().TalismanSkill, id)?.Value;
 			String name = DataBase.GetConver(id, "Talisman_Skills");
 			if (id == 0) name = Properties.Resources.MainNoneType;
-			if (String.IsNullOrEmpty(name)) name = "ID: " + id.ToString();
+			if (String.IsNullOrEmpty(name)) name = Properties.Resources.ErrorUnknowTalismanSkill + ": " + id.ToString();
 			return name;
 		}
 

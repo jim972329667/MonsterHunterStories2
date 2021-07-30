@@ -9,9 +9,9 @@ namespace MonsterHunterStories2
 		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
 		{
 			uint id = (uint)value;
-			String name = Info.Instance().Search(Info.Instance().Armor, id)?.Value;
+			String name = DataBase.GetConver(id, "Armors");
 			if (id == 0) name = Properties.Resources.MainNoneType;
-			if (String.IsNullOrEmpty(name)) name = "ID: " + id.ToString();
+			if (String.IsNullOrEmpty(name)) name = Properties.Resources.ErrorUnknowArmor + ": " + id.ToString();
 			return name;
 		}
 

@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddDBCheckUpdate" xml:space="preserve">
+    <value>Whether to update the database based on the save file?</value>
+  </data>
   <data name="AddDBSelect" xml:space="preserve">
     <value>Please select a data to update :</value>
   </data>
@@ -138,8 +141,29 @@
   <data name="ErrorLosingTXTFile" xml:space="preserve">
     <value>Lost txt file :</value>
   </data>
-  <data name="ErrorUnknowMonster" xml:space="preserve">
+  <data name="ErrorUnknow" xml:space="preserve">
     <value>Unknow</value>
+  </data>
+  <data name="ErrorUnknowArmor" xml:space="preserve">
+    <value>Unknow Armor</value>
+  </data>
+  <data name="ErrorUnknowGene" xml:space="preserve">
+    <value>Unknow Gene</value>
+  </data>
+  <data name="ErrorUnknowItem" xml:space="preserve">
+    <value>Unknow Item</value>
+  </data>
+  <data name="ErrorUnknowMonster" xml:space="preserve">
+    <value>Unknow Monster</value>
+  </data>
+  <data name="ErrorUnknowTalisman" xml:space="preserve">
+    <value>Unknow Talisman</value>
+  </data>
+  <data name="ErrorUnknowTalismanSkill" xml:space="preserve">
+    <value>Unknow Talisman Skill</value>
+  </data>
+  <data name="ErrorUnknowWeapon" xml:space="preserve">
+    <value>Unknow Weapon</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="Gene_Table" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -391,6 +415,9 @@
   <data name="MainTabMonster" xml:space="preserve">
     <value>Monster</value>
   </data>
+  <data name="MessageCheckUpdate" xml:space="preserve">
+    <value>Whether the database is automatically updated with the save file. Attention! Opening the wrong save file can cause database corruption. Whether to confirm ?</value>
+  </data>
   <data name="MessageFailAddItem" xml:space="preserve">
     <value>Have it all !</value>
   </data>
@@ -399,5 +426,8 @@
   </data>
   <data name="MessageSuccessAddItem" xml:space="preserve">
     <value>Successfully adding {0} items</value>
+  </data>
+  <data name="MessageWarning" xml:space="preserve">
+    <value>Warning !!!</value>
   </data>
 </root>

@@ -1,7 +1,6 @@
-﻿using Microsoft.Win32;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows;
-
+using Microsoft.Win32;
 
 namespace MonsterHunterStories2
 {
@@ -13,6 +12,16 @@ namespace MonsterHunterStories2
         private List<KeyValuesInfo> Items { get; set; } = new List<KeyValuesInfo>();
 
         public static Dictionary<uint, uint> GeneID = new Dictionary<uint, uint>();
+        //private Dictionary<uint, List<KeyValuesInfo>> Weapon { get; set; } = new Dictionary<uint, List<KeyValuesInfo>>();
+        private static readonly Dictionary<string, uint> WeaponType = new Dictionary<string, uint>()
+        {
+            {"greatsword.txt",0 },
+            {"swordshield.txt",1 },
+            {"hammer.txt",2 },
+            {"huntinghorn.txt",3 },
+            {"gunlance.txt",4 },
+            {"bow.txt",5 }
+        };
         public AddDB()
         {
             InitializeComponent();
@@ -22,28 +31,54 @@ namespace MonsterHunterStories2
             if(AddDBList.SelectedItem != null)
             {
                 string DBName = AddDBList.SelectedItem.ToString().Replace("System.Windows.Controls.ComboBoxItem: ", "");
-                string filename = "TXT File|" + DBName.Substring(0, DBName.Length - 1) + ".txt";
-                OpenFileDialog dlg = new OpenFileDialog
+                if(DBName == "Weapons")
                 {
-                    DefaultExt = ".txt",
-                    Filter = filename
-                };
-                if (dlg.ShowDialog() != false)
-                {
-                    if(DBName == "GenePNGIDs")
+                    OpenFileDialog dlg = new OpenFileDialog
                     {
-                        AppendDic(dlg.FileName);
-                        DataBase.AddDB_PNGID(DBName, GeneID);
-                        GeneID.Clear();
-                    }
-                    else
+                        Multiselect = true,
+                        DefaultExt = ".txt",
+                        Filter = "TXT File|greatsword.txt;swordshield.txt;hammer.txt;huntinghorn.txt;gunlance.txt;bow.txt"
+                    };
+                    if (dlg.ShowDialog() != false)
                     {
-                        AppendList(dlg.FileName);
-                        DataBase.AddDB(DBName, Items);
-                        Items.Clear();
+                        string[] files = dlg.FileNames;
+                        string[] filesName = dlg.SafeFileNames;
+
+                        for (uint i = 0; i < files.Length; i++)
+                        {
+                            AppendList(files[i]);
+                            Items.Sort();
+                            DataBase.AddDB_Weapon(DBName, Items, WeaponType[filesName[i].ToLower()]);
+                            Items.Clear();
+                        }
+                        MessageBox.Show(Properties.Resources.MessageSuccess);
                     }
-                    MessageBox.Show("Success!");
                 }
+                else
+                {
+                    string filename = "TXT File|" + DBName.Substring(0, DBName.Length - 1) + ".txt";
+                    OpenFileDialog dlg = new OpenFileDialog
+                    {
+                        DefaultExt = ".txt",
+                        Filter = filename
+                    };
+                    if (dlg.ShowDialog() != false)
+                    {
+                        if (DBName == "GenePNGIDs")
+                        {
+                            AppendDic(dlg.FileName);
+                            DataBase.AddDB_PNGID(DBName, GeneID);
+                            GeneID.Clear();
+                        }
+                        else
+                        {
+                            AppendList(dlg.FileName);
+                            DataBase.AddDB(DBName, Items);
+                            Items.Clear();
+                        }
+                        MessageBox.Show(Properties.Resources.MessageSuccess);
+                    }
+                } 
             }
         }
         private void AppendList(string filename)
@@ -66,6 +101,27 @@ namespace MonsterHunterStories2
                 }
             }
         }
+        private void AppendList<Type>(string filename, List<Type> items)
+            where Type : ILineAnalysis, new()
+        {
+            if (!System.IO.File.Exists(filename)) return;
+            string[] lines = System.IO.File.ReadAllLines(filename);
+            foreach (string line in lines)
+            {
+                if (line.Length < 3) continue;
+                if (line[0] == '#') continue;
+                string[] values = line.Split('\t');
+                if (values.Length < 2) continue;
+                if (string.IsNullOrEmpty(values[0])) continue;
+
+                Type type = new Type();
+                if (type.Line(values))
+                {
+                    items.Add(type);
+                }
+            }
+            items.Sort();
+        }
         private static void AppendDic(string FileName)
         {
             if (!System.IO.File.Exists(FileName)) return;
@@ -80,6 +136,27 @@ namespace MonsterHunterStories2
                 _ = uint.TryParse(values[0], out uint result1);
                 _ = uint.TryParse(values[1], out uint result2);
                 GeneID.Add(result1, result2);
+            }
+        }
+
+        private void CheckBox_Click(object sender, RoutedEventArgs e)
+        {
+            if (CheckUpdate.IsChecked == true)
+            {
+                string message = Properties.Resources.MessageCheckUpdate;
+                string caption = Properties.Resources.MessageWarning;
+                MessageBoxButton buttons = MessageBoxButton.YesNo;
+                MessageBoxResult result = MessageBox.Show(this, message, caption, buttons, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    Properties.Settings.Default.IsUpdate = true;
+                    var x = Properties.Settings.Default.IsUpdate;
+                }
+                else
+                {
+                    CheckUpdate.IsChecked = false;
+                    Properties.Settings.Default.IsUpdate = false;
+                }
             }
         }
     }

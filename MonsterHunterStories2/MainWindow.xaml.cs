@@ -5,7 +5,6 @@ using Microsoft.Win32;
 using System.Collections;
 using System.IO;
 using LiteDB;
-using System.ComponentModel;
 
 namespace MonsterHunterStories2
 {
@@ -16,11 +15,13 @@ namespace MonsterHunterStories2
 	{
 		private static readonly byte[] eggx = System.Text.Encoding.Default.GetBytes("MHS2_EGGx");
 		private static readonly int EggLength = eggx.Length % 4 == 0 ? eggx.Length : (eggx.Length / 4 * 4) + 4;
+		public static int MaxLanguage = 0;
+		public static bool IsOpen = false;
         public MainWindow()
 		{
 			Init();
 			InitializeComponent();
-			
+			GetMaxLanguage();
 		}
 		private void Init()
         {
@@ -55,13 +56,14 @@ namespace MonsterHunterStories2
 		private void Window_Closed(object sender, EventArgs e)
 		{
 			Properties.Settings.Default.Save();
+			DataBase.GetUpdate(IsOpen);
 		}
 
 		private void MenuItemFileOpen_Click(object sender, RoutedEventArgs e)
 		{
 			var dlg = new OpenFileDialog();
 			if (dlg.ShowDialog() == false) return;
-
+			IsOpen = true;
 			FileOpen(dlg.FileName);
 		}
 
@@ -153,7 +155,7 @@ namespace MonsterHunterStories2
                 Type = ChoiceWindow.eType.TYPE_WEAPON,
                 WeaponType = weapon.Type
             };
-            if (dlg.WeaponType >= Info.Instance().Weapon.Count) dlg.WeaponType = 0;
+            //if (dlg.WeaponType >= Info.Instance().Weapon.Count) dlg.WeaponType = 0;
 			if (dlg.ShowDialog() == false) return;
 
 			weapon.ID = dlg.ID;
@@ -397,6 +399,10 @@ namespace MonsterHunterStories2
 			}
 			MessageBox.Show(Properties.Resources.MessageSuccess);
 		}
+		public void GetMaxLanguage()
+        {
+			MaxLanguage = LanguageBox.Items.Count;
+        }
 		
 		//private void Button111(object sender, RoutedEventArgs e)
   //      {

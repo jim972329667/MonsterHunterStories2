@@ -13,7 +13,7 @@ namespace MonsterHunterStories2
 			//String Name = Info.Instance().Search(Info.Instance().Gene, id)?.Value;
 			String Name = DataBase.GetConver(id, "Genes");
 			if (String.IsNullOrEmpty(Skill)) Skill = Properties.Resources.MainNoneType;
-			if (String.IsNullOrEmpty(Name)) Name = "Gene ID: " + id.ToString();
+			if (String.IsNullOrEmpty(Name)) Name = Properties.Resources.ErrorUnknowGene + ": " + id.ToString();
 			String ReturnStr = Name + "\n" + Skill;
 			
 			return ReturnStr;

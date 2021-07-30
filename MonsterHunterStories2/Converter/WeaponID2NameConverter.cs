@@ -10,9 +10,15 @@ namespace MonsterHunterStories2
 		{
 			uint id = (uint)values[0];
 			uint type = (uint)values[1];
-			if (Info.Instance().Weapon.Count <= type) return "";
-
-			return Info.Instance().Search(Info.Instance().Weapon[type], id)?.Value;
+			String name = DataBase.GetWeaponConver(id, type);
+			if (String.IsNullOrEmpty(name))
+			{
+				if (type == 0x7fff)
+					name = Properties.Resources.MainNoneType;
+				else
+					name = Properties.Resources.ErrorUnknowWeapon;
+			}
+			return name;
 		}
 
 		public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)

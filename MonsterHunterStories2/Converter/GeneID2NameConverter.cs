@@ -11,7 +11,7 @@ namespace MonsterHunterStories2
 			uint id = (uint)value;
 			//String name = Info.Instance().Search(Info.Instance().Gene, id)?.Value;
 			String name = DataBase.GetConver(id, "Genes");
-			if (String.IsNullOrEmpty(name)) name = "Gene ID: " + id.ToString();
+			if (String.IsNullOrEmpty(name)) name = Properties.Resources.ErrorUnknowGene + ": " + id.ToString();
 			return name;
 		}
 

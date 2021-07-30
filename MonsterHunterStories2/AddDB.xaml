@@ -28,7 +28,13 @@
             <ComboBoxItem Content="Items"/>
             <ComboBoxItem Content="Monsters"/>
             <ComboBoxItem Content="Rides"/>
+            <ComboBoxItem Content="Weapons"/>
+            <ComboBoxItem Content="Armors"/>
+            <ComboBoxItem Content="Talismans"/>
         </ComboBox>
+        <CheckBox x:Name="CheckUpdate" Grid.Row="1" IsChecked="{Binding Path=IsUpdate, Source={x:Static prop:Settings.Default}}" Click="CheckBox_Click" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock  Text="{x:Static prop:Resources.AddDBCheckUpdate}" TextWrapping="Wrap" Margin="0,0,10,0"/>
+        </CheckBox>
         <Button Content="{x:Static prop:Resources.AddDBUpdateButton}" Grid.Row="1" Grid.Column="1" Margin="10" Click="Add_Click"/>
         <Label Grid.Row="2"  Content="GenePNGID：" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <TextBlock Grid.Row="2" Grid.Column="1" 

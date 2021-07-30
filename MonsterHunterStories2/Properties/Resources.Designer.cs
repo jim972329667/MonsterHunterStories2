@@ -61,6 +61,15 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Whether to update the database based on the save file? 的本地化字符串。
+        /// </summary>
+        public static string AddDBCheckUpdate {
+            get {
+                return ResourceManager.GetString("AddDBCheckUpdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Please select a data to update : 的本地化字符串。
         /// </summary>
         public static string AddDBSelect {
@@ -126,9 +135,72 @@ namespace MonsterHunterStories2.Properties {
         /// <summary>
         ///   查找类似 Unknow 的本地化字符串。
         /// </summary>
+        public static string ErrorUnknow {
+            get {
+                return ResourceManager.GetString("ErrorUnknow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Unknow Armor 的本地化字符串。
+        /// </summary>
+        public static string ErrorUnknowArmor {
+            get {
+                return ResourceManager.GetString("ErrorUnknowArmor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Unknow Gene 的本地化字符串。
+        /// </summary>
+        public static string ErrorUnknowGene {
+            get {
+                return ResourceManager.GetString("ErrorUnknowGene", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Unknow Item 的本地化字符串。
+        /// </summary>
+        public static string ErrorUnknowItem {
+            get {
+                return ResourceManager.GetString("ErrorUnknowItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Unknow Monster 的本地化字符串。
+        /// </summary>
         public static string ErrorUnknowMonster {
             get {
                 return ResourceManager.GetString("ErrorUnknowMonster", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Unknow Talisman 的本地化字符串。
+        /// </summary>
+        public static string ErrorUnknowTalisman {
+            get {
+                return ResourceManager.GetString("ErrorUnknowTalisman", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Unknow Talisman Skill 的本地化字符串。
+        /// </summary>
+        public static string ErrorUnknowTalismanSkill {
+            get {
+                return ResourceManager.GetString("ErrorUnknowTalismanSkill", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Unknow Weapon 的本地化字符串。
+        /// </summary>
+        public static string ErrorUnknowWeapon {
+            get {
+                return ResourceManager.GetString("ErrorUnknowWeapon", resourceCulture);
             }
         }
         
@@ -881,6 +953,15 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Whether the database is automatically updated with the save file. Attention! Opening the wrong save file can cause database corruption. Whether to confirm ? 的本地化字符串。
+        /// </summary>
+        public static string MessageCheckUpdate {
+            get {
+                return ResourceManager.GetString("MessageCheckUpdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Have it all ! 的本地化字符串。
         /// </summary>
         public static string MessageFailAddItem {
@@ -904,6 +985,15 @@ namespace MonsterHunterStories2.Properties {
         public static string MessageSuccessAddItem {
             get {
                 return ResourceManager.GetString("MessageSuccessAddItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Warning !!! 的本地化字符串。
+        /// </summary>
+        public static string MessageWarning {
+            get {
+                return ResourceManager.GetString("MessageWarning", resourceCulture);
             }
         }
     }

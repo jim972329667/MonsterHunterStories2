@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddDBCheckUpdate" xml:space="preserve">
+    <value>是否根据存档更新数据库</value>
+  </data>
   <data name="AddDBSelect" xml:space="preserve">
     <value>选择你要添加的数据库</value>
   </data>
@@ -138,8 +141,29 @@
   <data name="ErrorLosingTXTFile" xml:space="preserve">
     <value>缺失数据文件：</value>
   </data>
-  <data name="ErrorUnknowMonster" xml:space="preserve">
+  <data name="ErrorUnknow" xml:space="preserve">
     <value>未知</value>
+  </data>
+  <data name="ErrorUnknowArmor" xml:space="preserve">
+    <value>未知护甲</value>
+  </data>
+  <data name="ErrorUnknowGene" xml:space="preserve">
+    <value>未知基因</value>
+  </data>
+  <data name="ErrorUnknowItem" xml:space="preserve">
+    <value>未知物品</value>
+  </data>
+  <data name="ErrorUnknowMonster" xml:space="preserve">
+    <value>未知随行兽</value>
+  </data>
+  <data name="ErrorUnknowTalisman" xml:space="preserve">
+    <value>未知护石</value>
+  </data>
+  <data name="ErrorUnknowTalismanSkill" xml:space="preserve">
+    <value>未知技能</value>
+  </data>
+  <data name="ErrorUnknowWeapon" xml:space="preserve">
+    <value>未知武器</value>
   </data>
   <data name="MainBasicMoney" xml:space="preserve">
     <value>金币</value>
@@ -387,6 +411,9 @@
   <data name="MainTabMonster" xml:space="preserve">
     <value>随行兽</value>
   </data>
+  <data name="MessageCheckUpdate" xml:space="preserve">
+    <value>是否选择随存档内容自动更新数据库 ？ 注意 ！！！ 如果打开了错误的存档，极有可能会导致数据库损坏 ！是否确认？</value>
+  </data>
   <data name="MessageFailAddItem" xml:space="preserve">
     <value>全部已经拥有了。</value>
   </data>
@@ -395,5 +422,8 @@
   </data>
   <data name="MessageSuccessAddItem" xml:space="preserve">
     <value>成功添加 {0} 个物品</value>
+  </data>
+  <data name="MessageWarning" xml:space="preserve">
+    <value>警告 !!!</value>
   </data>
 </root>

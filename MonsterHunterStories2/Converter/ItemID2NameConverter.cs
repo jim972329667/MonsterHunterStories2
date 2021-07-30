@@ -11,7 +11,7 @@ namespace MonsterHunterStories2
 			uint id = (uint)value;
 			//String name = Info.Instance().Search(Info.Instance().Item, id)?.Value;
 			String name = DataBase.GetConver(id, "Items");
-			if (String.IsNullOrEmpty(name)) name = "Item ID: " + id.ToString();
+			if (String.IsNullOrEmpty(name)) name = Properties.Resources.ErrorUnknowItem + ": " + id.ToString();
 			return name;
 		}
 

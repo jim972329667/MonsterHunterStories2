@@ -6,15 +6,15 @@ namespace MonsterHunterStories2
 	{
 		public uint Key { get; private set; }
 		public String[] Values { get; private set; }
-		public String Value
-		{
-			get
-			{
-				int index = Properties.Settings.Default.Langage;
-				if (Values.Length <= index) index = 0;
-				return Values[index];
-			}
-		}
+		//public String Value
+		//{
+		//	get
+		//	{
+		//		int index = Properties.Settings.Default.Langage;
+		//		if (Values.Length <= index) index = 0;
+		//		return Values[index];
+		//	}
+		//}
 
 		public int CompareTo(object obj)
 		{

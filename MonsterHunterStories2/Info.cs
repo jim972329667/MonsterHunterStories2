@@ -1,91 +1,91 @@
-﻿using System;
-using System.Collections.Generic;
+﻿//using System;
+//using System.Collections.Generic;
 
-namespace MonsterHunterStories2
-{
-	class Info
-	{
-		private static Info mThis;
-		//public List<KeyValuesInfo> Item { get; private set; } = new List<KeyValuesInfo>();
-		//public List<KeyValuesInfo> ItemDescription { get; private set; } = new List<KeyValuesInfo>();
-		//public List<KeyValuesInfo> Monster { get; private set; } = new List<KeyValuesInfo>();
-		//public List<KeyValuesInfo> RideAction { get; private set; } = new List<KeyValuesInfo>();
-		//public List<KeyValuesInfo> Gene { get; private set; } = new List<KeyValuesInfo>();
-		//public List<KeyValuesInfo> GeneSkill { get; private set; } = new List<KeyValuesInfo>();
-		//public List<KeyValuesInfo> TalismanSkill { get; private set; } = new List<KeyValuesInfo>();
-		public Dictionary<uint, List<KeyValuesInfo>> Weapon { get; private set; } = new Dictionary<uint, List<KeyValuesInfo>>();
-		public List<KeyValuesInfo> Armor { get; private set; } = new List<KeyValuesInfo>();
-		public List<KeyValuesInfo> Talisman { get; private set; } = new List<KeyValuesInfo>();
-		private Info() { }
+//namespace MonsterHunterStories2
+//{
+//	class Info
+//	{
+//		private static Info mThis;
+//		//public List<KeyValuesInfo> Item { get; private set; } = new List<KeyValuesInfo>();
+//		//public List<KeyValuesInfo> ItemDescription { get; private set; } = new List<KeyValuesInfo>();
+//		//public List<KeyValuesInfo> Monster { get; private set; } = new List<KeyValuesInfo>();
+//		//public List<KeyValuesInfo> RideAction { get; private set; } = new List<KeyValuesInfo>();
+//		//public List<KeyValuesInfo> Gene { get; private set; } = new List<KeyValuesInfo>();
+//		//public List<KeyValuesInfo> GeneSkill { get; private set; } = new List<KeyValuesInfo>();
+//		//public List<KeyValuesInfo> TalismanSkill { get; private set; } = new List<KeyValuesInfo>();
+//		//public Dictionary<uint, List<KeyValuesInfo>> Weapon { get; private set; } = new Dictionary<uint, List<KeyValuesInfo>>();
+//		//public List<KeyValuesInfo> Armor { get; private set; } = new List<KeyValuesInfo>();
+//		//public List<KeyValuesInfo> Talisman { get; private set; } = new List<KeyValuesInfo>();
+//		private Info() { }
 
-		public static Info Instance()
-		{
-			if (mThis == null)
-			{
-				mThis = new Info();
-				mThis.Init();
-			}
-			return mThis;
-		}
+//		public static Info Instance()
+//		{
+//			if (mThis == null)
+//			{
+//				mThis = new Info();
+//				mThis.Init();
+//			}
+//			return mThis;
+//		}
 
-		public KeyValuesInfo Search<Type>(List<Type> list, uint id)
-			where Type : KeyValuesInfo, new()
-		{
-			int min = 0;
-			int max = list.Count;
-			for (; min < max;)
-			{
-				int mid = (min + max) / 2;
-				if (list[mid].Key == id) return list[mid];
-				else if (list[mid].Key > id) max = mid;
-				else min = mid + 1;
-			}
-			return null;
-		}
+//		public KeyValuesInfo Search<Type>(List<Type> list, uint id)
+//			where Type : KeyValuesInfo, new()
+//		{
+//			int min = 0;
+//			int max = list.Count;
+//			for (; min < max;)
+//			{
+//				int mid = (min + max) / 2;
+//				if (list[mid].Key == id) return list[mid];
+//				else if (list[mid].Key > id) max = mid;
+//				else min = mid + 1;
+//			}
+//			return null;
+//		}
 
-		private void Init()
-		{
-			//AppendList("info\\Item.txt", Item);
-			//AppendList("info\\monster.txt", Monster);
-			//AppendList("info\\ride.txt", RideAction);
-			//AppendList("info\\Gene.txt", Gene);
-			//AppendList("info\\Talisman_skill.txt", TalismanSkill);
-			//AppendList("info\\GeneSkill.txt", GeneSkill);
-			//AppendList("info\\ItemDescription.txt", ItemDescription);
+//		private void Init()
+//		{
+//			//AppendList("info\\Item.txt", Item);
+//			//AppendList("info\\monster.txt", Monster);
+//			//AppendList("info\\ride.txt", RideAction);
+//			//AppendList("info\\Gene.txt", Gene);
+//			//AppendList("info\\Talisman_skill.txt", TalismanSkill);
+//			//AppendList("info\\GeneSkill.txt", GeneSkill);
+//			//AppendList("info\\ItemDescription.txt", ItemDescription);
+//			//String[] weapons = { "greatsword.txt", "swordshield.txt", "hammer.txt", "huntinghorn.txt", "gunlance.txt", "bow.txt" };
+//			//for (uint i = 0; i < weapons.Length; i++)
+//			//{
+//			//	var info = new List<KeyValuesInfo>();
+//			//	AppendList(System.IO.Path.Combine("info\\weapon", weapons[i]), info);
+//			//	info.Sort();
+//			//	Weapon.Add(i, info);
+//			//}
 
-			String[] weapons = { "greatsword.txt", "swordshield.txt", "hammer.txt", "huntinghorn.txt", "gunlance.txt", "bow.txt" };
-			for (uint i = 0; i < weapons.Length; i++)
-			{
-				var info = new List<KeyValuesInfo>();
-				AppendList(System.IO.Path.Combine("info\\weapon", weapons[i]), info);
-				info.Sort();
-				Weapon.Add(i, info);
-			}
-			AppendList("info\\armor.txt", Armor);
-			AppendList("info\\talisman.txt", Talisman);
-		}
+//			//AppendList("info\\armor.txt", Armor);
+//			//AppendList("info\\talisman.txt", Talisman);
+//		}
 
-		private void AppendList<Type>(String filename, List<Type> items)
-			where Type : ILineAnalysis, new()
-		{
-			if (!System.IO.File.Exists(filename)) return;
-			String[] lines = System.IO.File.ReadAllLines(filename);
-			foreach (String line in lines)
-			{
-				if (line.Length < 3) continue;
-				if (line[0] == '#') continue;
-				String[] values = line.Split('\t');
-				if (values.Length < 2) continue;
-				if (String.IsNullOrEmpty(values[0])) continue;
+//		private void AppendList<Type>(String filename, List<Type> items)
+//			where Type : ILineAnalysis, new()
+//		{
+//			if (!System.IO.File.Exists(filename)) return;
+//			String[] lines = System.IO.File.ReadAllLines(filename);
+//			foreach (String line in lines)
+//			{
+//				if (line.Length < 3) continue;
+//				if (line[0] == '#') continue;
+//				String[] values = line.Split('\t');
+//				if (values.Length < 2) continue;
+//				if (String.IsNullOrEmpty(values[0])) continue;
 
-				Type type = new Type();
-				if (type.Line(values))
-				{
-					items.Add(type);
-				}
-			}
-			items.Sort();
-		}
+//				Type type = new Type();
+//				if (type.Line(values))
+//				{
+//					items.Add(type);
+//				}
+//			}
+//			items.Sort();
+//		}
 		
-	}
-}
+//	}
+//}

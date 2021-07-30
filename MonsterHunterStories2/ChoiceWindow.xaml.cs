@@ -85,7 +85,7 @@ namespace MonsterHunterStories2
 			ListBoxItem.Items.Clear();
 			var dbinfos = DataBase.GetConverList("Items");
             //var infos = Info.Instance().Item;
-            System.Collections.Generic.List<KeyValuesInfo> infos = null;
+            //System.Collections.Generic.List<KeyValuesInfo> infos = null;
 
 			//else if (Type == eType.TYPE_MONSTER) infos = Info.Instance().Monster;
 			//else if (Type == eType.TYPE_RAIDACTION) infos = Info.Instance().RideAction;
@@ -93,49 +93,10 @@ namespace MonsterHunterStories2
 			//else if (Type == eType.TYPE_TALISMAN_SKILL) infos = Info.Instance().TalismanSkill;
 			//else if (Type == eType.TYPE_GENESKILL) infos = Info.Instance().GeneSkill;
 			//else if (Type == eType.TYPE_ITEM_DESCRIPTION) infos = Info.Instance().ItemDescription;
-			if (Type == eType.TYPE_WEAPON)
-            {
-				infos = Info.Instance().Weapon[WeaponType];
-				foreach (var info in infos)
-				{
-					String value = info.Value;
-					if (String.IsNullOrEmpty(value)) continue;
-					if (String.IsNullOrEmpty(filter) || value.IndexOf(filter) >= 0)
-					{
-						ListBoxItem.Items.Add(info);
-					}
-				}
-				return;
-			}
-			else if (Type == eType.TYPE_ARMOR)
-            {
-				infos = Info.Instance().Armor;
-				foreach (var info in infos)
-				{
-					String value = info.Value;
-					if (String.IsNullOrEmpty(value)) continue;
-					if (String.IsNullOrEmpty(filter) || value.IndexOf(filter) >= 0)
-					{
-						ListBoxItem.Items.Add(info);
-					}
-				}
-				return;
-			}
-			else if (Type == eType.TYPE_TALISMAN)
-            {
-				infos = Info.Instance().Talisman;
-				foreach (var info in infos)
-				{
-					String value = info.Value;
-					if (String.IsNullOrEmpty(value)) continue;
-					if (String.IsNullOrEmpty(filter) || value.IndexOf(filter) >= 0)
-					{
-						ListBoxItem.Items.Add(info);
-					}
-				}
-				return;
-			}
-
+			
+			if (Type == eType.TYPE_ARMOR) dbinfos = DataBase.GetConverList("Armors");
+			else if (Type == eType.TYPE_TALISMAN) dbinfos = DataBase.GetConverList("Talismans");
+			else if (Type == eType.TYPE_WEAPON) dbinfos = DataBase.GetWeaponConverList("Weapons", WeaponType);
 			else if (Type == eType.TYPE_RAIDACTION) dbinfos = DataBase.GetConverList("Rides");
 			else if (Type == eType.TYPE_MONSTER) dbinfos = DataBase.GetConverList("Monsters");
 			else if (Type == eType.TYPE_GENE) dbinfos = DataBase.GetConverList("Genes");

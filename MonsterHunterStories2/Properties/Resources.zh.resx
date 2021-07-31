@@ -198,6 +198,18 @@
   <data name="MainCharacterVoice" xml:space="preserve">
     <value>声音</value>
   </data>
+  <data name="MainDenLocationID" xml:space="preserve">
+    <value>位置ID</value>
+  </data>
+  <data name="MainDenRandomDen" xml:space="preserve">
+    <value>随机的兽巢</value>
+  </data>
+  <data name="MainDenRank" xml:space="preserve">
+    <value>等级</value>
+  </data>
+  <data name="MainDenRetreatDen" xml:space="preserve">
+    <value>归巢后的兽巢</value>
+  </data>
   <data name="MainEggAppendEgg" xml:space="preserve">
     <value>添加宠物蛋</value>
   </data>
@@ -379,7 +391,7 @@
     <value>雷属性防御</value>
   </data>
   <data name="MainMonsterType" xml:space="preserve">
-    <value>类型</value>
+    <value>类型 :</value>
   </data>
   <data name="MainMonsterUnlock" xml:space="preserve">
     <value>全部解锁</value>
@@ -398,6 +410,9 @@
   </data>
   <data name="MainTabCharacter" xml:space="preserve">
     <value>人物</value>
+  </data>
+  <data name="MainTabDen" xml:space="preserve">
+    <value>兽巢</value>
   </data>
   <data name="MainTabEgg" xml:space="preserve">
     <value>蛋</value>

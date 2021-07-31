@@ -40,7 +40,11 @@ namespace MonsterHunterStories2
 		public const uint Guide_Monster = 0x15666;
         public static int[] GuideMonsterList = { 1, 2, 3, 5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 62, 63, 64, 65, 66, 81, 84, 85, 86, 110, 111, 112, 113, 117, 119, 121, 123, 128, 138, 140, 141, 144, 145, 147, 149, 151, 153, 156, 157, 176, 177, 178, 179, 180, 181 };
 
-        public static void WriteNumber(uint address, uint size, uint value, uint min, uint max)
+		public const uint DAN_ADDRESS = 0x4037C;
+		public const uint DAN_COUNT = 1024;
+		public const uint DAN_SIZE = 116;
+
+		public static void WriteNumber(uint address, uint size, uint value, uint min, uint max)
 		{
 			if (value < min) value = min;
 			if (value > max) value = max;

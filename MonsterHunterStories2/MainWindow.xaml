@@ -994,6 +994,37 @@
                     </ListBox>
                 </DockPanel>
             </TabItem>
+            <TabItem Header="{x:Static prop:Resources.MainTabDen}" Margin="-2,-2,-2,0">
+                <DockPanel>
+                    <ListBox x:Name="ListBoxItem1" ItemsSource="{Binding Dens}">
+                        <ListBox.Resources>
+                            <local:DenVisibleConverter x:Key="DenVisibleConverter"/>
+                            <local:DenType2NameConverter x:Key="DenType2NameConverter"/>
+                        </ListBox.Resources>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="{x:Static prop:Resources.MainDenLocationID}"/>
+                                    <TextBlock Text="{Binding LocationID}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                                    <Label Margin="10,0,0,0" Content="{x:Static prop:Resources.MainMonsterType}"/>
+                                    <TextBlock Text="{Binding Type, Converter={StaticResource DenType2NameConverter}}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80"/>
+                                    <Label Margin="10,0,0,0" Content="{x:Static prop:Resources.MainDenRank}"/>
+                                    <ComboBox SelectedIndex="{Binding Rank}" Margin="10,0,0,0" Width="90">
+                                        <ComboBoxItem Content="Low Rank"/>
+                                        <ComboBoxItem Content="High Rank "/>
+                                    </ComboBox>
+                                    <Label Margin="10,0,0,0" Content="{x:Static prop:Resources.MainEquipmentTalismanRarity}" Visibility="{Binding Type, Converter={StaticResource DenVisibleConverter}}"/>
+                                    <ComboBox SelectedIndex="{Binding Rarity}" Visibility="{Binding Type, Converter={StaticResource DenVisibleConverter}}" Margin="10,0,0,0">
+                                        <ComboBoxItem Content="Common"/>
+                                        <ComboBoxItem Content="Rare"/>
+                                        <ComboBoxItem Content="Super Rare"/>
+                                    </ComboBox>                                 
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </DockPanel>
+            </TabItem>
         </TabControl>
     </DockPanel>
 </Window>

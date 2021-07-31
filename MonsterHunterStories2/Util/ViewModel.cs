@@ -13,12 +13,12 @@ namespace MonsterHunterStories2
 		public ObservableCollection<Character> Characters { get; set; } = new ObservableCollection<Character>();
 		public ObservableCollection<Monster> Monsters { get; set; } = new ObservableCollection<Monster>();
 		public ObservableCollection<Egg> Eggs { get; set; } = new ObservableCollection<Egg>();
-
+		public ObservableCollection<Den> Dens { get; set; } = new ObservableCollection<Den>();
 
 		public ViewModel()
 		{
-			if(DataBase.GetConverList("Items") != null)
-            {
+			if (DataBase.GetConverList("Items") != null)
+			{
 				foreach (var itemInfo in DataBase.GetConverList("Items"))
 				{
 					uint address = Util.ItemIDAddress(itemInfo.Key);
@@ -29,7 +29,7 @@ namespace MonsterHunterStories2
 					Items.Add(item);
 				}
 			}
-			
+
 
 			for (uint i = 0; i < Util.CHARACTER_COUNT; i++)
 			{
@@ -70,6 +70,14 @@ namespace MonsterHunterStories2
 			{
 				Talisman Talisman = new Talisman(Util.TALISMAN_ADDRESS + Util.TALISMAN_SIZE * i);
 				Talismans.Add(Talisman);
+			}
+
+			for (uint i = 0; i < Util.DAN_COUNT; i++)
+			{
+				Den Den = new Den(Util.DAN_ADDRESS + Util.DAN_SIZE * i);
+				if (Den.LocationID != 0xFFFFFFFF && Den.LocationID != 0)
+					if (Den.Type == "0101 0001" || Den.Type == "0102 0001")
+						Dens.Add(Den);
 			}
 
 		}

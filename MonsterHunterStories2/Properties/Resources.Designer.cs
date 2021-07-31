@@ -314,6 +314,42 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Location ID 的本地化字符串。
+        /// </summary>
+        public static string MainDenLocationID {
+            get {
+                return ResourceManager.GetString("MainDenLocationID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Random Den 的本地化字符串。
+        /// </summary>
+        public static string MainDenRandomDen {
+            get {
+                return ResourceManager.GetString("MainDenRandomDen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Rank 的本地化字符串。
+        /// </summary>
+        public static string MainDenRank {
+            get {
+                return ResourceManager.GetString("MainDenRank", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Retreat Den 的本地化字符串。
+        /// </summary>
+        public static string MainDenRetreatDen {
+            get {
+                return ResourceManager.GetString("MainDenRetreatDen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Append Egg 的本地化字符串。
         /// </summary>
         public static string MainEggAppendEgg {
@@ -854,7 +890,7 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Type 的本地化字符串。
+        ///   查找类似 Type : 的本地化字符串。
         /// </summary>
         public static string MainMonsterType {
             get {
@@ -913,6 +949,15 @@ namespace MonsterHunterStories2.Properties {
         public static string MainTabCharacter {
             get {
                 return ResourceManager.GetString("MainTabCharacter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Den 的本地化字符串。
+        /// </summary>
+        public static string MainTabDen {
+            get {
+                return ResourceManager.GetString("MainTabDen", resourceCulture);
             }
         }
         

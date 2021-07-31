@@ -202,6 +202,18 @@
   <data name="MainCharacterVoice" xml:space="preserve">
     <value>Voice</value>
   </data>
+  <data name="MainDenLocationID" xml:space="preserve">
+    <value>Location ID</value>
+  </data>
+  <data name="MainDenRandomDen" xml:space="preserve">
+    <value>Random Den</value>
+  </data>
+  <data name="MainDenRank" xml:space="preserve">
+    <value>Rank</value>
+  </data>
+  <data name="MainDenRetreatDen" xml:space="preserve">
+    <value>Retreat Den</value>
+  </data>
   <data name="MainEggAppendEgg" xml:space="preserve">
     <value>Append Egg</value>
   </data>
@@ -383,7 +395,7 @@
     <value>Thunder Defense</value>
   </data>
   <data name="MainMonsterType" xml:space="preserve">
-    <value>Type</value>
+    <value>Type :</value>
   </data>
   <data name="MainMonsterUnlock" xml:space="preserve">
     <value>Unlock</value>
@@ -402,6 +414,9 @@
   </data>
   <data name="MainTabCharacter" xml:space="preserve">
     <value>Character</value>
+  </data>
+  <data name="MainTabDen" xml:space="preserve">
+    <value>Den</value>
   </data>
   <data name="MainTabEgg" xml:space="preserve">
     <value>Egg</value>

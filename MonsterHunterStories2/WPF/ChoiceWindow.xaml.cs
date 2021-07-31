@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Globalization;
 
 namespace MonsterHunterStories2
 {
@@ -106,7 +107,7 @@ namespace MonsterHunterStories2
 			{
 				String value = info.Value;
 				if (String.IsNullOrEmpty(value)) continue;
-				if (String.IsNullOrEmpty(filter) || value.IndexOf(filter) >= 0)
+				if (String.IsNullOrEmpty(filter) || value.IndexOf(filter,StringComparison.OrdinalIgnoreCase) >= 0)
 				{
 					ListBoxItem.Items.Add(info);
 				}

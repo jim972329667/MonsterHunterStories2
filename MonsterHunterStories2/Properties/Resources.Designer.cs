@@ -314,6 +314,15 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Change All Dens to High Quality 的本地化字符串。
+        /// </summary>
+        public static string MainDenAllQuality {
+            get {
+                return ResourceManager.GetString("MainDenAllQuality", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Location ID 的本地化字符串。
         /// </summary>
         public static string MainDenLocationID {

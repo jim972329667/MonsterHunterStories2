@@ -202,6 +202,9 @@
   <data name="MainCharacterVoice" xml:space="preserve">
     <value>Voice</value>
   </data>
+  <data name="MainDenAllQuality" xml:space="preserve">
+    <value>Change All Dens to High Quality</value>
+  </data>
   <data name="MainDenLocationID" xml:space="preserve">
     <value>Location ID</value>
   </data>

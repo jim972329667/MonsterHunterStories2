@@ -994,8 +994,9 @@
                     </ListBox>
                 </DockPanel>
             </TabItem>
-            <TabItem Header="{x:Static prop:Resources.MainTabDen}" Margin="-2,-2,-2,0">
+            <TabItem Header="{x:Static prop:Resources.MainTabDen}">
                 <DockPanel>
+                    <Button DockPanel.Dock="Bottom" Content="{x:Static prop:Resources.MainDenAllQuality}" Click="ButtonBaseAllDenQuality"/>
                     <ListBox x:Name="ListBoxItem1" ItemsSource="{Binding Dens}">
                         <ListBox.Resources>
                             <local:DenVisibleConverter x:Key="DenVisibleConverter"/>

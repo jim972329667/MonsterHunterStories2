@@ -403,9 +403,26 @@ namespace MonsterHunterStories2
         {
 			MaxLanguage = LanguageBox.Items.Count;
         }
-		
+		private void ButtonBaseAllDenQuality(object sender, RoutedEventArgs e)
+        {
+			ViewModel viewmodel = DataContext as ViewModel;
+			if (viewmodel == null) return;
+			foreach (Den x in viewmodel.Dens)
+            {
+				if(x.Type == "0101 0001")
+                {
+					x.Rank = 1;
+					x.Rarity = 2;
+                }
+				else if(x.Type == "0102 0001")
+                {
+					x.Rank = 1;
+                }
+			}
+			MessageBox.Show(Properties.Resources.MessageSuccess);
+		}
 		//private void Button111(object sender, RoutedEventArgs e)
-  //      {
+		//      {
 		//	const string Path = "C:/Users/jim97/Desktop/info/new2.txt";
 		//	OpenFileDialog dlg = new OpenFileDialog();
 		//	if (dlg.ShowDialog() != false)
@@ -413,19 +430,19 @@ namespace MonsterHunterStories2
 		//		if (System.IO.File.Exists(dlg.FileName))
 		//		{
 		//			string[] lines = System.IO.File.ReadAllLines(dlg.FileName);
-  //                  for (int i = 0; i < lines.Length - 2; i++)
-  //                  {
-  //                      string x = lines[i+2];
+		//                  for (int i = 0; i < lines.Length - 2; i++)
+		//                  {
+		//                      string x = lines[i+2];
 		//				string y = lines[i];
 		//				if(i % 3 == 0 && i <= 3138)
-  //                      {
+		//                      {
 		//					//if (i <= 3138)
 		//					//{
 		//					//	System.IO.File.AppendAllText(Path, y + ";");
 		//					//}
 		//					System.IO.File.AppendAllText(Path, x + "\n");
 		//				}
-//                  }
+		//                  }
 		//		}
 		//		MessageBox.Show("Success");
 		//	}

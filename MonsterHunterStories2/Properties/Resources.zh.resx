@@ -198,6 +198,9 @@
   <data name="MainCharacterVoice" xml:space="preserve">
     <value>声音</value>
   </data>
+  <data name="MainDenAllQuality" xml:space="preserve">
+    <value>设置所有兽巢为高质量</value>
+  </data>
   <data name="MainDenLocationID" xml:space="preserve">
     <value>位置ID</value>
   </data>

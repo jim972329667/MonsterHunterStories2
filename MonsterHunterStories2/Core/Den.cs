@@ -3,8 +3,9 @@
 
 namespace MonsterHunterStories2
 {
-    class Den
+    class Den : INotifyPropertyChanged
 	{
+		public event PropertyChangedEventHandler PropertyChanged;
 		private readonly uint mAddress;
 
 		public Den(uint address)
@@ -27,6 +28,7 @@ namespace MonsterHunterStories2
 			set
 			{
 				Util.WriteNumber(mAddress + 42, 1, value + 1, 1, 2);
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Rank)));
 			}
 		}
 		public uint Rarity
@@ -35,6 +37,7 @@ namespace MonsterHunterStories2
 			set
 			{
 				Util.WriteNumber(mAddress + 45, 1, value, 0, 2);
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Rarity)));
 			}
 		}
 

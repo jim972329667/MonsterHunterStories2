@@ -101,27 +101,27 @@ namespace MonsterHunterStories2
                 }
             }
         }
-        private void AppendList<Type>(string filename, List<Type> items)
-            where Type : ILineAnalysis, new()
-        {
-            if (!System.IO.File.Exists(filename)) return;
-            string[] lines = System.IO.File.ReadAllLines(filename);
-            foreach (string line in lines)
-            {
-                if (line.Length < 3) continue;
-                if (line[0] == '#') continue;
-                string[] values = line.Split('\t');
-                if (values.Length < 2) continue;
-                if (string.IsNullOrEmpty(values[0])) continue;
+        //private void AppendList<Type>(string filename, List<Type> items)
+        //    where Type : ILineAnalysis, new()
+        //{
+        //    if (!System.IO.File.Exists(filename)) return;
+        //    string[] lines = System.IO.File.ReadAllLines(filename);
+        //    foreach (string line in lines)
+        //    {
+        //        if (line.Length < 3) continue;
+        //        if (line[0] == '#') continue;
+        //        string[] values = line.Split('\t');
+        //        if (values.Length < 2) continue;
+        //        if (string.IsNullOrEmpty(values[0])) continue;
 
-                Type type = new Type();
-                if (type.Line(values))
-                {
-                    items.Add(type);
-                }
-            }
-            items.Sort();
-        }
+        //        Type type = new Type();
+        //        if (type.Line(values))
+        //        {
+        //            items.Add(type);
+        //        }
+        //    }
+        //    items.Sort();
+        //}
         private static void AppendDic(string FileName)
         {
             if (!System.IO.File.Exists(FileName)) return;

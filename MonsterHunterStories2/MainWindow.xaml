@@ -44,9 +44,9 @@
                 <ComboBoxItem Content="繁體中文"/>
                 <ComboBoxItem Content="French"/>
             </ComboBox>
-            <CheckBox Margin="10,0,0,0" IsChecked="{Binding Path=PCConfirm, Source={x:Static prop:Settings.Default}}" VerticalAlignment="Center"  BorderBrush="#FFFE0000">
+            <!--<CheckBox Margin="10,0,0,0" IsChecked="{Binding Path=PCConfirm, Source={x:Static prop:Settings.Default}}" VerticalAlignment="Center"  BorderBrush="#FFFE0000">
                 <Label Content="PC?" VerticalAlignment="Center"/>
-            </CheckBox>
+            </CheckBox>-->
             <Label Margin="10,0,0,0" Content="{x:Static prop:Resources.MainMenuSaveforConvert}" HorizontalAlignment="Center" VerticalAlignment="Center" />
             <ComboBox SelectedIndex="{Binding SaveConvert}">
                 <ComboBoxItem Content="Switch"/>

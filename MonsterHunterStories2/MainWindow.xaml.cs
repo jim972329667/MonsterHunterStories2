@@ -5,6 +5,7 @@ using Microsoft.Win32;
 using System.Collections;
 using System.IO;
 using LiteDB;
+using System.Linq;
 
 namespace MonsterHunterStories2
 {
@@ -355,20 +356,39 @@ namespace MonsterHunterStories2
 
 		private void FileOpen(String filename)
 		{
-			SaveData.Instance().Adventure = Properties.Settings.Default.PCConfirm ? Util.PC_ADDRESS : 0;
+			byte[] ns = new byte[] {0x18, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x28, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x38, 0x00, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x48, 0x80, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0B, 0xA6, 0x25, 0x8C, 0x0C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0F, 0x24, 0xE0, 0x91};
+			byte[] pc = ns.Skip(32).Take(20).ToArray();
+			var mBuffer = File.ReadAllBytes(filename);
+            byte[] Check1 = mBuffer.Skip(8).Take(52).ToArray();
+            byte[] Check2 = mBuffer.Skip(88).Take(20).ToArray();
+            bool PCconfirm;
+            if (Check1.SequenceEqual(ns))
+            {
+                PCconfirm = false;
+            }
+            else if (Check2.SequenceEqual(pc))
+            {
+                PCconfirm = true;
+            }
+            else
+            {
+                MessageBox.Show(Properties.Resources.ErrorWrongSave);
+                return;
+            }
+            SaveData.Instance().Adventure = PCconfirm ? Util.PC_ADDRESS : 0;
 			SaveData.Instance().Open(filename);
 			DataContext = new ViewModel();
 		}
 
-		private void ButtonBaseGuide_Click(object sender, RoutedEventArgs e)
-		{
-			foreach(int i in Util.GuideMonsterList)
-            {
-				uint x = Util.Guide_Monster + (uint)(i - 1) * 2;
-				SaveData.Instance().WriteNumber(x, 2, 1);
-			}
-			MessageBox.Show(Properties.Resources.MessageSuccess);
-		}
+		//private void ButtonBaseGuide_Click(object sender, RoutedEventArgs e)
+		//{
+		//	foreach(int i in Util.GuideMonsterList)
+  //          {
+		//		uint x = Util.Guide_Monster + (uint)(i - 1) * 2;
+		//		SaveData.Instance().WriteNumber(x, 2, 1);
+		//	}
+		//	MessageBox.Show(Properties.Resources.MessageSuccess);
+		//}
 
 		private void ButtonBaseAllKinship(object sender, RoutedEventArgs e)
 		{

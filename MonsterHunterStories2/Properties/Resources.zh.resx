@@ -165,6 +165,9 @@
   <data name="ErrorUnknowWeapon" xml:space="preserve">
     <value>未知武器</value>
   </data>
+  <data name="ErrorWrongSave" xml:space="preserve">
+    <value>错误的存档 / 未解密的存档</value>
+  </data>
   <data name="MainBasicMoney" xml:space="preserve">
     <value>金币</value>
   </data>

@@ -1,9 +1,6 @@
 ﻿using LiteDB;
 using System;
 using System.Collections.Generic;
-using System.Data.Linq;
-using System.IO;
-using System.Windows;
 
 namespace MonsterHunterStories2
 {
@@ -66,8 +63,7 @@ namespace MonsterHunterStories2
 
         public static string Path = @".\info\MHS2.db";
 
-        private static LiteDatabase db = new LiteDatabase("Filename = info\\MHS2.db; ReadOnly=true");
-        //private static LiteDatabase db = new LiteDatabase(Path);
+        public static LiteDatabase db = new LiteDatabase("Filename = info\\MHS2.db; ReadOnly=true");
         
         private static readonly string[] DBTABLE = new string[]
         {

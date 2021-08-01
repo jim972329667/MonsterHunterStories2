@@ -205,6 +205,15 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Incorrect save file / Undecrypt save file  !!! 的本地化字符串。
+        /// </summary>
+        public static string ErrorWrongSave {
+            get {
+                return ResourceManager.GetString("ErrorWrongSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
         public static System.Drawing.Bitmap Gene_Table {

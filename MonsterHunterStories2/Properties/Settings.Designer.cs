@@ -38,18 +38,6 @@ namespace MonsterHunterStories2.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool PCConfirm {
-            get {
-                return ((bool)(this["PCConfirm"]));
-            }
-            set {
-                this["PCConfirm"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool IsUpdate {
             get {
                 return ((bool)(this["IsUpdate"]));

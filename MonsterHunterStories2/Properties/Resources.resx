@@ -132,6 +132,9 @@
   <data name="ApplicationTitle" xml:space="preserve">
     <value>Monster Hunter Stories 2</value>
   </data>
+  <data name="ErrorChoiceItem" xml:space="preserve">
+    <value>No selected items！</value>
+  </data>
   <data name="ErrorForEggChoice" xml:space="preserve">
     <value>Please select a Egg cell !</value>
   </data>
@@ -226,6 +229,9 @@
   <data name="MainEggAppendEggFiles" xml:space="preserve">
     <value>Append Egg Files(.mhs2egg)</value>
   </data>
+  <data name="MainEggPaste" xml:space="preserve">
+    <value>Paste Egg HEX</value>
+  </data>
   <data name="MainEggSaveEggFile" xml:space="preserve">
     <value>Save Egg File(.mhs2egg)</value>
   </data>
@@ -304,8 +310,14 @@
   <data name="MainItemAppend" xml:space="preserve">
     <value>Append/Search Item</value>
   </data>
+  <data name="MainItemDelete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
   <data name="MainMenuAbout" xml:space="preserve">
     <value>_About</value>
+  </data>
+  <data name="MainMenuCheckItem" xml:space="preserve">
+    <value>Check Items</value>
   </data>
   <data name="MainMenuFile" xml:space="preserve">
     <value>_File</value>
@@ -442,11 +454,17 @@
   <data name="MessageFailAddItem" xml:space="preserve">
     <value>Have it all !</value>
   </data>
+  <data name="MessageFailDel" xml:space="preserve">
+    <value>No suspicious items !</value>
+  </data>
   <data name="MessageSuccess" xml:space="preserve">
     <value>Success</value>
   </data>
   <data name="MessageSuccessAddItem" xml:space="preserve">
     <value>Successfully adding {0} items</value>
+  </data>
+  <data name="MessageSuccessDel" xml:space="preserve">
+    <value>Successfully delete {0} items</value>
   </data>
   <data name="MessageWarning" xml:space="preserve">
     <value>Warning !!!</value>

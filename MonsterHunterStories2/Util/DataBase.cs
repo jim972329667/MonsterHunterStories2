@@ -97,6 +97,10 @@ namespace MonsterHunterStories2
                     string[] returnvalue = new string[maxlength];
                     for (int i = 0; i < maxlength; i++)
                     {
+                        if(x.Values[0] == "Del")
+                        {
+                            break;
+                        }
                         if (i < x.Values.Length && i < old.LanguageList.Length)
                         {
                             if (x.Values[i] == "" || x.Values[i] == null)
@@ -155,6 +159,10 @@ namespace MonsterHunterStories2
                     string[] returnvalue = new string[maxlength];
                     for (int i = 0; i < maxlength; i++)
                     {
+                        if (x.Values[0].ToLower() == "del")
+                        {
+                            break;
+                        }
                         if (i < x.Values.Length && i < old.LanguageList.Length)
                         {
                             if (x.Values[i] == "" || x.Values[i] == null)

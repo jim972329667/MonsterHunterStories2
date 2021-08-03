@@ -18,7 +18,8 @@ namespace MonsterHunterStories2
 		private static readonly int EggLength = eggx.Length % 4 == 0 ? eggx.Length : (eggx.Length / 4 * 4) + 4;
 		public static int MaxLanguage = 0;
 		public static bool IsOpen = false;
-        public MainWindow()
+
+		public MainWindow()
 		{
 			Init();
 			InitializeComponent();
@@ -118,6 +119,7 @@ namespace MonsterHunterStories2
 					if (viewmodel.Items[i].ID == id)
 					{
 						Get = false;
+						SaveData.Instance().WriteBit(Util.ITEMSETTING_ADDRESS + id / 8, id % 8, true);
 						break;
 					}
 				}
@@ -138,7 +140,79 @@ namespace MonsterHunterStories2
 			if (num == 0) MessageBox.Show(Properties.Resources.MessageFailAddItem);
 			else MessageBox.Show(string.Format(Properties.Resources.MessageSuccessAddItem, num.ToString()));
 		}
-
+		private void ButtonCheckItem_Click(object sender, RoutedEventArgs e)
+        {
+			int num = 0;
+			ViewModel viewmodel = DataContext as ViewModel;
+			if (viewmodel == null) return;
+			uint[] ItemList = new uint[viewmodel.Items.Count];
+			for (int i = 0; i < viewmodel.Items.Count; i++)
+			{
+				if (viewmodel.Items[i] == null) return;
+				var dbitem = DataBase.GetConver(viewmodel.Items[i].ID, "Items");
+				if (((IList)Item.EmptyItemlist).Contains(viewmodel.Items[i].ID) && dbitem == null)
+				{
+					ItemList[num] = viewmodel.Items[i].ID;
+					num++;
+				}
+			}
+			for (int x = 0; x < num; x++)
+			{
+				for (int i = 0; i < viewmodel.Items.Count; i++)
+				{
+					if (((IList)ItemList).Contains(viewmodel.Items[i].ID))
+					{
+						viewmodel.Items[i].ID = 0;
+						viewmodel.Items[i].Count = 0;
+						viewmodel.Items.Remove(viewmodel.Items[i]);
+						break;
+					}
+				}
+			}
+			for (int i = 0; i < viewmodel.Items.Count; i++)
+			{
+				uint ID = viewmodel.Items[i].ID;
+				SaveData.Instance().WriteBit(Util.ITEMSETTING_ADDRESS + ID / 8, ID % 8, true);
+			}
+			if (num == 0) MessageBox.Show(Properties.Resources.MessageFailDel);
+			else MessageBox.Show(string.Format(Properties.Resources.MessageSuccessDel, num.ToString()));
+		}
+		private void ButtonItemDel_Click(object sender, RoutedEventArgs e)
+		{
+			int num = 0;
+			ViewModel viewmodel = DataContext as ViewModel;
+			if (viewmodel == null) return;
+			if(ListBoxItem.SelectedItems.Count == 0)
+            {
+				MessageBox.Show(Properties.Resources.ErrorChoiceItem);
+				return;
+			}
+			uint[] ItemList = new uint[ListBoxItem.SelectedItems.Count];
+			foreach (Item items in ListBoxItem.SelectedItems)
+			{
+				ItemList[num] = items.ID;
+				num++;
+			}
+			for (int x = 0; x < num; x++)
+            {
+				for (int i = 0; i < viewmodel.Items.Count; i++)
+				{
+					if (((IList)ItemList).Contains(viewmodel.Items[i].ID))
+					{
+						viewmodel.Items[i].ID = 0;
+						viewmodel.Items[i].Count = 0;
+						viewmodel.Items.Remove(viewmodel.Items[i]);
+						break;
+					}
+				}
+			}
+			for (int i = 0; i < viewmodel.Items.Count; i++)
+            {
+				uint ID = viewmodel.Items[i].ID;
+				SaveData.Instance().WriteBit(Util.ITEMSETTING_ADDRESS + ID / 8, ID % 8, true);
+			}
+			MessageBox.Show(string.Format(Properties.Resources.MessageSuccessDel, num.ToString()));
+		}
 		private void ButtonChoiceMonster_Click(object sender, RoutedEventArgs e)
 		{
             if (!(ListBoxMonster.SelectedItem is Monster monster)) return;
@@ -228,6 +302,7 @@ namespace MonsterHunterStories2
 				MessageBox.Show(Properties.Resources.MessageSuccess);
 			}
         }
+
         private void ButtonEggFileSave(object sender, RoutedEventArgs e)
 		{
             
@@ -249,6 +324,13 @@ namespace MonsterHunterStories2
 				}
 			}
 		}
+
+		private void PasteEgg(object sender, RoutedEventArgs e)
+        {
+			string text = Clipboard.GetText();
+			AddEggFromFile(text);
+		}
+
 		private void AddEggFromFile(string info)
 		{
 			int index = ListBoxEgg.SelectedIndex;
@@ -262,7 +344,15 @@ namespace MonsterHunterStories2
 				return;
 			}
             if (!(DataContext is ViewModel viewmodel)) return;
-            Util.WriteHex(egg.Address, info);
+            try
+            {
+				Util.WriteHex(egg.Address, info);
+			}
+            catch
+            {
+				MessageBox.Show("Wrong Egg");
+				return;
+			}
 			viewmodel.Eggs.RemoveAt(index);
 			viewmodel.Eggs.Insert(index, new Egg(egg.Address));
 			ListBoxEgg.SelectedIndex = index;

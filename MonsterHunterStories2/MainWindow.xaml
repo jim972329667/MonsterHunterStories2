@@ -584,7 +584,7 @@
                             <RowDefinition/>
                             <RowDefinition/>
                             <RowDefinition Height="8*"/>
-                            <RowDefinition Height="4*"/>
+                            <RowDefinition Height="2.5*"/>
                         </Grid.RowDefinitions>
                         <Label Content="ID"/>
                         <TextBox Grid.Column="1" Text="{Binding ElementName=ListBoxEgg, Path=SelectedItem.ID, UpdateSourceTrigger=PropertyChanged}"/>
@@ -600,12 +600,16 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
+                                <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
                             <Button Margin="10" Click="ButtonEggFileOpen" >
                                 <TextBlock Text="{x:Static prop:Resources.MainEggAppendEggFiles}" TextWrapping="Wrap" />
                             </Button>
                             <Button Grid.Column="1" Margin="10" Click="ButtonEggFileSave">
                                 <TextBlock Text="{x:Static prop:Resources.MainEggSaveEggFile}" TextWrapping="Wrap" />
+                            </Button>
+                            <Button Grid.Column="2" Margin="10" Click="PasteEgg">
+                                <TextBlock Text="{x:Static prop:Resources.MainEggPaste}" TextWrapping="Wrap" />
                             </Button>
                         </Grid>
                     </Grid>
@@ -972,27 +976,42 @@
                 </TabControl>
             </TabItem>
             <TabItem Header="{x:Static prop:Resources.MainTabItem}">
-                <DockPanel>
-                    <Button DockPanel.Dock="Bottom" Content="{x:Static prop:Resources.MainItemAppend}" Click="ButtonChoiceItem_Click"/>
-                    <Button DockPanel.Dock="Top" Content="{x:Static prop:Resources.MainItemAllMax}" Click="ButtonItemAllMax"/>
-                    <ListBox x:Name="ListBoxItem" ItemsSource="{Binding Items}">
-                        <ListBox.Resources>
-                            <local:ItemID2NameConverter x:Key="ItemID2NameConverter"/>
-                            <local:ItemID2DescriptionConcerter x:Key="ItemID2DescriptionConcerter"/>
-                        </ListBox.Resources>
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <Label Content="Count"/>
-                                    <TextBox Text="{Binding Count, UpdateSourceTrigger=PropertyChanged}" Width="60"/>
-                                    <Label Margin="5,0,0,0" Content=" Name"/>
-                                    <TextBlock Margin="5,0,0,0" Text="{Binding ID, Converter={StaticResource ItemID2NameConverter}}" TextWrapping="Wrap" Width="150" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                    <TextBlock Margin="10,0,0,0" Text="{Binding ID, Converter={StaticResource ItemID2DescriptionConcerter}}" TextWrapping="Wrap" Width="450" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                </DockPanel>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="{x:Static prop:Resources.MainMenuCheckItem}" Click="ButtonCheckItem_Click" Margin="5,0"/>
+                    <Button Grid.Column="1" Click="ButtonItemAllMax" Margin="5,0">
+                        <TextBlock Text="{x:Static prop:Resources.MainItemAllMax}" TextWrapping="Wrap"/>
+                    </Button>
+                    <Button Grid.Column="2" Content="{x:Static prop:Resources.MainItemDelete}" Click="ButtonItemDel_Click" Margin="5,0"/>
+                    <DockPanel Grid.Row="1" Grid.ColumnSpan="3">
+                        <Button DockPanel.Dock="Bottom" Content="{x:Static prop:Resources.MainItemAppend}" Click="ButtonChoiceItem_Click"/>
+                        <ListBox x:Name="ListBoxItem" ItemsSource="{Binding Items}" SelectionMode="Extended">
+                            <ListBox.Resources>
+                                <local:ItemID2NameConverter x:Key="ItemID2NameConverter"/>
+                                <local:ItemID2DescriptionConcerter x:Key="ItemID2DescriptionConcerter"/>
+                            </ListBox.Resources>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="Count"/>
+                                        <TextBox Text="{Binding Count, UpdateSourceTrigger=PropertyChanged}" Width="60"/>
+                                        <Label Margin="5,0,0,0" Content=" Name"/>
+                                        <TextBlock Margin="5,0,0,0" Text="{Binding ID, Converter={StaticResource ItemID2NameConverter}}" TextWrapping="Wrap" Width="150" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        <TextBlock Margin="10,0,0,0" Text="{Binding ID, Converter={StaticResource ItemID2DescriptionConcerter}}" TextWrapping="Wrap" Width="450" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </DockPanel>
+                </Grid>
             </TabItem>
             <TabItem Header="{x:Static prop:Resources.MainTabDen}">
                 <DockPanel>

@@ -132,6 +132,9 @@
   <data name="ApplicationTitle" xml:space="preserve">
     <value>怪物猎人物语2：毁灭之翼</value>
   </data>
+  <data name="ErrorChoiceItem" xml:space="preserve">
+    <value>无选择物品</value>
+  </data>
   <data name="ErrorForEggChoice" xml:space="preserve">
     <value>请选择一个蛋格子！</value>
   </data>
@@ -222,6 +225,9 @@
   <data name="MainEggAppendEggFiles" xml:space="preserve">
     <value>添加蛋(mhs2egg格式)</value>
   </data>
+  <data name="MainEggPaste" xml:space="preserve">
+    <value>粘贴蛋HEX</value>
+  </data>
   <data name="MainEggSaveEggFile" xml:space="preserve">
     <value>保存蛋文件(mhs2egg格式)</value>
   </data>
@@ -300,8 +306,14 @@
   <data name="MainItemAppend" xml:space="preserve">
     <value>添加/搜索物品</value>
   </data>
+  <data name="MainItemDelete" xml:space="preserve">
+    <value>删除</value>
+  </data>
   <data name="MainMenuAbout" xml:space="preserve">
     <value>关于</value>
+  </data>
+  <data name="MainMenuCheckItem" xml:space="preserve">
+    <value>检查物品</value>
   </data>
   <data name="MainMenuFile" xml:space="preserve">
     <value>文件(__F)</value>
@@ -438,11 +450,17 @@
   <data name="MessageFailAddItem" xml:space="preserve">
     <value>全部已经拥有了。</value>
   </data>
+  <data name="MessageFailDel" xml:space="preserve">
+    <value>无非法物品！</value>
+  </data>
   <data name="MessageSuccess" xml:space="preserve">
     <value>成功</value>
   </data>
   <data name="MessageSuccessAddItem" xml:space="preserve">
     <value>成功添加 {0} 个物品</value>
+  </data>
+  <data name="MessageSuccessDel" xml:space="preserve">
+    <value>成功删除 {0} 个物品</value>
   </data>
   <data name="MessageWarning" xml:space="preserve">
     <value>警告 !!!</value>

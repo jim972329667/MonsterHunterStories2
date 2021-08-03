@@ -25,7 +25,6 @@ namespace MonsterHunterStories2
 					Item item = new Item(address);
 					if (item.ID == 0) continue;
 					if (item.Count == 0) continue;
-
 					Items.Add(item);
 				}
 			}

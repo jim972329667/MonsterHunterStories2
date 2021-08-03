@@ -106,6 +106,15 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
+        ///   查找类似 No selected items！ 的本地化字符串。
+        /// </summary>
+        public static string ErrorChoiceItem {
+            get {
+                return ResourceManager.GetString("ErrorChoiceItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Please select a Egg cell ! 的本地化字符串。
         /// </summary>
         public static string ErrorForEggChoice {
@@ -386,6 +395,15 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Paste Egg HEX 的本地化字符串。
+        /// </summary>
+        public static string MainEggPaste {
+            get {
+                return ResourceManager.GetString("MainEggPaste", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Save Egg File(.mhs2egg) 的本地化字符串。
         /// </summary>
         public static string MainEggSaveEggFile {
@@ -620,11 +638,29 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Delete 的本地化字符串。
+        /// </summary>
+        public static string MainItemDelete {
+            get {
+                return ResourceManager.GetString("MainItemDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 _About 的本地化字符串。
         /// </summary>
         public static string MainMenuAbout {
             get {
                 return ResourceManager.GetString("MainMenuAbout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Check Items 的本地化字符串。
+        /// </summary>
+        public static string MainMenuCheckItem {
+            get {
+                return ResourceManager.GetString("MainMenuCheckItem", resourceCulture);
             }
         }
         
@@ -1034,6 +1070,15 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
+        ///   查找类似 No suspicious items ! 的本地化字符串。
+        /// </summary>
+        public static string MessageFailDel {
+            get {
+                return ResourceManager.GetString("MessageFailDel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Success 的本地化字符串。
         /// </summary>
         public static string MessageSuccess {
@@ -1048,6 +1093,15 @@ namespace MonsterHunterStories2.Properties {
         public static string MessageSuccessAddItem {
             get {
                 return ResourceManager.GetString("MessageSuccessAddItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Successfully delete {0} items 的本地化字符串。
+        /// </summary>
+        public static string MessageSuccessDel {
+            get {
+                return ResourceManager.GetString("MessageSuccessDel", resourceCulture);
             }
         }
         

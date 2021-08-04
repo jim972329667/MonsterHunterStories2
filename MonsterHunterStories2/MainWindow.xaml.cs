@@ -446,17 +446,16 @@ namespace MonsterHunterStories2
 
 		private void FileOpen(String filename)
 		{
-			byte[] ns = new byte[] {0x18, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x28, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x38, 0x00, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x48, 0x80, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0B, 0xA6, 0x25, 0x8C, 0x0C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0F, 0x24, 0xE0, 0x91};
-			byte[] pc = ns.Skip(32).Take(20).ToArray();
+			byte[] ns = new byte[] {0x0B, 0xA6, 0x25, 0x8C, 0x0C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0F, 0x24, 0xE0, 0x91};
 			var mBuffer = File.ReadAllBytes(filename);
-            byte[] Check1 = mBuffer.Skip(8).Take(52).ToArray();
+            byte[] Check1 = mBuffer.Skip(40).Take(20).ToArray();
             byte[] Check2 = mBuffer.Skip(88).Take(20).ToArray();
             bool PCconfirm;
             if (Check1.SequenceEqual(ns))
             {
                 PCconfirm = false;
             }
-            else if (Check2.SequenceEqual(pc))
+            else if (Check2.SequenceEqual(ns))
             {
                 PCconfirm = true;
             }
@@ -545,7 +544,8 @@ namespace MonsterHunterStories2
 					num++;
 				}
 			}
-			MessageBox.Show(Properties.Resources.MessageSuccess);
+			if(num != 0)
+				MessageBox.Show(Properties.Resources.MessageSuccess);
 		}
 		//private void Button111(object sender, RoutedEventArgs e)
 		//      {

@@ -76,7 +76,10 @@ namespace MonsterHunterStories2
 				Den Den = new Den(Util.DAN_ADDRESS + Util.DAN_SIZE * i);
 				if (Den.LocationID != 0xFFFFFFFF && Den.LocationID != 0)
 					if (Den.Type == "0101 0001" || Den.Type == "0102 0001")
+                    {
+						Den.Isget = false;
 						Dens.Add(Den);
+					}
 			}
 
 		}

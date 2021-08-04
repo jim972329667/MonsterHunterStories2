@@ -1025,7 +1025,7 @@
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
                                     <Label Content="{x:Static prop:Resources.MainDenLocationID}"/>
-                                    <TextBlock Text="{Binding LocationID}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                                    <TextBlock Text="{Binding LocationID}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0" Width="40"/>
                                     <Label Margin="10,0,0,0" Content="{x:Static prop:Resources.MainMonsterType}"/>
                                     <TextBlock Text="{Binding Type, Converter={StaticResource DenType2NameConverter}}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80"/>
                                     <Label Margin="10,0,0,0" Content="{x:Static prop:Resources.MainDenRank}"/>

@@ -515,19 +515,35 @@ namespace MonsterHunterStories2
         }
 		private void ButtonBaseAllDenQuality(object sender, RoutedEventArgs e)
         {
+			int num = 0;
 			ViewModel viewmodel = DataContext as ViewModel;
 			if (viewmodel == null) return;
 			foreach (Den x in viewmodel.Dens)
             {
-				if(x.Type == "0101 0001")
+                if (!x.Isget)
                 {
-					x.Rank = 1;
-					x.Rarity = 2;
-                }
-				else if(x.Type == "0102 0001")
-                {
-					x.Rank = 1;
-                }
+					if (x.Type == "0101 0001")
+					{
+						if (x.Rank == 0)
+						{
+							x.Rank = 1;
+							x.Rarity = 1;
+							x.Isget = true;
+						}
+						else
+						{
+							x.Rank = 1;
+							x.Rarity = 2;
+							x.Isget = true;
+						}
+					}
+					else if (x.Type == "0102 0001")
+					{
+						x.Rank = 1;
+						x.Isget = true;
+					}
+					num++;
+				}
 			}
 			MessageBox.Show(Properties.Resources.MessageSuccess);
 		}

@@ -15,7 +15,15 @@ namespace MonsterHunterStories2
 
 		public uint LocationID
 		{
-			get { return SaveData.Instance().ReadNumber(mAddress,4);}
+			get { return SaveData.Instance().ReadNumber(mAddress,2);}
+		}
+		public uint LocationID2
+		{
+			get { return SaveData.Instance().ReadNumber(mAddress+2, 2); }
+		}
+		public uint LocationID3
+		{
+			get { return SaveData.Instance().ReadNumber(mAddress + 12, 4); }
 		}
 
 		public string Type
@@ -33,13 +41,14 @@ namespace MonsterHunterStories2
 		}
 		public uint Rarity
 		{
-			get { return SaveData.Instance().ReadNumber(mAddress + 45, 1); }
+			get { return SaveData.Instance().ReadNumber(mAddress + 46, 1); }
 			set
 			{
-				Util.WriteNumber(mAddress + 45, 1, value, 0, 2);
+				Util.WriteNumber(mAddress + 46, 1, value, 0, 2);
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Rarity)));
 			}
 		}
+		public bool Isget { set; get; }
 
 	}
 }

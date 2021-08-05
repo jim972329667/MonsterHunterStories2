@@ -1052,6 +1052,15 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Max Weapon &amp; Armor Lv 的本地化字符串。
+        /// </summary>
+        public static string MainWeaponAllLv {
+            get {
+                return ResourceManager.GetString("MainWeaponAllLv", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Whether the database is automatically updated with the save file. Attention! Opening the wrong save file can cause database corruption. Whether to confirm ? 的本地化字符串。
         /// </summary>
         public static string MessageCheckUpdate {

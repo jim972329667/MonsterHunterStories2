@@ -14,7 +14,6 @@ namespace MonsterHunterStories2
 		public ObservableCollection<Monster> Monsters { get; set; } = new ObservableCollection<Monster>();
 		public ObservableCollection<Egg> Eggs { get; set; } = new ObservableCollection<Egg>();
 		public ObservableCollection<Den> Dens { get; set; } = new ObservableCollection<Den>();
-
 		public ViewModel()
 		{
 			if (DataBase.GetConverList("Items") != null)
@@ -81,7 +80,6 @@ namespace MonsterHunterStories2
 						Dens.Add(Den);
 					}
 			}
-
 		}
 
 		public uint Money

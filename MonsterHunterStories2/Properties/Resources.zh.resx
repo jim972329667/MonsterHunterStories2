@@ -444,6 +444,9 @@
   <data name="MainTabMonster" xml:space="preserve">
     <value>随行兽</value>
   </data>
+  <data name="MainWeaponAllLv" xml:space="preserve">
+    <value>最大武器&amp;装备等级</value>
+  </data>
   <data name="MessageCheckUpdate" xml:space="preserve">
     <value>是否选择随存档内容自动更新数据库 ？ 注意 ！！！ 如果打开了错误的存档，极有可能会导致数据库损坏 ！是否确认？</value>
   </data>

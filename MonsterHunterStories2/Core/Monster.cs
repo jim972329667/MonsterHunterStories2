@@ -165,79 +165,79 @@ namespace MonsterHunterStories2
 		public uint HPBonus
 		{
 			get { return SaveData.Instance().ReadNumber(mAddress + 168, 1); }
-			set { Util.WriteNumber(mAddress + 168, 1, value, 0, 0xFF); }
+			set { Util.WriteNumber(mAddress + 168, 1, value, 0, 3); }
 		}
 
 		public uint NormalElementAttackBonus
 		{
 			get { return SaveData.Instance().ReadNumber(mAddress + 169, 1); }
-			set { Util.WriteNumber(mAddress + 169, 1, value, 0, 0xFF); }
+			set { Util.WriteNumber(mAddress + 169, 1, value, 0, 3); }
 		}
 
 		public uint FireElementAttackBonus
 		{
 			get { return SaveData.Instance().ReadNumber(mAddress + 170, 1); }
-			set { Util.WriteNumber(mAddress + 170, 1, value, 0, 0xFF); }
+			set { Util.WriteNumber(mAddress + 170, 1, value, 0, 3); }
 		}
 
 		public uint WaterElementAttackBonus
 		{
 			get { return SaveData.Instance().ReadNumber(mAddress + 171, 1); }
-			set { Util.WriteNumber(mAddress + 171, 1, value, 0, 0xFF); }
+			set { Util.WriteNumber(mAddress + 171, 1, value, 0, 3); }
 		}
 
 		public uint ThunderElementAttackBonus
 		{
 			get { return SaveData.Instance().ReadNumber(mAddress + 172, 1); }
-			set { Util.WriteNumber(mAddress + 172, 1, value, 0, 0xFF); }
+			set { Util.WriteNumber(mAddress + 172, 1, value, 0, 3); }
 		}
 
 		public uint IceElementAttackBonus
 		{
 			get { return SaveData.Instance().ReadNumber(mAddress + 173, 1); }
-			set { Util.WriteNumber(mAddress + 173, 1, value, 0, 0xFF); }
+			set { Util.WriteNumber(mAddress + 173, 1, value, 0, 3); }
 		}
 
 		public uint DragonElementAttackBonus
 		{
 			get { return SaveData.Instance().ReadNumber(mAddress + 174, 1); }
-			set { Util.WriteNumber(mAddress + 174, 1, value, 0, 0xFF); }
+			set { Util.WriteNumber(mAddress + 174, 1, value, 0, 3); }
 		}
 
 		public uint NormalElementDefenseBonus
 		{
 			get { return SaveData.Instance().ReadNumber(mAddress + 175, 1); }
-			set { Util.WriteNumber(mAddress + 175, 1, value, 0, 0xFF); }
+			set { Util.WriteNumber(mAddress + 175, 1, value, 0, 3); }
 		}
 
 		public uint FireElementDefenseBonus
 		{
 			get { return SaveData.Instance().ReadNumber(mAddress + 176, 1); }
-			set { Util.WriteNumber(mAddress + 176, 1, value, 0, 0xFF); }
+			set { Util.WriteNumber(mAddress + 176, 1, value, 0, 3); }
 		}
 
 		public uint WaterElementDefenseBonus
 		{
 			get { return SaveData.Instance().ReadNumber(mAddress + 177, 1); }
-			set { Util.WriteNumber(mAddress + 177, 1, value, 0, 0xFF); }
+			set { Util.WriteNumber(mAddress + 177, 1, value, 0, 3); }
 		}
 
 		public uint ThunderElementDefenseBonus
 		{
 			get { return SaveData.Instance().ReadNumber(mAddress + 178, 1); }
-			set { Util.WriteNumber(mAddress + 178, 1, value, 0, 0xFF); }
+			set { Util.WriteNumber(mAddress + 178, 1, value, 0, 3); }
 		}
 
 		public uint IceElementDefenseBonus
 		{
 			get { return SaveData.Instance().ReadNumber(mAddress + 179, 1); }
-			set { Util.WriteNumber(mAddress + 179, 1, value, 0, 0xFF); }
+			set { Util.WriteNumber(mAddress + 179, 1, value, 0, 3); }
 		}
 
 		public uint DragonElementDefenseBonus
 		{
 			get { return SaveData.Instance().ReadNumber(mAddress + 180, 1); }
-			set { Util.WriteNumber(mAddress + 180, 1, value, 0, 0xFF); }
+			set { Util.WriteNumber(mAddress + 180, 1, value, 0, 3); }
 		}
 		
 		public uint LifetimeBattles

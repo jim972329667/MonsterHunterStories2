@@ -36,7 +36,11 @@ namespace MonsterHunterStories2
 		public uint Lv
 		{
 			get { return SaveData.Instance().ReadNumber(mAddress + 4, 2); }
-			set { Util.WriteNumber(mAddress + 4, 2, value, 1, 0xFFFF); }
+			set
+			{ 
+				Util.WriteNumber(mAddress + 4, 2, value, 1, 10);
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Lv)));
+			}
 		}
 	}
 }

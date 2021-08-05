@@ -859,44 +859,42 @@
             <TabItem Header="{x:Static prop:Resources.MainTabEquipment}">
                 <TabControl>
                     <TabItem Header="{x:Static prop:Resources.MainEquipmentTabWeapon}">
-                        <ListBox x:Name="ListBoxWeapon" ItemsSource="{Binding Weapons}">
-                            <ListBox.ItemTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <Label Content="Lv"/>
-                                        <ComboBox SelectedIndex="{Binding Lv}">
-                                            <ComboBoxItem Content="0"/>
-                                            <ComboBoxItem Content="1"/>
-                                            <ComboBoxItem Content="2"/>
-                                            <ComboBoxItem Content="3"/>
-                                        </ComboBox>
-                                        <Label Content=" ID"/>
-                                        <TextBox Text="{Binding ID, UpdateSourceTrigger=PropertyChanged}" Width="60"/>
-                                        <Label Content="{x:Static prop:Resources.MainEquipmentType}"/>
-                                        <ComboBox SelectedIndex="{Binding Type}" Width="120">
-                                            <ComboBoxItem Content="{x:Static prop:Resources.MainEquipmentWeaponGS}"/>
-                                            <ComboBoxItem Content="{x:Static prop:Resources.MainEquipmentWeaponSS}"/>
-                                            <ComboBoxItem Content="{x:Static prop:Resources.MainEquipmentWeaponH}"/>
-                                            <ComboBoxItem Content="{x:Static prop:Resources.MainEquipmentWeaponHH}"/>
-                                            <ComboBoxItem Content="{x:Static prop:Resources.MainEquipmentWeaponG}"/>
-                                            <ComboBoxItem Content="{x:Static prop:Resources.MainEquipmentWeaponB}"/>
-                                        </ComboBox>
-                                        <Button Margin="10,0,0,0" Content="..." Click="ButtonChoiceWeapon_Click"/>
-                                        <Label>
-                                            <Label.Resources>
-                                                <local:WeaponID2NameConverter x:Key="WeaponID2NameConverter"/>
-                                            </Label.Resources>
-                                            <Label.Content>
-                                                <MultiBinding Converter="{StaticResource WeaponID2NameConverter}">
-                                                    <Binding Path="ID"/>
-                                                    <Binding Path="Type"/>
-                                                </MultiBinding>
-                                            </Label.Content>
-                                        </Label>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </ListBox.ItemTemplate>
-                        </ListBox>
+                        <TabItem.Resources>
+                            <local:WeaponID2NameConverter x:Key="WeaponID2NameConverter"/>
+                        </TabItem.Resources>
+                        <DockPanel>
+                            <Button DockPanel.Dock="Top" Content ="{x:Static prop:Resources.MainWeaponAllLv}" Click="ButtonAllWeaponLv"/>
+                            <ListBox x:Name="ListBoxWeapon" ItemsSource="{Binding Weapons}">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Label Content="Lv"/>
+                                            <TextBox Text="{Binding Lv, UpdateSourceTrigger=PropertyChanged}" Width="40"/>
+                                            <Label Content=" ID"/>
+                                            <TextBox Text="{Binding ID, UpdateSourceTrigger=PropertyChanged}" Width="60"/>
+                                            <Label Content="{x:Static prop:Resources.MainEquipmentType}"/>
+                                            <ComboBox SelectedIndex="{Binding Type}" Width="120">
+                                                <ComboBoxItem Content="{x:Static prop:Resources.MainEquipmentWeaponGS}"/>
+                                                <ComboBoxItem Content="{x:Static prop:Resources.MainEquipmentWeaponSS}"/>
+                                                <ComboBoxItem Content="{x:Static prop:Resources.MainEquipmentWeaponH}"/>
+                                                <ComboBoxItem Content="{x:Static prop:Resources.MainEquipmentWeaponHH}"/>
+                                                <ComboBoxItem Content="{x:Static prop:Resources.MainEquipmentWeaponG}"/>
+                                                <ComboBoxItem Content="{x:Static prop:Resources.MainEquipmentWeaponB}"/>
+                                            </ComboBox>
+                                            <Button Margin="10,0,0,0" Content="..." Click="ButtonChoiceWeapon_Click"/>
+                                            <Label>
+                                                <Label.Content>
+                                                    <MultiBinding Converter="{StaticResource WeaponID2NameConverter}">
+                                                        <Binding Path="ID"/>
+                                                        <Binding Path="Type"/>
+                                                    </MultiBinding>
+                                                </Label.Content>
+                                            </Label>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </DockPanel>
                     </TabItem>
                     <TabItem Header="{x:Static prop:Resources.MainEquipmentTabArmor}">
                         <ListBox x:Name="ListBoxArmor" ItemsSource="{Binding Armors}">
@@ -907,12 +905,7 @@
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
                                         <Label Content="Lv"/>
-                                        <ComboBox SelectedIndex="{Binding Lv}">
-                                            <ComboBoxItem Content="0"/>
-                                            <ComboBoxItem Content="1"/>
-                                            <ComboBoxItem Content="2"/>
-                                            <ComboBoxItem Content="3"/>
-                                        </ComboBox>
+                                        <TextBox Text="{Binding Lv, UpdateSourceTrigger=PropertyChanged}" Width="40"/>
                                         <Label Content=" ID"/>
                                         <TextBox Text="{Binding ID, UpdateSourceTrigger=PropertyChanged}" Width="60"/>
                                         <Label Content="{x:Static prop:Resources.MainEquipmentArmorBody}"/>

@@ -33,7 +33,8 @@ namespace MonsterHunterStories2
 			if (!File.Exists(@".\info\MHS2.db"))
 			{
 				MessageBox.Show(Properties.Resources.ErrorLosingDBFile);
-				LiteDatabase db = new LiteDatabase("Filename = info\\MHS2.db");
+				Directory.CreateDirectory(@".\info\");
+				LiteDatabase db = new LiteDatabase(@".\info\MHS2.db");
 				db.Dispose();
 				if (DataBase.ChickDB() != null) MessageBox.Show(DataBase.ChickDB());
 			}
@@ -547,6 +548,31 @@ namespace MonsterHunterStories2
 			if(num != 0)
 				MessageBox.Show(Properties.Resources.MessageSuccess);
 		}
+		private void ButtonAllWeaponLv(object sender, RoutedEventArgs e)
+        {
+			int num = 0;
+			ViewModel viewmodel = DataContext as ViewModel;
+			if (viewmodel == null) return;
+			foreach(var x in viewmodel.Weapons)
+            {
+				if(x.ID != 0)
+                {
+					num++;
+					x.Lv = 10;
+                }
+            }
+			foreach (var x in viewmodel.Armors)
+			{
+				if (x.ID != 0)
+				{
+					num++;
+					x.Lv = 10;
+				}
+			}
+			if(num != 0)
+				MessageBox.Show(Properties.Resources.MessageSuccess);
+		}
+
 		//private void Button111(object sender, RoutedEventArgs e)
 		//      {
 		//	const string Path = "C:/Users/jim97/Desktop/info/new2.txt";

@@ -448,6 +448,9 @@
   <data name="MainTabMonster" xml:space="preserve">
     <value>Monster</value>
   </data>
+  <data name="MainWeaponAllLv" xml:space="preserve">
+    <value>Max Weapon &amp; Armor Lv</value>
+  </data>
   <data name="MessageCheckUpdate" xml:space="preserve">
     <value>Whether the database is automatically updated with the save file. Attention! Opening the wrong save file can cause database corruption. Whether to confirm ?</value>
   </data>

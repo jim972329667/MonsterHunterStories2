@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 
 namespace MonsterHunterStories2
 {
@@ -28,16 +29,33 @@ namespace MonsterHunterStories2
 			get { return SaveData.Instance().ReadNumber(mAddress + 2, 2); }
 			set
 			{
+				Random ran = new Random();
 				SaveData.Instance().WriteNumber(mAddress + 2, 2, value);
 				Type = 6;
+				MainR = (uint)ran.Next(0, 255);
+				MainG = (uint)ran.Next(0, 255);
+				MainB = (uint)ran.Next(0, 255);
+				DR = (uint)ran.Next(0, 255);
+				DG = (uint)ran.Next(0, 255);
+				DB = (uint)ran.Next(0, 255);
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ID)));
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(MainR)));
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(MainG)));
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(MainB)));
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(DR)));
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(DG)));
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(DB)));
 			}
 		}
 
 		public uint Lv
 		{
 			get { return SaveData.Instance().ReadNumber(mAddress + 4, 2); }
-			set { Util.WriteNumber(mAddress + 4, 2, value, 1, 0xFFFF); }
+			set
+			{
+				Util.WriteNumber(mAddress + 4, 2, value, 1, 10);
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Lv)));
+			}
 		}
 
 		public uint MainR

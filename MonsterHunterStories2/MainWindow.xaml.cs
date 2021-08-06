@@ -522,29 +522,47 @@ namespace MonsterHunterStories2
 			int num = 0;
 			ViewModel viewmodel = DataContext as ViewModel;
 			if (viewmodel == null) return;
+			uint story = SaveData.Instance().ReadNumber(0x162C8, 4); //0x006c5660
 			foreach (Den x in viewmodel.Dens)
             {
                 if (!x.Isget)
                 {
-					if (x.Type == "0101 0001")
-					{
-						if (x.Rank == 0)
-						{
-							x.Rank = 1;
-							x.Rarity = 1;
-							x.Isget = true;
-						}
-						else
+					if(story == 0x006c5660)
+                    {
+						if (x.Type == "0101 0001")
 						{
 							x.Rank = 1;
 							x.Rarity = 2;
 							x.Isget = true;
 						}
+						else if (x.Type == "0102 0001")
+						{
+							x.Rank = 1;
+							x.Isget = true;
+						}
 					}
-					else if (x.Type == "0102 0001")
-					{
-						x.Rank = 1;
-						x.Isget = true;
+                    else
+                    {
+						if (x.Type == "0101 0001")
+						{
+							if (x.Rank == 0)
+							{
+								x.Rank = 1;
+								x.Rarity = 1;
+								x.Isget = true;
+							}
+							else
+							{
+								x.Rank = 1;
+								x.Rarity = 2;
+								x.Isget = true;
+							}
+						}
+						else if (x.Type == "0102 0001")
+						{
+							x.Rank = 1;
+							x.Isget = true;
+						}
 					}
 					num++;
 				}

@@ -28,6 +28,7 @@
             </MenuItem>
             <MenuItem Header="{x:Static prop:Resources.MainMenuAbout}" Click="MenuItemAbout_Click" Margin="10,0,0,0"/>
             <MenuItem Header="{x:Static prop:Resources.MainMenuUpdateDB}" Click="MenuAddDB_Click" Margin="10,0,0,0"/>
+            <MenuItem Header="{x:Static prop:Resources.MainMenuFeedback}" Click="MenuFeedback_Click" Margin="10,0,0,0"/>
         </Menu>
         <ToolBar DockPanel.Dock="Top">
             <Button Height="32" ToolTip="Open" Click="MenuItemFileOpen_Click">
@@ -120,8 +121,12 @@
                         </Grid.RowDefinitions>
                         <Label Content="Lv"/>
                         <TextBox Grid.Column="3" Text="{Binding ElementName=ListBoxCharacter, Path=SelectedItem.Lv, UpdateSourceTrigger=PropertyChanged}"/>
-                        <Label Grid.Row="1" Content="Exp"/>
-                        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding ElementName=ListBoxCharacter, Path=SelectedItem.Exp, UpdateSourceTrigger=PropertyChanged}"/>
+                        <DockPanel Grid.Row="1" Grid.ColumnSpan="2">
+                            <Label Content="Exp" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding ElementName=ListBoxCharacter, Path=SelectedItem.Exp, UpdateSourceTrigger=PropertyChanged}" Width="125"/>
+                            <Label Content=" / " HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="{Binding ElementName=ListBoxCharacter, Path=SelectedItem.MaxExp}" Width="125" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </DockPanel>
                         <Label Grid.Row="2" Content="{x:Static prop:Resources.MainCharacterName}"/>
                         <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding ElementName=ListBoxCharacter, Path=SelectedItem.Name, UpdateSourceTrigger=PropertyChanged}"/>
                         <Label Grid.Row="3" Content="{x:Static prop:Resources.MainCharacterBodyType}"/>
@@ -189,8 +194,12 @@
                         </Grid.RowDefinitions>
                         <Label Content="Lv"/>
                         <TextBox Grid.Column="1" Text="{Binding ElementName=ListBoxMonster, Path=SelectedItem.Lv, UpdateSourceTrigger=PropertyChanged}"/>
-                        <Label Grid.Row="1" Content="Exp"/>
-                        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding ElementName=ListBoxMonster, Path=SelectedItem.Exp, UpdateSourceTrigger=PropertyChanged}"/>
+                        <DockPanel Grid.Row="1" Grid.ColumnSpan="2">
+                            <Label Content="Exp" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBox Text="{Binding ElementName=ListBoxMonster, Path=SelectedItem.Exp, UpdateSourceTrigger=PropertyChanged}" Width="101"/>
+                            <Label Content=" / " HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="{Binding ElementName=ListBoxMonster, Path=SelectedItem.MaxExp}" Width="101" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </DockPanel>
                         <Label Grid.Row="2" Content="{x:Static prop:Resources.MainMonsterName}"/>
                         <TextBox  Grid.Row="2" Grid.Column="1" Text="{Binding ElementName=ListBoxMonster, Path=SelectedItem.Name, UpdateSourceTrigger=PropertyChanged}"/>
                         <Label Grid.Row="3" Content="{x:Static prop:Resources.MainMonsterType}"/>
@@ -862,9 +871,20 @@
                         <TabItem.Resources>
                             <local:WeaponID2NameConverter x:Key="WeaponID2NameConverter"/>
                         </TabItem.Resources>
-                        <DockPanel>
-                            <Button DockPanel.Dock="Top" Content ="{x:Static prop:Resources.MainWeaponAllLv}" Click="ButtonAllWeaponLv"/>
-                            <ListBox x:Name="ListBoxWeapon" ItemsSource="{Binding Weapons}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                <Label Content="{x:Static prop:Resources.MainWeaponAllLv}"/>
+                                <ComboBox x:Name="ComboBoxAllLv" SelectionChanged="ComboBox_AllWeaponLv">
+                                    <ComboBoxItem Content="3"/>
+                                    <ComboBoxItem Content="5"/>
+                                    <ComboBoxItem Content="10"/>
+                                </ComboBox>
+                            </StackPanel>
+                            <ListBox Grid.Row="1" x:Name="ListBoxWeapon" ItemsSource="{Binding Weapons}">
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
@@ -894,7 +914,7 @@
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
                             </ListBox>
-                        </DockPanel>
+                        </Grid>
                     </TabItem>
                     <TabItem Header="{x:Static prop:Resources.MainEquipmentTabArmor}">
                         <ListBox x:Name="ListBoxArmor" ItemsSource="{Binding Armors}">

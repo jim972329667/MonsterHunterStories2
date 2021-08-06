@@ -315,6 +315,9 @@
   <data name="MainMenuCheckItem" xml:space="preserve">
     <value>检查物品</value>
   </data>
+  <data name="MainMenuFeedback" xml:space="preserve">
+    <value>反馈</value>
+  </data>
   <data name="MainMenuFile" xml:space="preserve">
     <value>文件(__F)</value>
   </data>
@@ -464,6 +467,9 @@
   </data>
   <data name="MessageSuccessDel" xml:space="preserve">
     <value>成功删除 {0} 个物品</value>
+  </data>
+  <data name="MessageUpgradedEquipment" xml:space="preserve">
+    <value>成功升级 {0} 件装备</value>
   </data>
   <data name="MessageWarning" xml:space="preserve">
     <value>警告 !!!</value>

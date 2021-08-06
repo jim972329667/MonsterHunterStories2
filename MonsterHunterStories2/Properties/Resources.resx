@@ -319,6 +319,9 @@
   <data name="MainMenuCheckItem" xml:space="preserve">
     <value>Check Items</value>
   </data>
+  <data name="MainMenuFeedback" xml:space="preserve">
+    <value>Feedback</value>
+  </data>
   <data name="MainMenuFile" xml:space="preserve">
     <value>_File</value>
   </data>
@@ -468,6 +471,9 @@
   </data>
   <data name="MessageSuccessDel" xml:space="preserve">
     <value>Successfully delete {0} items</value>
+  </data>
+  <data name="MessageUpgradedEquipment" xml:space="preserve">
+    <value>Successfully upgraded {0} equipment</value>
   </data>
   <data name="MessageWarning" xml:space="preserve">
     <value>Warning !!!</value>

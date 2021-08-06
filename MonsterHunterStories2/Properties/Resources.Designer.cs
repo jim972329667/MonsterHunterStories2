@@ -665,6 +665,15 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Feedback 的本地化字符串。
+        /// </summary>
+        public static string MainMenuFeedback {
+            get {
+                return ResourceManager.GetString("MainMenuFeedback", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 _File 的本地化字符串。
         /// </summary>
         public static string MainMenuFile {
@@ -1111,6 +1120,15 @@ namespace MonsterHunterStories2.Properties {
         public static string MessageSuccessDel {
             get {
                 return ResourceManager.GetString("MessageSuccessDel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Successfully upgraded {0} equipment 的本地化字符串。
+        /// </summary>
+        public static string MessageUpgradedEquipment {
+            get {
+                return ResourceManager.GetString("MessageUpgradedEquipment", resourceCulture);
             }
         }
         

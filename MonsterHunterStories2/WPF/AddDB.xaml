@@ -6,7 +6,7 @@
         xmlns:prop="clr-namespace:MonsterHunterStories2.Properties"
         xmlns:local="clr-namespace:MonsterHunterStories2"
         mc:Ignorable="d"
-        Title="{x:Static prop:Resources.AddDBTitle}" Height="280" Width="400">
+        Title="{x:Static prop:Resources.AddDBTitle}" Height="280" Width="400" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -38,10 +38,10 @@
         <Button Content="{x:Static prop:Resources.AddDBUpdateButton}" Grid.Row="1" Grid.Column="1" Margin="10" Click="Add_Click"/>
         <Label Grid.Row="2"  Content="GenePNGID：" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <TextBlock Grid.Row="2" Grid.Column="1" 
-                   Text="ID    Pattern number
-                   ID    Pattern number
-                   ID    ......." 
-                   HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" Width="139" Margin="66.4,5.8,58.2,-0.2" Height="52"/>
+                   Text=" ID    Pattern number     
+                          ID    Pattern number
+                           ID    ......." 
+                   HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" Width="149" Margin="55,8,57,2" Height="52"/>
         <Label Grid.Row="3"  Content="Other File：" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <TextBlock Grid.Row="3" Grid.Column="1" 
                    Text="ID	日本語	English	한국어	简体中文	繁體中文...

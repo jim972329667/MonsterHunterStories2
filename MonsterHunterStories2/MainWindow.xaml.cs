@@ -97,6 +97,10 @@ namespace MonsterHunterStories2
 			var dlg = new AddDB();
 			dlg.ShowDialog();
 		}
+		private void MenuFeedback_Click(object sender, RoutedEventArgs e)
+        {
+			System.Diagnostics.Process.Start("https://github.com/jim972329667/MonsterHunterStories2/issues");
+		}
 
 		private void ButtonChoiceItem_Click(object sender, RoutedEventArgs e)
 		{
@@ -548,56 +552,62 @@ namespace MonsterHunterStories2
 			if(num != 0)
 				MessageBox.Show(Properties.Resources.MessageSuccess);
 		}
-		private void ButtonAllWeaponLv(object sender, RoutedEventArgs e)
+
+        private void ComboBox_AllWeaponLv(object sender, SelectionChangedEventArgs e)
         {
+			uint thislv = 1;
 			int num = 0;
+			int i = ComboBoxAllLv.SelectedIndex;
 			ViewModel viewmodel = DataContext as ViewModel;
-			if (viewmodel == null) return;
-			foreach(var x in viewmodel.Weapons)
-            {
-				if(x.ID != 0)
-                {
+			if (viewmodel == null || i == -1) return;
+			if (i == 0) thislv = 3;
+			else if (i == 1) thislv = 5;
+			else thislv = 10;
+			foreach (var x in viewmodel.Weapons)
+			{
+				if (x.ID != 0)
+				{
 					num++;
-					x.Lv = 10;
-                }
-            }
+					x.Lv = thislv;
+				}
+			}
 			foreach (var x in viewmodel.Armors)
 			{
 				if (x.ID != 0)
 				{
 					num++;
-					x.Lv = 10;
+					x.Lv = thislv;
 				}
 			}
-			if(num != 0)
-				MessageBox.Show(Properties.Resources.MessageSuccess);
+			if (num != 0)
+				MessageBox.Show(string.Format(Properties.Resources.MessageUpgradedEquipment, num.ToString()));
 		}
 
-		//private void Button111(object sender, RoutedEventArgs e)
-		//      {
-		//	const string Path = "C:/Users/jim97/Desktop/info/new2.txt";
-		//	OpenFileDialog dlg = new OpenFileDialog();
-		//	if (dlg.ShowDialog() != false)
-		//	{
-		//		if (System.IO.File.Exists(dlg.FileName))
-		//		{
-		//			string[] lines = System.IO.File.ReadAllLines(dlg.FileName);
-		//                  for (int i = 0; i < lines.Length - 2; i++)
-		//                  {
-		//                      string x = lines[i+2];
-		//				string y = lines[i];
-		//				if(i % 3 == 0 && i <= 3138)
-		//                      {
-		//					//if (i <= 3138)
-		//					//{
-		//					//	System.IO.File.AppendAllText(Path, y + ";");
-		//					//}
-		//					System.IO.File.AppendAllText(Path, x + "\n");
-		//				}
-		//                  }
-		//		}
-		//		MessageBox.Show("Success");
-		//	}
-		//}
-	}
+        //private void Button111(object sender, RoutedEventArgs e)
+        //      {
+        //	const string Path = "C:/Users/jim97/Desktop/info/new2.txt";
+        //	OpenFileDialog dlg = new OpenFileDialog();
+        //	if (dlg.ShowDialog() != false)
+        //	{
+        //		if (System.IO.File.Exists(dlg.FileName))
+        //		{
+        //			string[] lines = System.IO.File.ReadAllLines(dlg.FileName);
+        //                  for (int i = 0; i < lines.Length - 2; i++)
+        //                  {
+        //                      string x = lines[i+2];
+        //				string y = lines[i];
+        //				if(i % 3 == 0 && i <= 3138)
+        //                      {
+        //					//if (i <= 3138)
+        //					//{
+        //					//	System.IO.File.AppendAllText(Path, y + ";");
+        //					//}
+        //					System.IO.File.AppendAllText(Path, x + "\n");
+        //				}
+        //                  }
+        //		}
+        //		MessageBox.Show("Success");
+        //	}
+        //}
+    }
 }

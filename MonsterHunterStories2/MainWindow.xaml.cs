@@ -6,6 +6,7 @@ using System.Collections;
 using System.IO;
 using LiteDB;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace MonsterHunterStories2
 {
@@ -115,6 +116,7 @@ namespace MonsterHunterStories2
 			ViewModel viewmodel = DataContext as ViewModel;
 			if (viewmodel == null) return;
 			if (dlg.DialogResult == false) return;
+			ListBoxItem.SelectedItems.Clear();
 			foreach (DataBase.ConverList items in dlg.ListBoxItem.SelectedItems)
             {
                 uint id = items.Key;
@@ -125,6 +127,9 @@ namespace MonsterHunterStories2
 					{
 						Get = false;
 						SaveData.Instance().WriteBit(Util.ITEMSETTING_ADDRESS + id / 8, id % 8, true);
+						ListBoxItem.SelectedItems.Add(viewmodel.Items[i]);
+						ListBoxItem.Focus();
+						ListBoxItem.ScrollIntoView(viewmodel.Items[i]);
 						break;
 					}
 				}
@@ -138,12 +143,14 @@ namespace MonsterHunterStories2
 					};
 					viewmodel.Items.Add(item);
 					SaveData.Instance().WriteBit(Util.ITEMSETTING_ADDRESS + id / 8, id % 8, true);
+					//ListBoxItem.SelectedItems.Add(item);
 				}
 				else Get = true;
                 
 			}
-			if (num == 0) MessageBox.Show(Properties.Resources.MessageFailAddItem);
-			else MessageBox.Show(string.Format(Properties.Resources.MessageSuccessAddItem, num.ToString()));
+			//if (num == 0) MessageBox.Show(Properties.Resources.MessageFailAddItem);
+			//else MessageBox.Show(string.Format(Properties.Resources.MessageSuccessAddItem, num.ToString()));
+			if (num != 0) MessageBox.Show(string.Format(Properties.Resources.MessageSuccessAddItem, num.ToString()));
 		}
 		private void ButtonCheckItem_Click(object sender, RoutedEventArgs e)
         {
@@ -600,6 +607,7 @@ namespace MonsterHunterStories2
 			if (num != 0)
 				MessageBox.Show(string.Format(Properties.Resources.MessageUpgradedEquipment, num.ToString()));
 		}
+
 
         //private void Button111(object sender, RoutedEventArgs e)
         //      {

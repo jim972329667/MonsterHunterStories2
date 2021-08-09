@@ -1029,7 +1029,7 @@
             <TabItem Header="{x:Static prop:Resources.MainTabDen}">
                 <DockPanel>
                     <Button DockPanel.Dock="Bottom" Content="{x:Static prop:Resources.MainDenAllQuality}" Click="ButtonBaseAllDenQuality"/>
-                    <ListBox x:Name="ListBoxItem1" ItemsSource="{Binding Dens}">
+                    <ListBox x:Name="ListBoxDen" ItemsSource="{Binding Dens}">
                         <ListBox.Resources>
                             <local:DenVisibleConverter x:Key="DenVisibleConverter"/>
                             <local:DenType2NameConverter x:Key="DenType2NameConverter"/>

@@ -310,8 +310,38 @@
   <data name="MainItemAppend" xml:space="preserve">
     <value>Append/Search Item</value>
   </data>
+  <data name="MainItemCount" xml:space="preserve">
+    <value>Count : {0}</value>
+  </data>
   <data name="MainItemDelete" xml:space="preserve">
     <value>Delete</value>
+  </data>
+  <data name="MainItemType0" xml:space="preserve">
+    <value>New Items</value>
+  </data>
+  <data name="MainItemType1" xml:space="preserve">
+    <value>Healing</value>
+  </data>
+  <data name="MainItemType2" xml:space="preserve">
+    <value>Support</value>
+  </data>
+  <data name="MainItemType3" xml:space="preserve">
+    <value>Materials</value>
+  </data>
+  <data name="MainItemType4" xml:space="preserve">
+    <value>Facilities</value>
+  </data>
+  <data name="MainItemType5" xml:space="preserve">
+    <value>Growth</value>
+  </data>
+  <data name="MainItemType6" xml:space="preserve">
+    <value>Key Items</value>
+  </data>
+  <data name="MainItemType7" xml:space="preserve">
+    <value>Others</value>
+  </data>
+  <data name="MainItemType8" xml:space="preserve">
+    <value>None</value>
   </data>
   <data name="MainMenuAbout" xml:space="preserve">
     <value>_About</value>

@@ -1010,6 +1010,7 @@
                             <ListBox.Resources>
                                 <local:ItemID2NameConverter x:Key="ItemID2NameConverter"/>
                                 <local:ItemID2DescriptionConcerter x:Key="ItemID2DescriptionConcerter"/>
+                                <local:ItemType2NameConverter x:Key="ItemType2NameConverter"/>
                             </ListBox.Resources>
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
@@ -1022,6 +1023,30 @@
                                     </StackPanel>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
+                            <ListBox.GroupStyle>
+                                <GroupStyle>
+                                    <GroupStyle.ContainerStyle>
+                                        <Style TargetType="{x:Type GroupItem}">
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="{x:Type GroupItem}">
+                                                        <Expander  IsExpanded="True"
+                                          ExpandDirection="Down">
+                                                            <Expander.Header>
+                                                                <StackPanel Orientation="Horizontal">
+                                                                    <TextBlock Text="{Binding Path= Name, Converter={StaticResource ItemType2NameConverter}}" VerticalAlignment="Center" />
+                                                                    <TextBlock Text="{Binding Path=ItemCount, StringFormat={x:Static prop:Resources.MainItemCount}}" VerticalAlignment="Center" Margin="10,0,0,0" />
+                                                                </StackPanel>
+                                                            </Expander.Header>
+                                                            <ItemsPresenter />
+                                                        </Expander>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </GroupStyle.ContainerStyle>
+                                </GroupStyle>
+                            </ListBox.GroupStyle>
                         </ListBox>
                     </DockPanel>
                 </Grid>

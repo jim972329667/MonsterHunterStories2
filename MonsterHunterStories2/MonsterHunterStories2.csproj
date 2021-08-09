@@ -86,7 +86,6 @@
       <DependentUpon>AddDB.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converter\GeneID2SkillConverter.cs" />
-    <Compile Include="Converter\ItemID2DescriptionConcerter.cs" />
     <Compile Include="Core\Armor.cs" />
     <Compile Include="Converter\ArmorID2NameConverter.cs" />
     <Compile Include="Core\Character.cs" />
@@ -102,7 +101,7 @@
     <Compile Include="Util\DataBase.cs" />
     <Compile Include="Util\ILineAnalysis.cs" />
     <Compile Include="Core\Item.cs" />
-    <Compile Include="Converter\ItemID2NameConverter.cs" />
+    <Compile Include="Converter\ItemConverter.cs" />
     <Compile Include="Core\Monster.cs" />
     <Compile Include="Util\KeyValuesInfo.cs" />
     <Compile Include="Converter\MonsterID2NameConverter.cs" />

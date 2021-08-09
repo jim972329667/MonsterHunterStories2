@@ -7,6 +7,8 @@ using System.IO;
 using LiteDB;
 using System.Linq;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Data;
 
 namespace MonsterHunterStories2
 {
@@ -139,14 +141,14 @@ namespace MonsterHunterStories2
 					Item item = new Item(Util.ItemIDAddress(id))
 					{
 						ID = id,
-						Count = 1
+						Count = 1,
+						Type = 0
 					};
 					viewmodel.Items.Add(item);
 					SaveData.Instance().WriteBit(Util.ITEMSETTING_ADDRESS + id / 8, id % 8, true);
 					//ListBoxItem.SelectedItems.Add(item);
 				}
 				else Get = true;
-                
 			}
 			//if (num == 0) MessageBox.Show(Properties.Resources.MessageFailAddItem);
 			//else MessageBox.Show(string.Format(Properties.Resources.MessageSuccessAddItem, num.ToString()));
@@ -479,6 +481,10 @@ namespace MonsterHunterStories2
             SaveData.Instance().Adventure = PCconfirm ? Util.PC_ADDRESS : 0;
 			SaveData.Instance().Open(filename);
 			DataContext = new ViewModel();
+
+			ICollectionView cv = CollectionViewSource.GetDefaultView(ListBoxItem.ItemsSource);
+			cv.GroupDescriptions.Clear();
+			cv.GroupDescriptions.Add(new PropertyGroupDescription("Type"));
 		}
 
 		//private void ButtonBaseGuide_Click(object sender, RoutedEventArgs e)
@@ -513,7 +519,7 @@ namespace MonsterHunterStories2
 			foreach (Item x in viewmodel.Items)
 			{
 				if (x == null) return;
-				if (!((IList)Item.Itemlist).Contains(x.ID))
+				if (!((IList)Item.KeyItemlist).Contains(x.ID))
 				{
 					if(x.ID <= 1750) x.Count = 900;
 				}

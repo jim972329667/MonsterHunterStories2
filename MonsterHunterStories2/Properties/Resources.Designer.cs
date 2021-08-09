@@ -638,11 +638,101 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Count : {0} 的本地化字符串。
+        /// </summary>
+        public static string MainItemCount {
+            get {
+                return ResourceManager.GetString("MainItemCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Delete 的本地化字符串。
         /// </summary>
         public static string MainItemDelete {
             get {
                 return ResourceManager.GetString("MainItemDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 New Items 的本地化字符串。
+        /// </summary>
+        public static string MainItemType0 {
+            get {
+                return ResourceManager.GetString("MainItemType0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Healing 的本地化字符串。
+        /// </summary>
+        public static string MainItemType1 {
+            get {
+                return ResourceManager.GetString("MainItemType1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Support 的本地化字符串。
+        /// </summary>
+        public static string MainItemType2 {
+            get {
+                return ResourceManager.GetString("MainItemType2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Materials 的本地化字符串。
+        /// </summary>
+        public static string MainItemType3 {
+            get {
+                return ResourceManager.GetString("MainItemType3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Facilities 的本地化字符串。
+        /// </summary>
+        public static string MainItemType4 {
+            get {
+                return ResourceManager.GetString("MainItemType4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Growth 的本地化字符串。
+        /// </summary>
+        public static string MainItemType5 {
+            get {
+                return ResourceManager.GetString("MainItemType5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Key Items 的本地化字符串。
+        /// </summary>
+        public static string MainItemType6 {
+            get {
+                return ResourceManager.GetString("MainItemType6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Others 的本地化字符串。
+        /// </summary>
+        public static string MainItemType7 {
+            get {
+                return ResourceManager.GetString("MainItemType7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 None 的本地化字符串。
+        /// </summary>
+        public static string MainItemType8 {
+            get {
+                return ResourceManager.GetString("MainItemType8", resourceCulture);
             }
         }
         

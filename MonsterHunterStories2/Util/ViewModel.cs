@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.ObjectModel;
 using System.Drawing;
 
@@ -24,6 +25,7 @@ namespace MonsterHunterStories2
 					Item item = new Item(address);
 					if (item.ID == 0) continue;
 					if (item.Count == 0) continue;
+					item.Type = ItemType(item.ID);
 					Items.Add(item);
 				}
 			}
@@ -112,6 +114,43 @@ namespace MonsterHunterStories2
 				uint time = SaveData.Instance().ReadNumber(64, 4) / 3600 * 3600 + value * 60;
 				SaveData.Instance().WriteNumber(64, 4, time);
 			}
+		}
+		private uint ItemType(uint ID)
+        {
+			uint type;
+            if (((IList)Item.HealingItemlist).Contains(ID))
+			{
+				type = 1;
+            }
+            else if (((IList)Item.SupportItemlist).Contains(ID))
+            {
+				type = 2;
+            }
+			else if (((IList)Item.MaterialsItemlist).Contains(ID))
+			{
+				type = 3;
+			}
+			else if (((IList)Item.FacilitiesItemlist).Contains(ID))
+			{
+				type = 4;
+			}
+			else if (((IList)Item.GrowthItemlist).Contains(ID))
+			{
+				type = 5;
+			}
+			else if (((IList)Item.KeyItemlist).Contains(ID))
+			{
+				type = 6;
+			}
+			else if (((IList)Item.EmptyItemlist).Contains(ID) && (DataBase.GetConver(ID,"Items") == "" || DataBase.GetConver(ID, "Items") == null))
+			{
+				type = 8;
+			}
+            else
+            {
+				type = 7;
+            }
+			return type;
 		}
 	}
 }

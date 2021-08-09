@@ -306,8 +306,38 @@
   <data name="MainItemAppend" xml:space="preserve">
     <value>添加/搜索物品</value>
   </data>
+  <data name="MainItemCount" xml:space="preserve">
+    <value>数量 : {0}</value>
+  </data>
   <data name="MainItemDelete" xml:space="preserve">
     <value>删除</value>
+  </data>
+  <data name="MainItemType0" xml:space="preserve">
+    <value>新物品</value>
+  </data>
+  <data name="MainItemType1" xml:space="preserve">
+    <value>回复</value>
+  </data>
+  <data name="MainItemType2" xml:space="preserve">
+    <value>支援</value>
+  </data>
+  <data name="MainItemType3" xml:space="preserve">
+    <value>素材</value>
+  </data>
+  <data name="MainItemType4" xml:space="preserve">
+    <value>设施</value>
+  </data>
+  <data name="MainItemType5" xml:space="preserve">
+    <value>成长</value>
+  </data>
+  <data name="MainItemType6" xml:space="preserve">
+    <value>珍品</value>
+  </data>
+  <data name="MainItemType7" xml:space="preserve">
+    <value>其他物品</value>
+  </data>
+  <data name="MainItemType8" xml:space="preserve">
+    <value>空</value>
   </data>
   <data name="MainMenuAbout" xml:space="preserve">
     <value>关于</value>

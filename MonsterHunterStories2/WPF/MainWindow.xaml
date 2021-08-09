@@ -14,8 +14,8 @@
         <local:ViewModel/>
     </Window.DataContext>
     <Window.Resources>
-        <BitmapImage x:Key="Open" UriSource="./resource/Open.png"/>
-        <BitmapImage x:Key="Save" UriSource="./resource/Save.png"/>
+        <BitmapImage x:Key="Open" UriSource="../resource/Open.png"/>
+        <BitmapImage x:Key="Save" UriSource="../resource/Save.png"/>
     </Window.Resources>
     <DockPanel>
         <Menu DockPanel.Dock="Top">

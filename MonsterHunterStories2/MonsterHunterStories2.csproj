@@ -85,7 +85,6 @@
     <Compile Include="WPF\AddDB.xaml.cs">
       <DependentUpon>AddDB.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Converter\GeneID2SkillConverter.cs" />
     <Compile Include="Core\Armor.cs" />
     <Compile Include="Converter\ArmorID2NameConverter.cs" />
     <Compile Include="Core\Character.cs" />
@@ -96,7 +95,7 @@
     <Compile Include="Core\Egg.cs" />
     <Compile Include="Converter\EggAddress2HexStringConverter.cs" />
     <Compile Include="Core\Gene.cs" />
-    <Compile Include="Converter\GeneID2NameConverter.cs" />
+    <Compile Include="Converter\GeneConverter.cs" />
     <Compile Include="Core\GenePNG.cs" />
     <Compile Include="Util\DataBase.cs" />
     <Compile Include="Util\ILineAnalysis.cs" />
@@ -113,8 +112,7 @@
     <Compile Include="Converter\RaidActionID2NameConverter.cs" />
     <Compile Include="Util\SaveData.cs" />
     <Compile Include="Core\Talisman.cs" />
-    <Compile Include="Converter\TalismanID2NameConverter.cs" />
-    <Compile Include="Converter\TalismanSkillID2NameConverter.cs" />
+    <Compile Include="Converter\TalismanConverter.cs" />
     <Compile Include="Util\Util.cs" />
     <Compile Include="Util\ViewModel.cs" />
     <Compile Include="Core\Weapon.cs" />

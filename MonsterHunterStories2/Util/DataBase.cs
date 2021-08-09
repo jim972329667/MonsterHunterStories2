@@ -17,6 +17,7 @@ namespace MonsterHunterStories2
             [BsonId]
             public uint ID { get; set; }
             public uint PNGID { get; set; }
+            public bool Legit { get; set; }
 
         }
         public class KeyWeapon
@@ -204,35 +205,28 @@ namespace MonsterHunterStories2
             newdb.Dispose();
             db = new LiteDatabase("Filename = info\\MHS2.db; ReadOnly=true");
         }
-        public static void AddDB_PNGID(string DBName, Dictionary<uint,uint> GeneID)
+        public static void AddDB_PNGID(string DBName, List<DB_GenePNGID> GeneID)
         {
             db.Dispose();
             var newdb = new LiteDatabase(Path);
             var col = newdb.GetCollection<DB_GenePNGID>(DBName);
             foreach(var x in GeneID)
             {
-                var customer = new DB_GenePNGID
-                {
-                    ID = x.Key,
-                    PNGID = x.Value
-                };
                 col.EnsureIndex(a => a.ID);
-                col.Upsert(customer);
+                col.Upsert(x);
             }
             newdb.Dispose();
             db = new LiteDatabase("Filename = info\\MHS2.db; ReadOnly=true");
         }
-        public static uint GetPNGID(uint ID)
+        public static DB_GenePNGID GetPNGID(uint ID)
         {
             var table = db.GetCollection<DB_GenePNGID>("GenePNGIDs");
             var info = table.FindOne(a => a.ID == ID);//Linq表达式
             if (info == null)
             {
-                return 0;
+                return null;
             }
-            return info.PNGID;
-
-
+            return info;
         }
         public static string GetConver(uint ID, string DBName)
         {

@@ -227,6 +227,7 @@
                                 <Grid.Resources>
                                     <local:GeneID2NameConverter x:Key="GeneID2NameConverter"/>
                                     <local:GeneID2SkillConverter x:Key="GeneID2SkillConverter"/>
+                                    <local:GeneLegitVisibleConverter x:Key="GeneLegitVisibleConverter"/>
                                 </Grid.Resources>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
@@ -250,6 +251,16 @@
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2SkillConverter}}"/>
+                                    <Label  Visibility="{Binding Legit, Converter={StaticResource GeneLegitVisibleConverter}}" Content="{x:Static prop:Resources.MainGeneIllegal}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Opacity="0.6" Foreground="Red" RenderTransformOrigin="0.5,0.5" FontWeight="Bold">
+                                        <Label.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform/>
+                                                <RotateTransform Angle="-25.857"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </Label.RenderTransform>
+                                    </Label>
                                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                                         <Label Content="🔒" />
                                         <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
@@ -274,6 +285,16 @@
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2SkillConverter}}"/>
+                                    <Label  Visibility="{Binding Legit, Converter={StaticResource GeneLegitVisibleConverter}}" Content="{x:Static prop:Resources.MainGeneIllegal}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Opacity="0.6" Foreground="Red" RenderTransformOrigin="0.5,0.5" FontWeight="Bold">
+                                        <Label.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform/>
+                                                <RotateTransform Angle="-25.857"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </Label.RenderTransform>
+                                    </Label>
                                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                                         <Label Content="🔒" />
                                         <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
@@ -298,6 +319,16 @@
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2SkillConverter}}"/>
+                                    <Label  Visibility="{Binding Legit, Converter={StaticResource GeneLegitVisibleConverter}}" Content="{x:Static prop:Resources.MainGeneIllegal}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Opacity="0.6" Foreground="Red" RenderTransformOrigin="0.5,0.5" FontWeight="Bold">
+                                        <Label.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform/>
+                                                <RotateTransform Angle="-25.857"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </Label.RenderTransform>
+                                    </Label>
                                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                                         <Label Content="🔒" />
                                         <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
@@ -322,6 +353,16 @@
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2SkillConverter}}"/>
+                                    <Label  Visibility="{Binding Legit, Converter={StaticResource GeneLegitVisibleConverter}}" Content="{x:Static prop:Resources.MainGeneIllegal}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Opacity="0.6" Foreground="Red" RenderTransformOrigin="0.5,0.5" FontWeight="Bold">
+                                        <Label.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform/>
+                                                <RotateTransform Angle="-25.857"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </Label.RenderTransform>
+                                    </Label>
                                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                                         <Label Content="🔒" />
                                         <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
@@ -346,6 +387,16 @@
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2SkillConverter}}"/>
+                                    <Label  Visibility="{Binding Legit, Converter={StaticResource GeneLegitVisibleConverter}}" Content="{x:Static prop:Resources.MainGeneIllegal}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Opacity="0.6" Foreground="Red" RenderTransformOrigin="0.5,0.5" FontWeight="Bold">
+                                        <Label.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform/>
+                                                <RotateTransform Angle="-25.857"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </Label.RenderTransform>
+                                    </Label>
                                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                                         <Label Content="🔒" />
                                         <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
@@ -370,6 +421,16 @@
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2SkillConverter}}"/>
+                                    <Label  Visibility="{Binding Legit, Converter={StaticResource GeneLegitVisibleConverter}}" Content="{x:Static prop:Resources.MainGeneIllegal}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Opacity="0.6" Foreground="Red" RenderTransformOrigin="0.5,0.5" FontWeight="Bold">
+                                        <Label.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform/>
+                                                <RotateTransform Angle="-25.857"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </Label.RenderTransform>
+                                    </Label>
                                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                                         <Label Content="🔒" />
                                         <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
@@ -394,6 +455,16 @@
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2SkillConverter}}"/>
+                                    <Label  Visibility="{Binding Legit, Converter={StaticResource GeneLegitVisibleConverter}}" Content="{x:Static prop:Resources.MainGeneIllegal}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Opacity="0.6" Foreground="Red" RenderTransformOrigin="0.5,0.5" FontWeight="Bold">
+                                        <Label.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform/>
+                                                <RotateTransform Angle="-25.857"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </Label.RenderTransform>
+                                    </Label>
                                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                                         <Label Content="🔒" />
                                         <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
@@ -418,6 +489,16 @@
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2SkillConverter}}"/>
+                                    <Label  Visibility="{Binding Legit, Converter={StaticResource GeneLegitVisibleConverter}}" Content="{x:Static prop:Resources.MainGeneIllegal}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Opacity="0.6" Foreground="Red" RenderTransformOrigin="0.5,0.5" FontWeight="Bold">
+                                        <Label.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform/>
+                                                <RotateTransform Angle="-25.857"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </Label.RenderTransform>
+                                    </Label>
                                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                                         <Label Content="🔒" />
                                         <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
@@ -442,6 +523,16 @@
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2SkillConverter}}"/>
+                                    <Label  Visibility="{Binding Legit, Converter={StaticResource GeneLegitVisibleConverter}}" Content="{x:Static prop:Resources.MainGeneIllegal}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Opacity="0.6" Foreground="Red" RenderTransformOrigin="0.5,0.5" FontWeight="Bold">
+                                        <Label.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform/>
+                                                <RotateTransform Angle="-25.857"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </Label.RenderTransform>
+                                    </Label>
                                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                                         <Label Content="🔒" />
                                         <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
@@ -628,6 +719,7 @@
                                 <Grid.Resources>
                                     <local:GeneID2NameConverter x:Key="GeneID2NameConverter"/>
                                     <local:GeneID2SkillConverter x:Key="GeneID2SkillConverter"/>
+                                    <local:GeneLegitVisibleConverter x:Key="GeneLegitVisibleConverter"/>
                                 </Grid.Resources>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
@@ -651,6 +743,16 @@
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2SkillConverter}}"/>
+                                    <Label  Visibility="{Binding Legit, Converter={StaticResource GeneLegitVisibleConverter}}" Content="{x:Static prop:Resources.MainGeneIllegal}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Opacity="0.6" Foreground="Red" RenderTransformOrigin="0.5,0.5" FontWeight="Bold">
+                                        <Label.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform/>
+                                                <RotateTransform Angle="-25.857"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </Label.RenderTransform>
+                                    </Label>
                                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                                         <Label Content="🔒" />
                                         <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
@@ -675,6 +777,16 @@
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2SkillConverter}}"/>
+                                    <Label  Visibility="{Binding Legit, Converter={StaticResource GeneLegitVisibleConverter}}" Content="{x:Static prop:Resources.MainGeneIllegal}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Opacity="0.6" Foreground="Red" RenderTransformOrigin="0.5,0.5" FontWeight="Bold">
+                                        <Label.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform/>
+                                                <RotateTransform Angle="-25.857"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </Label.RenderTransform>
+                                    </Label>
                                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                                         <Label Content="🔒" />
                                         <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
@@ -699,6 +811,16 @@
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2SkillConverter}}"/>
+                                    <Label  Visibility="{Binding Legit, Converter={StaticResource GeneLegitVisibleConverter}}" Content="{x:Static prop:Resources.MainGeneIllegal}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Opacity="0.6" Foreground="Red" RenderTransformOrigin="0.5,0.5" FontWeight="Bold">
+                                        <Label.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform/>
+                                                <RotateTransform Angle="-25.857"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </Label.RenderTransform>
+                                    </Label>
                                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                                         <Label Content="🔒" />
                                         <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
@@ -723,6 +845,16 @@
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2SkillConverter}}"/>
+                                    <Label  Visibility="{Binding Legit, Converter={StaticResource GeneLegitVisibleConverter}}" Content="{x:Static prop:Resources.MainGeneIllegal}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Opacity="0.6" Foreground="Red" RenderTransformOrigin="0.5,0.5" FontWeight="Bold">
+                                        <Label.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform/>
+                                                <RotateTransform Angle="-25.857"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </Label.RenderTransform>
+                                    </Label>
                                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                                         <Label Content="🔒" />
                                         <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
@@ -747,6 +879,16 @@
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2SkillConverter}}"/>
+                                    <Label  Visibility="{Binding Legit, Converter={StaticResource GeneLegitVisibleConverter}}" Content="{x:Static prop:Resources.MainGeneIllegal}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Opacity="0.6" Foreground="Red" RenderTransformOrigin="0.5,0.5" FontWeight="Bold">
+                                        <Label.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform/>
+                                                <RotateTransform Angle="-25.857"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </Label.RenderTransform>
+                                    </Label>
                                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                                         <Label Content="🔒" />
                                         <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
@@ -771,6 +913,16 @@
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2SkillConverter}}"/>
+                                    <Label  Visibility="{Binding Legit, Converter={StaticResource GeneLegitVisibleConverter}}" Content="{x:Static prop:Resources.MainGeneIllegal}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Opacity="0.6" Foreground="Red" RenderTransformOrigin="0.5,0.5" FontWeight="Bold">
+                                        <Label.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform/>
+                                                <RotateTransform Angle="-25.857"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </Label.RenderTransform>
+                                    </Label>
                                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                                         <Label Content="🔒" />
                                         <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
@@ -795,6 +947,16 @@
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2SkillConverter}}"/>
+                                    <Label  Visibility="{Binding Legit, Converter={StaticResource GeneLegitVisibleConverter}}" Content="{x:Static prop:Resources.MainGeneIllegal}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Opacity="0.6" Foreground="Red" RenderTransformOrigin="0.5,0.5" FontWeight="Bold">
+                                        <Label.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform/>
+                                                <RotateTransform Angle="-25.857"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </Label.RenderTransform>
+                                    </Label>
                                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                                         <Label Content="🔒" />
                                         <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
@@ -819,6 +981,16 @@
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2SkillConverter}}"/>
+                                    <Label  Visibility="{Binding Legit, Converter={StaticResource GeneLegitVisibleConverter}}" Content="{x:Static prop:Resources.MainGeneIllegal}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Opacity="0.6" Foreground="Red" RenderTransformOrigin="0.5,0.5" FontWeight="Bold">
+                                        <Label.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform/>
+                                                <RotateTransform Angle="-25.857"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </Label.RenderTransform>
+                                    </Label>
                                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                                         <Label Content="🔒" />
                                         <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>
@@ -843,6 +1015,16 @@
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Image Source="{Binding GeneImage}" ToolTip="{Binding ID, Converter={StaticResource GeneID2SkillConverter}}"/>
+                                    <Label  Visibility="{Binding Legit, Converter={StaticResource GeneLegitVisibleConverter}}" Content="{x:Static prop:Resources.MainGeneIllegal}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Opacity="0.6" Foreground="Red" RenderTransformOrigin="0.5,0.5" FontWeight="Bold">
+                                        <Label.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform/>
+                                                <RotateTransform Angle="-25.857"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </Label.RenderTransform>
+                                    </Label>
                                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                                         <Label Content="🔒" />
                                         <CheckBox  IsChecked="{Binding Lock}" VerticalAlignment="Center"/>

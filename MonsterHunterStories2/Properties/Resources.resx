@@ -304,6 +304,9 @@
   <data name="MainEquipmentWeaponSS" xml:space="preserve">
     <value>Sword &amp; Shield</value>
   </data>
+  <data name="MainGeneIllegal" xml:space="preserve">
+    <value>illegal Gene</value>
+  </data>
   <data name="MainItemAllMax" xml:space="preserve">
     <value>Item All Max (Note that only items such as clothing are roughly excluded ,You need to check the number of items yourself)</value>
   </data>

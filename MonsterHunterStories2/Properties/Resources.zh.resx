@@ -300,6 +300,9 @@
   <data name="MainEquipmentWeaponSS" xml:space="preserve">
     <value>单手剑</value>
   </data>
+  <data name="MainGeneIllegal" xml:space="preserve">
+    <value>非法基因</value>
+  </data>
   <data name="MainItemAllMax" xml:space="preserve">
     <value>所有物品最大（只是粗略的排除了服装等物品，修改完请自行核对物品数量）</value>
   </data>

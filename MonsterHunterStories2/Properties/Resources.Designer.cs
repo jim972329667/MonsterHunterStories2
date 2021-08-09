@@ -620,6 +620,15 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
+        ///   查找类似 illegal Gene 的本地化字符串。
+        /// </summary>
+        public static string MainGeneIllegal {
+            get {
+                return ResourceManager.GetString("MainGeneIllegal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Item All Max (Note that only items such as clothing are roughly excluded ,You need to check the number of items yourself) 的本地化字符串。
         /// </summary>
         public static string MainItemAllMax {

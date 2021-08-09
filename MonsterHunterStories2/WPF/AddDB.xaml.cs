@@ -10,9 +10,7 @@ namespace MonsterHunterStories2
     public partial class AddDB : Window
     {
         private List<KeyValuesInfo> Items { get; set; } = new List<KeyValuesInfo>();
-
-        public static Dictionary<uint, uint> GeneID = new Dictionary<uint, uint>();
-        //private Dictionary<uint, List<KeyValuesInfo>> Weapon { get; set; } = new Dictionary<uint, List<KeyValuesInfo>>();
+        private static List<DataBase.DB_GenePNGID> GeneID = new List<DataBase.DB_GenePNGID>();
         private static readonly Dictionary<string, uint> WeaponType = new Dictionary<string, uint>()
         {
             {"greatsword.txt",0 },
@@ -66,7 +64,7 @@ namespace MonsterHunterStories2
                     {
                         if (DBName == "GenePNGIDs")
                         {
-                            AppendDic(dlg.FileName);
+                            AppendGenePNGID(dlg.FileName);
                             DataBase.AddDB_PNGID(DBName, GeneID);
                             GeneID.Clear();
                         }
@@ -122,7 +120,7 @@ namespace MonsterHunterStories2
         //    }
         //    items.Sort();
         //}
-        private static void AppendDic(string FileName)
+        private static void AppendGenePNGID(string FileName)
         {
             if (!System.IO.File.Exists(FileName)) return;
             string[] lines = System.IO.File.ReadAllLines(FileName);
@@ -135,7 +133,14 @@ namespace MonsterHunterStories2
                 if (string.IsNullOrEmpty(values[0]) || string.IsNullOrEmpty(values[1])) continue;
                 _ = uint.TryParse(values[0], out uint result1);
                 _ = uint.TryParse(values[1], out uint result2);
-                GeneID.Add(result1, result2);
+                if(!bool.TryParse(values[2], out bool result3)) result3 = false;
+                DataBase.DB_GenePNGID returnDB = new DataBase.DB_GenePNGID()
+                {
+                    ID = result1,
+                    PNGID = result2,
+                    Legit = result3
+                };
+                GeneID.Add(returnDB);
             }
         }
 

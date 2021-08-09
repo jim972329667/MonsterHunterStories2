@@ -24,6 +24,7 @@ namespace MonsterHunterStories2
 				SaveData.Instance().WriteNumber(mAddress, 2, value);
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ID)));
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(GeneImage)));
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Legit)));
 			}
 		}
 
@@ -53,7 +54,16 @@ namespace MonsterHunterStories2
 				return GenePNG.IDBitmap(ID);
 			}
         }
-		
 
+		public bool Legit
+		{
+			get
+			{
+				bool returnbool = false;
+				if(DataBase.GetPNGID(ID) != null)
+					returnbool = DataBase.GetPNGID(ID).Legit;
+				return returnbool;
+			}
+		}
 	}
 }

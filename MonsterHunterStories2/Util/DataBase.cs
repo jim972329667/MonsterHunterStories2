@@ -280,6 +280,7 @@ namespace MonsterHunterStories2
                     Value = i.LanguageList[x]
                 };
                 ReturnList.Add(list);
+                x = Properties.Settings.Default.Langage;
             }
             ReturnList.Sort();
             return ReturnList;

@@ -244,7 +244,7 @@ namespace MonsterHunterStories2
                 return null;
             }
             if (x >= info.LanguageList.Length) x = 1;
-
+            if (info.LanguageList[x] == "" || info.LanguageList[x] == null) x = 1;
             return info.LanguageList[x];
         }
         public static string GetWeaponConver(uint ID, uint Type)
@@ -273,6 +273,7 @@ namespace MonsterHunterStories2
             foreach (DB_General i in info)
             {
                 if (x >= i.LanguageList.Length) x = 1;
+                if (i.LanguageList[x] == "" || i.LanguageList[x] == null) x = 1;
                 ConverList list = new ConverList()
                 {
                     Key = i.ID,

@@ -304,7 +304,7 @@
     <value>非法基因</value>
   </data>
   <data name="MainItemAllMax" xml:space="preserve">
-    <value>所有物品最大（只是粗略的排除了服装等物品，修改完请自行核对物品数量）</value>
+    <value>所有物品最大（除了珍品）</value>
   </data>
   <data name="MainItemAppend" xml:space="preserve">
     <value>添加/搜索物品</value>
@@ -374,6 +374,9 @@
   </data>
   <data name="MainMonsterAllKinshipMax" xml:space="preserve">
     <value>所有随从牵绊最大</value>
+  </data>
+  <data name="MainMonsterAllLvMax" xml:space="preserve">
+    <value>所有随从等级(98)</value>
   </data>
   <data name="MainMonsterBattlesWon" xml:space="preserve">
     <value>获胜次数</value>

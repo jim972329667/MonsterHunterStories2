@@ -2,8 +2,6 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Globalization;
-using System.Collections.Generic;
 
 namespace MonsterHunterStories2
 {
@@ -29,8 +27,6 @@ namespace MonsterHunterStories2
 		public uint ID { get; set; }
 		public eType Type { get; set; } = eType.TYPE_ITEM;
 		public uint WeaponType { get; set; }
-
-		private List<DataBase.ConverList> LoveGene = new List<DataBase.ConverList>();
 		public ChoiceWindow()
 		{
 			InitializeComponent();
@@ -41,8 +37,6 @@ namespace MonsterHunterStories2
 			CreateItemList("");
 			TextBoxFilter.Focus();
 			WeaponTypeArea.Visibility = Type == eType.TYPE_WEAPON ? Visibility.Visible : Visibility.Collapsed;
-			//GeneArea.Visibility = Type == eType.TYPE_GENE ? Visibility.Visible : Visibility.Collapsed;
-			GeneArea.Visibility = Visibility.Collapsed;
 			ComboBoxWeaponType.SelectedIndex = (int)WeaponType;
 		}
 
@@ -104,15 +98,7 @@ namespace MonsterHunterStories2
 			else if (Type == eType.TYPE_WEAPON) dbinfos = DataBase.GetWeaponConverList("Weapons", WeaponType);
 			else if (Type == eType.TYPE_RAIDACTION) dbinfos = DataBase.GetConverList("Rides");
 			else if (Type == eType.TYPE_MONSTER) dbinfos = DataBase.GetConverList("Monsters");
-			else if (Type == eType.TYPE_GENE)
-			{
-				if(ComboBoxGenes.SelectedIndex == 1)
-                {
-					dbinfos = LoveGene;
-                }
-				else
-					dbinfos = DataBase.GetConverList("Genes");
-			}
+			else if (Type == eType.TYPE_GENE) dbinfos = DataBase.GetConverList("Genes");
 			else if (Type == eType.TYPE_TALISMAN_SKILL) dbinfos = DataBase.GetConverList("Talisman_Skills");
 
 			foreach (DataBase.ConverList info in dbinfos)
@@ -125,15 +111,5 @@ namespace MonsterHunterStories2
 				}
 			}
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-			
-			var x = ListBoxItem.SelectedItems;
-			foreach(DataBase.ConverList xx in x)
-            {
-				LoveGene.Add(xx);
-            }
-		}
     }
 }

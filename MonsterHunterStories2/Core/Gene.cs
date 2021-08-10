@@ -9,8 +9,6 @@ namespace MonsterHunterStories2
 
 		private readonly uint mAddress;
 
-
-
 		public Gene(uint address)
 		{
 			mAddress = address;
@@ -47,6 +45,7 @@ namespace MonsterHunterStories2
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Stack)));
 			}
 		}
+
 		public BitmapSource GeneImage
         {
             get

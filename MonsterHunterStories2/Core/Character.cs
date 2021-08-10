@@ -30,11 +30,13 @@ namespace MonsterHunterStories2
 			get { return SaveData.Instance().ReadNumber(mAddress + 234, 1); }
 			set
 			{
-				Util.WriteNumber(mAddress + 234, 1, value, 1, 100);
-				if (value > 0 && value <= 100)
-					Util.WriteNumber(mAddress + 336, 4, LvExp[value] - 10, 0, 262800979);
+				Util.WriteNumber(mAddress + 234, 1, value, 1, 99);
+				if (value > 1 && value < 99)
+					Util.WriteNumber(mAddress + 336, 4, LvExp[value] - 10, 0, 230530610);
+				else if (value >= 99)
+					Util.WriteNumber(mAddress + 336, 4, 200629936, 0, 230530610);
 				else
-					Util.WriteNumber(mAddress + 336, 4, value, 0, 262800979);
+					Util.WriteNumber(mAddress + 336, 4, 0, 0, 230530610);
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Exp)));
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(MaxExp)));
 			}
@@ -49,10 +51,14 @@ namespace MonsterHunterStories2
                 uint i;
                 for (i = 0; i < LvExp.Length; i++)
                 {
-                    if (value - LvExp[i] <= 0)
-                        break;
-                }
-                Lv = i;
+					int xx = (int)value - (int)LvExp[i];
+					if (xx <= 0)
+					{
+						break;
+					}
+				}
+				if (i == 0) Util.WriteNumber(mAddress + 234, 1, 1, 1, 99);
+				else Util.WriteNumber(mAddress + 234, 1, i, 1, 99);
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Lv)));
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(MaxExp)));
 			}

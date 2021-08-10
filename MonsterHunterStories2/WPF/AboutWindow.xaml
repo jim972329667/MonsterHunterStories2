@@ -17,13 +17,14 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Label Content="原作者 ： turtle-insect(カメムシ)"/>
-        <Label Grid.Row="1" Content="HP ：" />
-        <Label Grid.Row="1" Content=" http://turtleinsect.php.xdomain.jp/" MouseDown="LabelHP_MouseDown" Foreground="Blue" Margin="30,0,0,0"/>
-        <Label Grid.Row="2" Content="Mail ： turtle.insect@gmail.com"/>
-        <Label Grid.Row="3" Content="中文版作者 ： jim972329667"/>
-        <Label Grid.Row="4" Content="中文版项目 ： "/>
-        <Label Grid.Row="4" Content=" https://github.com/jim972329667/MonsterHunterStories2" MouseDown="LabelGH_MouseDown" Foreground="Blue" Margin="70,0,0,0"/>
-        <Label Grid.Row="5" Content="论坛地址 ：" />
-        <Label Grid.Row="5" Content=" https://bbs.naxgen.cn/thread-253594-1-1.html" MouseDown="LabelLT_MouseDown" Foreground="Blue" Margin="57,0,0,0"/>
+        <Label Grid.Row="1" Content="项目 ：" />
+        <Label Grid.Row="1" Content=" https://github.com/turtle-insect/MonsterHunterStories2" MouseDown="LabelHP_MouseDown" Foreground="Blue" Margin="30,0,0,0"/>
+        <Label Grid.Row="2" Content="中文版作者 ： jim972329667"/>
+        <Label Grid.Row="3" Content="中文版项目 ： "/>
+        <Label Grid.Row="3" Content=" https://github.com/jim972329667/MonsterHunterStories2" MouseDown="LabelGH_MouseDown" Foreground="Blue" Margin="70,0,0,0"/>
+        <Label Grid.Row="4" Content="论坛地址 ：" />
+        <Label Grid.Row="4" Content=" https://bbs.naxgen.cn/thread-253594-1-1.html" MouseDown="LabelLT_MouseDown" Foreground="Blue" Margin="57,0,0,0"/>
+        <Label Grid.Row="5" Content="Release ：" />
+        <Label Grid.Row="5" Content=" https://github.com/jim972329667/MonsterHunterStories2/releases" MouseDown="LabelUp_MouseDown" Foreground="Blue" Margin="57,0,0,0"/>
     </Grid>
 </Window>

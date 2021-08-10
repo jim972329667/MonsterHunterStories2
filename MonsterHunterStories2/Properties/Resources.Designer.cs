@@ -629,7 +629,7 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Item All Max (Note that only items such as clothing are roughly excluded ,You need to check the number of items yourself) 的本地化字符串。
+        ///   查找类似 Item All Max (Except Key Items) 的本地化字符串。
         /// </summary>
         public static string MainItemAllMax {
             get {
@@ -841,6 +841,15 @@ namespace MonsterHunterStories2.Properties {
         public static string MainMonsterAllKinshipMax {
             get {
                 return ResourceManager.GetString("MainMonsterAllKinshipMax", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 All Lv Max(98) 的本地化字符串。
+        /// </summary>
+        public static string MainMonsterAllLvMax {
+            get {
+                return ResourceManager.GetString("MainMonsterAllLvMax", resourceCulture);
             }
         }
         

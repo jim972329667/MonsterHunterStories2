@@ -13,7 +13,7 @@ namespace MonsterHunterStories2
 			mAddress = address;
 		}
 
-		public uint LocationID
+		public uint LocationID //Den number
 		{
 			get { return SaveData.Instance().ReadNumber(mAddress,2);}
 		}
@@ -21,7 +21,7 @@ namespace MonsterHunterStories2
 		{
 			get { return SaveData.Instance().ReadNumber(mAddress+2, 2); }
 		}
-		public uint LocationID3
+		public uint LocationID3  //Location code
 		{
 			get { return SaveData.Instance().ReadNumber(mAddress + 12, 4); }
 		}

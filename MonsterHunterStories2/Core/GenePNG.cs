@@ -49,6 +49,7 @@ namespace MonsterHunterStories2
                           BitmapSizeOptions.FromEmptyOptions());
 
         }
+
         public static BitmapSource IDBitmap(uint ID)
         {
             uint x = 0;

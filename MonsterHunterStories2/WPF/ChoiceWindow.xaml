@@ -26,14 +26,6 @@
                     <ComboBoxItem Content="{x:Static prop:Resources.MainEquipmentWeaponB}"/>
                 </ComboBox>
             </DockPanel>
-            <DockPanel x:Name="GeneArea" DockPanel.Dock="Top" Visibility="Collapsed">
-                <Label Content="Type" Width="40"/>
-                <ComboBox Name="ComboBoxGenes" SelectionChanged="ComboBoxItem_SelectionChanged" Width="50">
-                    <ComboBoxItem Content="全部"/>
-                    <ComboBoxItem Content="收藏"/>
-                </ComboBox>
-                <Button Content="收藏选择的基因" Click="Button_Click"/>
-            </DockPanel>
             <Grid DockPanel.Dock="Bottom">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>

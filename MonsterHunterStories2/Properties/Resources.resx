@@ -308,7 +308,7 @@
     <value>illegal Gene</value>
   </data>
   <data name="MainItemAllMax" xml:space="preserve">
-    <value>Item All Max (Note that only items such as clothing are roughly excluded ,You need to check the number of items yourself)</value>
+    <value>Item All Max (Except Key Items)</value>
   </data>
   <data name="MainItemAppend" xml:space="preserve">
     <value>Append/Search Item</value>
@@ -378,6 +378,9 @@
   </data>
   <data name="MainMonsterAllKinshipMax" xml:space="preserve">
     <value>All Kinship Max</value>
+  </data>
+  <data name="MainMonsterAllLvMax" xml:space="preserve">
+    <value>All Lv Max(98)</value>
   </data>
   <data name="MainMonsterBattlesWon" xml:space="preserve">
     <value>Battles Won</value>

@@ -54,7 +54,7 @@ https://docs.google.com/spreadsheets/d/1qBNgzddoG2V7swdZNFnwA0rNuQofPA_jhvfHo1Od
 * [p-eis](https://github.com/p-eis)
 
 # GBA TEMP
-https://gbatemp.net/threads/monster-hunter-stories-2-demo-save-editor.590851/
+https://gbatemp.net/threads/monster-hunter-stories2-savedate-editor-modified-version.592628/
 
 # 91wii
 https://bbs.naxgen.cn/thread-253594-1-1.html

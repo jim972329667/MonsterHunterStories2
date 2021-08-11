@@ -45,9 +45,6 @@
                 <ComboBoxItem Content="繁體中文"/>
                 <ComboBoxItem Content="French"/>
             </ComboBox>
-            <!--<CheckBox Margin="10,0,0,0" IsChecked="{Binding Path=PCConfirm, Source={x:Static prop:Settings.Default}}" VerticalAlignment="Center"  BorderBrush="#FFFE0000">
-                <Label Content="PC?" VerticalAlignment="Center"/>
-            </CheckBox>-->
             <Label Margin="10,0,0,0" Content="{x:Static prop:Resources.MainMenuSaveforConvert}" HorizontalAlignment="Center" VerticalAlignment="Center" />
             <ComboBox SelectedIndex="{Binding SaveConvert}">
                 <ComboBoxItem Content="Switch"/>
@@ -69,7 +66,11 @@
                         <RowDefinition/>
                         <RowDefinition/>
                         <RowDefinition/>
-                        <RowDefinition Height="12*"/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition Height="8*"/>
                     </Grid.RowDefinitions>
                     <Label Content="{x:Static prop:Resources.MainBasicPlayTime}"/>
                     <Grid Grid.Column="1">
@@ -84,7 +85,30 @@
                     </Grid>
                     <Label Grid.Row="1" Content="{x:Static prop:Resources.MainBasicMoney}"/>
                     <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Money, UpdateSourceTrigger=PropertyChanged}"/>
-                    <!--<Button Grid.Row="2" Grid.Column="1" Content="All Guide" Click="ButtonBaseGuide_Click"></Button>-->
+                    <Label Grid.Row="2" Content="{x:Static prop:Resources.MainBaseMonstersSlain}"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding MonstersSlain, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Button Grid.Row="3" Grid.Column="1" Content="{x:Static prop:Resources.MainBaseAllGuide}" Click="ButtonAllGuide"/>
+                    <GroupBox  Grid.Column="3" Grid.ColumnSpan="2" Grid.RowSpan="4" Header="{x:Static prop:Resources.MainBaseNumberEgg}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                <Label Content="{x:Static prop:Resources.MainBaseNormalSmellEgg}" Width="180"/>
+                                <TextBox Text="{Binding AllCommonSmellEgg, UpdateSourceTrigger=PropertyChanged}" Width="180"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                <Label Content="{x:Static prop:Resources.MainBaseHighSmellEgg}" Width="180"/>
+                                <TextBox Text="{Binding AllHighSmellEgg, UpdateSourceTrigger=PropertyChanged}" Width="180"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                <Label Content="{x:Static prop:Resources.MainBaseCoOpEgg}" Width="180"/>
+                                <TextBox Text="{Binding AllCoOpEgg, UpdateSourceTrigger=PropertyChanged}" Width="180"/>
+                            </StackPanel>
+                        </Grid>                       
+                    </GroupBox>
                 </Grid>
             </TabItem>
             <TabItem Header="{x:Static prop:Resources.MainTabCharacter}">
@@ -1060,7 +1084,7 @@
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
                             <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
-                                <Label Content="{x:Static prop:Resources.MainWeaponAllLv}"/>           
+                                <Label Content="{x:Static prop:Resources.MainWeaponAllLv}"/>
                                 <ComboBox x:Name="ComboBoxAllLv" SelectionChanged="ComboBox_AllWeaponLv" Margin="5,0">
                                     <ComboBoxItem Content="3"/>
                                     <ComboBoxItem Content="5"/>
@@ -1259,7 +1283,7 @@
                                         <ComboBoxItem Content="Common"/>
                                         <ComboBoxItem Content="Rare"/>
                                         <ComboBoxItem Content="Super Rare"/>
-                                    </ComboBox>                                 
+                                    </ComboBox>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>

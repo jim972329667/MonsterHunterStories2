@@ -115,6 +115,26 @@ namespace MonsterHunterStories2
 				SaveData.Instance().WriteNumber(64, 4, time);
 			}
 		}
+		public uint AllCommonSmellEgg
+		{
+			get { return SaveData.Instance().ReadNumber(Util.EGG_AllCOUNT_CommonSmell_ADDRESS, 4); }
+			set { Util.WriteNumber(Util.EGG_AllCOUNT_CommonSmell_ADDRESS, 4, value, 0, 0xFFFF); }
+		}
+		public uint AllHighSmellEgg
+		{
+			get { return SaveData.Instance().ReadNumber(Util.EGG_AllCOUNT_HighSmell_ADDRESS, 4); }
+			set { Util.WriteNumber(Util.EGG_AllCOUNT_HighSmell_ADDRESS, 4, value, 0, 0xFFFF); }
+		}
+		public uint AllCoOpEgg
+		{
+			get { return SaveData.Instance().ReadNumber(Util.EGG_AllCOUNT_CoOp_ADDRESS, 4); }
+			set { Util.WriteNumber(Util.EGG_AllCOUNT_CoOp_ADDRESS, 4, value, 0, 0xFFFF); }
+		}
+		public uint MonstersSlain
+		{
+			get { return SaveData.Instance().ReadNumber(Util.MONSTER_SLAIN_ADDRESS, 4); }
+			set { Util.WriteNumber(Util.MONSTER_SLAIN_ADDRESS, 4, value, 0, 0xFFFF); }
+		}
 		private uint ItemType(uint ID)
         {
 			uint type;

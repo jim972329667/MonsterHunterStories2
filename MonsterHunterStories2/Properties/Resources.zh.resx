@@ -171,6 +171,24 @@
   <data name="ErrorWrongSave" xml:space="preserve">
     <value>错误的存档 / 未解密的存档</value>
   </data>
+  <data name="MainBaseAllGuide" xml:space="preserve">
+    <value>获得全部图鉴</value>
+  </data>
+  <data name="MainBaseCoOpEgg" xml:space="preserve">
+    <value>共斗获得的蛋</value>
+  </data>
+  <data name="MainBaseHighSmellEgg" xml:space="preserve">
+    <value>好闻 / 浓郁气味的蛋</value>
+  </data>
+  <data name="MainBaseMonstersSlain" xml:space="preserve">
+    <value>杀怪物总数</value>
+  </data>
+  <data name="MainBaseNormalSmellEgg" xml:space="preserve">
+    <value>普通气味的蛋</value>
+  </data>
+  <data name="MainBaseNumberEgg" xml:space="preserve">
+    <value>获取蛋数量</value>
+  </data>
   <data name="MainBasicMoney" xml:space="preserve">
     <value>金币</value>
   </data>

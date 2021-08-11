@@ -89,6 +89,7 @@
     </ApplicationDefinition>
     <Compile Include="Converter\DenConverter.cs" />
     <Compile Include="Core\Den.cs" />
+    <Compile Include="Core\Guide.cs" />
     <Compile Include="WPF\AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>

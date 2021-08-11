@@ -14,11 +14,15 @@ namespace MonsterHunterStories2
 		public const uint MONSTER_ADDRESS = 0x2D72C8;
 		public const uint MONSTER_COUNT = 500;
 		public const uint MONSTER_SIZE = 412;
+		public const uint MONSTER_SLAIN_ADDRESS = 0x15E64;
 
 		public const uint EGG_ADDRESS = 0x10CAC;
 		public const uint EGG_COUNT = 12;
 		public const uint EGG_SIZE = 120;
 		public const uint EGG_COUNT_ADDRESS = 0x10C4A;
+		public const uint EGG_AllCOUNT_CommonSmell_ADDRESS = 0x140E4;
+		public const uint EGG_AllCOUNT_HighSmell_ADDRESS = 0x140E8;
+		public const uint EGG_AllCOUNT_CoOp_ADDRESS = 0x140EC;
 
 		public const uint WEAPON_ADDRESS = 0x3ECC;
 		public const uint WEAPON_COUNT = 700;
@@ -36,9 +40,10 @@ namespace MonsterHunterStories2
 		public const uint MONEY_ADDRESS = 0x48;
 		public const uint ITEM_ADDRESS = 0x4C;
 
-		public const uint GUIDE_ADDRESS = 0x2CB3AC;
-		public const uint GUIDE_COUNT = 0x2CB3AC;
-		public const uint GUIDE_SIZE = 48;
+		public const uint GUIDE_ADDRESS = 0x12B68;
+		public const uint GUIDE_SIZE = 0x2AB;
+		public const uint GUIDE2_ADDRESS = 0x11A68;
+		public const uint GUIDE2_SIZE = 0x7F8;
 
 		public const uint DAN_ADDRESS = 0x4037C;
 		public const uint DAN_COUNT = 1024;

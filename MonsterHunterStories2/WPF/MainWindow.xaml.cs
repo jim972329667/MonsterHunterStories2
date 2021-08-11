@@ -608,8 +608,13 @@ namespace MonsterHunterStories2
 			if(num != 0)
 				MessageBox.Show(Properties.Resources.MessageSuccess);
 		}
-        
-
+		private void ButtonAllGuide(object sender, RoutedEventArgs e)
+		{
+			if (!IsOpen) return;
+			SaveData.Instance().WriteValue(Util.GUIDE_ADDRESS, Guide.guide);
+			SaveData.Instance().WriteValue(Util.GUIDE2_ADDRESS, Guide.guide2);
+			MessageBox.Show(Properties.Resources.MessageSuccess);
+		}
 		//private void ButtonBaseGuide_Click(object sender, RoutedEventArgs e)
 		//{
 		//	foreach(int i in Util.GuideMonsterList)

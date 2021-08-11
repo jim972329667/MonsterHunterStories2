@@ -233,6 +233,60 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Get all Guide 的本地化字符串。
+        /// </summary>
+        public static string MainBaseAllGuide {
+            get {
+                return ResourceManager.GetString("MainBaseAllGuide", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Co-Op Eggs 的本地化字符串。
+        /// </summary>
+        public static string MainBaseCoOpEgg {
+            get {
+                return ResourceManager.GetString("MainBaseCoOpEgg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Good / Amazing Smell Eggs 的本地化字符串。
+        /// </summary>
+        public static string MainBaseHighSmellEgg {
+            get {
+                return ResourceManager.GetString("MainBaseHighSmellEgg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Monsters Slain 的本地化字符串。
+        /// </summary>
+        public static string MainBaseMonstersSlain {
+            get {
+                return ResourceManager.GetString("MainBaseMonstersSlain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Normal Smell Eggs 的本地化字符串。
+        /// </summary>
+        public static string MainBaseNormalSmellEgg {
+            get {
+                return ResourceManager.GetString("MainBaseNormalSmellEgg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Eggs Acquired 的本地化字符串。
+        /// </summary>
+        public static string MainBaseNumberEgg {
+            get {
+                return ResourceManager.GetString("MainBaseNumberEgg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Money 的本地化字符串。
         /// </summary>
         public static string MainBasicMoney {

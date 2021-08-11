@@ -178,6 +178,9 @@
   <data name="MainBaseAllGuide" xml:space="preserve">
     <value>Get all Guide</value>
   </data>
+  <data name="MainBaseAllMedals" xml:space="preserve">
+    <value>Get All Medals</value>
+  </data>
   <data name="MainBaseCoOpEgg" xml:space="preserve">
     <value>Co-Op Eggs</value>
   </data>

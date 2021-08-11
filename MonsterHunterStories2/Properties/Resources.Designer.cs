@@ -242,6 +242,15 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Get All Medals 的本地化字符串。
+        /// </summary>
+        public static string MainBaseAllMedals {
+            get {
+                return ResourceManager.GetString("MainBaseAllMedals", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Co-Op Eggs 的本地化字符串。
         /// </summary>
         public static string MainBaseCoOpEgg {

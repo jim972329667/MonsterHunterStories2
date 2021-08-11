@@ -615,6 +615,12 @@ namespace MonsterHunterStories2
 			SaveData.Instance().WriteValue(Util.GUIDE2_ADDRESS, Guide.guide2);
 			MessageBox.Show(Properties.Resources.MessageSuccess);
 		}
+		private void ButtonAllMedals(object sender, RoutedEventArgs e)
+		{
+			if (!IsOpen) return;
+			SaveData.Instance().WriteValue(Util.MEDALS_ADDRESS, Guide.Medals);
+			MessageBox.Show(Properties.Resources.MessageSuccess);
+		}
 		//private void ButtonBaseGuide_Click(object sender, RoutedEventArgs e)
 		//{
 		//	foreach(int i in Util.GuideMonsterList)

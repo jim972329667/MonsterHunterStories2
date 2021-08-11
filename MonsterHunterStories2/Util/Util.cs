@@ -49,6 +49,8 @@ namespace MonsterHunterStories2
 		public const uint DAN_COUNT = 1024;
 		public const uint DAN_SIZE = 116;
 
+		public const uint MEDALS_ADDRESS = 0x13EE0;
+
 		public static void WriteNumber(uint address, uint size, uint value, uint min, uint max)
 		{
 			if (value < min) value = min;

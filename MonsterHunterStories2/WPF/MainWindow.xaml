@@ -87,6 +87,7 @@
                     <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Money, UpdateSourceTrigger=PropertyChanged}"/>
                     <Label Grid.Row="2" Content="{x:Static prop:Resources.MainBaseMonstersSlain}"/>
                     <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding MonstersSlain, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Button Grid.Row="3" Content="{x:Static prop:Resources.MainBaseAllMedals}" Click="ButtonAllMedals"/>
                     <Button Grid.Row="3" Grid.Column="1" Content="{x:Static prop:Resources.MainBaseAllGuide}" Click="ButtonAllGuide"/>
                     <GroupBox  Grid.Column="3" Grid.ColumnSpan="2" Grid.RowSpan="4" Header="{x:Static prop:Resources.MainBaseNumberEgg}">
                         <Grid>

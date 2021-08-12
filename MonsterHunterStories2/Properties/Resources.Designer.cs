@@ -242,6 +242,15 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Get All Items 的本地化字符串。
+        /// </summary>
+        public static string MainBaseAllItems {
+            get {
+                return ResourceManager.GetString("MainBaseAllItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Get All Medals 的本地化字符串。
         /// </summary>
         public static string MainBaseAllMedals {
@@ -260,11 +269,56 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Guide 的本地化字符串。
+        /// </summary>
+        public static string MainBaseGuide {
+            get {
+                return ResourceManager.GetString("MainBaseGuide", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Book of Genes 的本地化字符串。
+        /// </summary>
+        public static string MainBaseGuideBookofGenes {
+            get {
+                return ResourceManager.GetString("MainBaseGuideBookofGenes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Monsterpedia 的本地化字符串。
+        /// </summary>
+        public static string MainBaseGuideMonsterpedia {
+            get {
+                return ResourceManager.GetString("MainBaseGuideMonsterpedia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Monstipedia 的本地化字符串。
+        /// </summary>
+        public static string MainBaseGuideMonstipedia {
+            get {
+                return ResourceManager.GetString("MainBaseGuideMonstipedia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Good / Amazing Smell Eggs 的本地化字符串。
         /// </summary>
         public static string MainBaseHighSmellEgg {
             get {
                 return ResourceManager.GetString("MainBaseHighSmellEgg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Count 的本地化字符串。
+        /// </summary>
+        public static string MainBaseItemCount {
+            get {
+                return ResourceManager.GetString("MainBaseItemCount", resourceCulture);
             }
         }
         
@@ -292,6 +346,15 @@ namespace MonsterHunterStories2.Properties {
         public static string MainBaseNumberEgg {
             get {
                 return ResourceManager.GetString("MainBaseNumberEgg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Refresh the Melynx lnc. 的本地化字符串。
+        /// </summary>
+        public static string MainBaseRefreshMelynx {
+            get {
+                return ResourceManager.GetString("MainBaseRefreshMelynx", resourceCulture);
             }
         }
         

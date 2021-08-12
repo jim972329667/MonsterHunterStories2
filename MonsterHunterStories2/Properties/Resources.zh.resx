@@ -174,14 +174,32 @@
   <data name="MainBaseAllGuide" xml:space="preserve">
     <value>获得全部图鉴</value>
   </data>
+  <data name="MainBaseAllItems" xml:space="preserve">
+    <value>获得全部物品</value>
+  </data>
   <data name="MainBaseAllMedals" xml:space="preserve">
     <value>获得全部奖牌</value>
   </data>
   <data name="MainBaseCoOpEgg" xml:space="preserve">
     <value>共斗获得的蛋</value>
   </data>
+  <data name="MainBaseGuide" xml:space="preserve">
+    <value>图鉴</value>
+  </data>
+  <data name="MainBaseGuideBookofGenes" xml:space="preserve">
+    <value>牵绊基因图鉴</value>
+  </data>
+  <data name="MainBaseGuideMonsterpedia" xml:space="preserve">
+    <value>怪物图鉴</value>
+  </data>
+  <data name="MainBaseGuideMonstipedia" xml:space="preserve">
+    <value>随行兽图鉴</value>
+  </data>
   <data name="MainBaseHighSmellEgg" xml:space="preserve">
     <value>好闻 / 浓郁气味的蛋</value>
+  </data>
+  <data name="MainBaseItemCount" xml:space="preserve">
+    <value>数量</value>
   </data>
   <data name="MainBaseMonstersSlain" xml:space="preserve">
     <value>杀怪物总数</value>
@@ -191,6 +209,9 @@
   </data>
   <data name="MainBaseNumberEgg" xml:space="preserve">
     <value>获取蛋数量</value>
+  </data>
+  <data name="MainBaseRefreshMelynx" xml:space="preserve">
+    <value>刷新梅拉露商会</value>
   </data>
   <data name="MainBasicMoney" xml:space="preserve">
     <value>金币</value>

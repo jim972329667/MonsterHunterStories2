@@ -40,16 +40,20 @@ namespace MonsterHunterStories2
 		public const uint MONEY_ADDRESS = 0x48;
 		public const uint ITEM_ADDRESS = 0x4C;
 
-		public const uint GUIDE_ADDRESS = 0x12B68;
-		public const uint GUIDE_SIZE = 0x2AB;
-		public const uint GUIDE2_ADDRESS = 0x11A68;
-		public const uint GUIDE2_SIZE = 0x7F8;
+		public const uint GUIDE_Monsterpedia_ADDRESS_1 = 0x11A68;//11A68 - 1225F
+		public const uint GUIDE_Monsterpedia_ADDRESS_2 = 0x12B68;//12B68 - 12C42
+		public const uint GUIDE_Monstipedia_ADDRESS = 0x12C90;//12C90 - 12D3F
+		public const uint GUIDE_BookofGenes_ADDRESS = 0x12D40;//12D40 - 12E1F
 
 		public const uint DAN_ADDRESS = 0x4037C;
 		public const uint DAN_COUNT = 1024;
 		public const uint DAN_SIZE = 116;
 
 		public const uint MEDALS_ADDRESS = 0x13EE0;
+		public const uint MELYNXLNC_ADDRESS = 0x12C50;  //12C50 - 12C8F
+		public const uint MELYNXLNC_COUNT = 0x40;
+
+		public const uint EggHatched_ADDRESS = 0x15666; //size 0x16A
 
 		public static void WriteNumber(uint address, uint size, uint value, uint min, uint max)
 		{

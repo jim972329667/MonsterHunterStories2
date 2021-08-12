@@ -175,8 +175,6 @@ namespace MonsterHunterStories2
 				}
 				else Get = true;
 			}
-			//if (num == 0) MessageBox.Show(Properties.Resources.MessageFailAddItem);
-			//else MessageBox.Show(string.Format(Properties.Resources.MessageSuccessAddItem, num.ToString()));
 			if (num != 0) MessageBox.Show(string.Format(Properties.Resources.MessageSuccessAddItem, num.ToString()));
 		}
 		private void ButtonChoiceMonster_Click(object sender, RoutedEventArgs e)
@@ -611,8 +609,24 @@ namespace MonsterHunterStories2
 		private void ButtonAllGuide(object sender, RoutedEventArgs e)
 		{
 			if (!IsOpen) return;
-			SaveData.Instance().WriteValue(Util.GUIDE_ADDRESS, Guide.guide);
-			SaveData.Instance().WriteValue(Util.GUIDE2_ADDRESS, Guide.guide2);
+			if (Guide1.IsChecked == true || Guide2.IsChecked == true || Guide3.IsChecked == true)
+			{
+				if (Guide1.IsChecked == true)
+                {
+					SaveData.Instance().WriteValue(Util.GUIDE_Monsterpedia_ADDRESS_1, Guide.Monsterpedia1);
+					SaveData.Instance().WriteValue(Util.GUIDE_Monsterpedia_ADDRESS_2, Guide.Monsterpedia2);
+				}
+				if (Guide2.IsChecked == true)
+                {
+					SaveData.Instance().WriteValue(Util.GUIDE_Monstipedia_ADDRESS, Guide.Monstipedia);
+				}
+                if (Guide3.IsChecked == true)
+                {
+					SaveData.Instance().WriteValue(Util.GUIDE_BookofGenes_ADDRESS, Guide.BookofGenes);
+				}
+			}
+			else
+				return;
 			MessageBox.Show(Properties.Resources.MessageSuccess);
 		}
 		private void ButtonAllMedals(object sender, RoutedEventArgs e)
@@ -621,6 +635,83 @@ namespace MonsterHunterStories2
 			SaveData.Instance().WriteValue(Util.MEDALS_ADDRESS, Guide.Medals);
 			MessageBox.Show(Properties.Resources.MessageSuccess);
 		}
+		private void ButtonRefreshMelynx(object sender, RoutedEventArgs e)
+		{
+			if (!IsOpen) return;
+			for(uint i = 0; i < Util.MELYNXLNC_COUNT; i++)
+            {
+				SaveData.Instance().WriteNumber(Util.MELYNXLNC_ADDRESS + i, 1, 0);
+            }
+			MessageBox.Show(Properties.Resources.MessageSuccess);
+		}
+		private void ButtonAllItems(object sender, RoutedEventArgs e)
+		{
+			bool Get = true;
+			int num = 0;
+			uint[] itemids = new uint[0];
+			ViewModel viewmodel = DataContext as ViewModel;
+			if (viewmodel == null) return;
+			if (!IsOpen) return;
+
+			if (!uint.TryParse(ItemCount.Text, out uint count)) count = 1;
+			else if (count > 999) count = 999;
+			else if (count == 0) count = 1;
+
+			if (ItemHealing.IsChecked == true || ItemSupport.IsChecked == true || ItemMaterials.IsChecked == true || ItemFacilities.IsChecked == true || ItemGrowth.IsChecked == true)
+            {
+				if (ItemHealing.IsChecked == true)
+                {
+					itemids = itemids.Concat(Item.HealingItemlist).ToArray();
+				}
+				if (ItemSupport.IsChecked == true)
+				{
+					itemids = itemids.Concat(Item.SupportItemlist).ToArray();
+				}
+				if (ItemMaterials.IsChecked == true)
+				{
+					itemids = itemids.Concat(Item.MaterialsItemlist).ToArray();
+				}
+				if (ItemFacilities.IsChecked == true)
+				{
+					itemids = itemids.Concat(Item.FacilitiesItemlist).ToArray();
+				}
+				if (ItemGrowth.IsChecked == true)
+				{
+					itemids = itemids.Concat(Item.GrowthItemlist).ToArray();
+				}
+
+				foreach (var id in itemids)
+				{
+
+					for (int i = 0; i < viewmodel.Items.Count; i++)
+					{
+						if (viewmodel.Items[i].ID == id)
+						{
+							viewmodel.Items[i].Count = count;
+							SaveData.Instance().WriteBit(Util.ITEMSETTING_ADDRESS + id / 8, id % 8, true);
+							Get = false;
+							break;
+						}
+					}
+					if (Get)
+					{
+						num++;
+						Item item = new Item(Util.ItemIDAddress(id))
+						{
+							ID = id,
+							Count = count,
+							Type = 0
+						};
+						viewmodel.Items.Add(item);
+						SaveData.Instance().WriteBit(Util.ITEMSETTING_ADDRESS + id / 8, id % 8, true);
+					}
+					else Get = true;
+				}
+				if (num != 0) MessageBox.Show(string.Format(Properties.Resources.MessageSuccessAddItem, num.ToString()));
+				else MessageBox.Show(Properties.Resources.MessageSuccess);
+			}
+		}
+
 		//private void ButtonBaseGuide_Click(object sender, RoutedEventArgs e)
 		//{
 		//	foreach(int i in Util.GuideMonsterList)

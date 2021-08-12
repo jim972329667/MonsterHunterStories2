@@ -70,7 +70,11 @@
                         <RowDefinition/>
                         <RowDefinition/>
                         <RowDefinition/>
-                        <RowDefinition Height="8*"/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition Height="4*"/>
                     </Grid.RowDefinitions>
                     <Label Content="{x:Static prop:Resources.MainBasicPlayTime}"/>
                     <Grid Grid.Column="1">
@@ -88,8 +92,8 @@
                     <Label Grid.Row="2" Content="{x:Static prop:Resources.MainBaseMonstersSlain}"/>
                     <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding MonstersSlain, UpdateSourceTrigger=PropertyChanged}"/>
                     <Button Grid.Row="3" Content="{x:Static prop:Resources.MainBaseAllMedals}" Click="ButtonAllMedals"/>
-                    <Button Grid.Row="3" Grid.Column="1" Content="{x:Static prop:Resources.MainBaseAllGuide}" Click="ButtonAllGuide"/>
-                    <GroupBox  Grid.Column="3" Grid.ColumnSpan="2" Grid.RowSpan="4" Header="{x:Static prop:Resources.MainBaseNumberEgg}">
+                    <Button Grid.Row="3" Grid.Column="1" Content="{x:Static prop:Resources.MainBaseRefreshMelynx}" Click="ButtonRefreshMelynx"/>
+                    <GroupBox Grid.Column="3" Grid.ColumnSpan="2" Grid.RowSpan="4" Header="{x:Static prop:Resources.MainBaseNumberEgg}">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
@@ -109,6 +113,49 @@
                                 <TextBox Text="{Binding AllCoOpEgg, UpdateSourceTrigger=PropertyChanged}" Width="180"/>
                             </StackPanel>
                         </Grid>                       
+                    </GroupBox>
+                    <GroupBox Grid.Row="4" Grid.Column="3"  Grid.ColumnSpan="2" Grid.RowSpan="3" Header="{x:Static prop:Resources.MainBaseGuide}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <CheckBox x:Name="Guide1" Content="{x:Static prop:Resources.MainBaseGuideMonsterpedia}" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="True"/>
+                            <CheckBox x:Name="Guide2" Content="{x:Static prop:Resources.MainBaseGuideMonstipedia}" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="True"/>
+                            <CheckBox x:Name="Guide3" Content="{x:Static prop:Resources.MainBaseGuideBookofGenes}" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="True"/>
+                            <Button Grid.Row="1" Grid.Column="1" Content="{x:Static prop:Resources.MainBaseAllGuide}" Click="ButtonAllGuide"/>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Grid.Row="7" Grid.Column="3" Grid.RowSpan="4" Grid.ColumnSpan="2" Header="{x:Static prop:Resources.MainTabItem}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <CheckBox x:Name="ItemHealing" Content="{x:Static prop:Resources.MainItemType1}" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="True"/>
+                            <CheckBox x:Name="ItemSupport" Content="{x:Static prop:Resources.MainItemType2}" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="True"/>
+                            <CheckBox x:Name="ItemMaterials" Content="{x:Static prop:Resources.MainItemType3}" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="True"/>
+                            <CheckBox x:Name="ItemFacilities" Content="{x:Static prop:Resources.MainItemType4}" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="True"/>
+                            <CheckBox x:Name="ItemGrowth" Content="{x:Static prop:Resources.MainItemType5}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="True"/>
+                            <StackPanel Orientation="Horizontal" Grid.Row="2">
+                                <Label Content="{x:Static prop:Resources.MainBaseItemCount}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBox x:Name="ItemCount" Width="80" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25"/>
+                            </StackPanel>
+                            <Button Grid.Row="2" Grid.Column="1" Content="{x:Static prop:Resources.MainBaseAllItems}" Margin="5" Click="ButtonAllItems"/>
+
+
+                        </Grid>
                     </GroupBox>
                 </Grid>
             </TabItem>
@@ -1223,7 +1270,7 @@
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
-                                        <Label Content="Count"/>
+                                        <Label Content="{x:Static prop:Resources.MainBaseItemCount}"/>
                                         <TextBox Text="{Binding Count, UpdateSourceTrigger=PropertyChanged}" Width="60"/>
                                         <Label Margin="5,0,0,0" Content=" Name"/>
                                         <TextBlock Margin="5,0,0,0" Text="{Binding ID, Converter={StaticResource ItemID2NameConverter}}" TextWrapping="Wrap" Width="150" HorizontalAlignment="Center" VerticalAlignment="Center"/>

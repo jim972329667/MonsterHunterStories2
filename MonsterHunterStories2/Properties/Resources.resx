@@ -178,14 +178,32 @@
   <data name="MainBaseAllGuide" xml:space="preserve">
     <value>Get all Guide</value>
   </data>
+  <data name="MainBaseAllItems" xml:space="preserve">
+    <value>Get All Items</value>
+  </data>
   <data name="MainBaseAllMedals" xml:space="preserve">
     <value>Get All Medals</value>
   </data>
   <data name="MainBaseCoOpEgg" xml:space="preserve">
     <value>Co-Op Eggs</value>
   </data>
+  <data name="MainBaseGuide" xml:space="preserve">
+    <value>Guide</value>
+  </data>
+  <data name="MainBaseGuideBookofGenes" xml:space="preserve">
+    <value>Book of Genes</value>
+  </data>
+  <data name="MainBaseGuideMonsterpedia" xml:space="preserve">
+    <value>Monsterpedia</value>
+  </data>
+  <data name="MainBaseGuideMonstipedia" xml:space="preserve">
+    <value>Monstipedia</value>
+  </data>
   <data name="MainBaseHighSmellEgg" xml:space="preserve">
     <value>Good / Amazing Smell Eggs</value>
+  </data>
+  <data name="MainBaseItemCount" xml:space="preserve">
+    <value>Count</value>
   </data>
   <data name="MainBaseMonstersSlain" xml:space="preserve">
     <value>Monsters Slain</value>
@@ -195,6 +213,9 @@
   </data>
   <data name="MainBaseNumberEgg" xml:space="preserve">
     <value>Eggs Acquired</value>
+  </data>
+  <data name="MainBaseRefreshMelynx" xml:space="preserve">
+    <value>Refresh the Melynx lnc.</value>
   </data>
   <data name="MainBasicMoney" xml:space="preserve">
     <value>Money</value>

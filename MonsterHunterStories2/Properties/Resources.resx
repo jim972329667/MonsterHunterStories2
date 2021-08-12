@@ -136,7 +136,7 @@
     <value>No selected items！</value>
   </data>
   <data name="ErrorForEggChoice" xml:space="preserve">
-    <value>Please select a Egg cell !</value>
+    <value>Please select a cell !</value>
   </data>
   <data name="ErrorLosingDBFile" xml:space="preserve">
     <value>Lost database file !</value>

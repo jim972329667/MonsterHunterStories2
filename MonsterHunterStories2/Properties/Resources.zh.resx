@@ -136,7 +136,7 @@
     <value>无选择物品</value>
   </data>
   <data name="ErrorForEggChoice" xml:space="preserve">
-    <value>请选择一个蛋格子！</value>
+    <value>请选择一个格子！</value>
   </data>
   <data name="ErrorLosingDBFile" xml:space="preserve">
     <value>丢失数据库文件！</value>

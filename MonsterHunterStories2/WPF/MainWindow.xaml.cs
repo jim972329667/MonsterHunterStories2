@@ -18,6 +18,15 @@ namespace MonsterHunterStories2
 	{
 		private static readonly byte[] eggx = System.Text.Encoding.Default.GetBytes("MHS2_EGGx");
 		private static readonly int EggLength = eggx.Length % 4 == 0 ? eggx.Length : (eggx.Length / 4 * 4) + 4;
+		private static readonly byte[] CoOp = new byte[]
+		{
+			0xFF,0x00,0x00,0x00,0x10,0x00,0x00,0x00,0x02,0x00,0x00,0x00,0xBB,0x2C,0xB2,0xC9,0xC5,0x14,0xC8,0x91,0x00,0x00,0x00,0x00,0x00,
+			0x01,0x00,0x00,0xFE,0xD1,0xC8,0x47,0xB0,0x5E,0xC8,0x66,0x00,0x00,0x00,0x00,0xF0,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+			0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+			0x00
+		};
+		private static readonly byte[] smell = new byte[] { 0x02, 0x00, 0x00, 0x00 };
+
 		public static int MaxLanguage = 0;
 		public static bool IsOpen = false;
 
@@ -302,6 +311,42 @@ namespace MonsterHunterStories2
 				}
 			}
 			MessageBox.Show(Properties.Resources.MessageSuccess);
+		}
+		private void ButtonMonsterFileSave(object sender, RoutedEventArgs e)
+		{
+			if (!IsOpen) return;
+			int index = ListBoxMonster.SelectedIndex;
+			if (index < 0)
+			{
+				_ = MessageBox.Show(Properties.Resources.ErrorForEggChoice);
+				return;
+			}
+			SaveFileDialog dlg = new SaveFileDialog
+			{
+				DefaultExt = ".mhs2egg",
+				Filter = "蛋文件|*.mhs2egg"
+			};
+			if (dlg.ShowDialog() != false)
+			{
+				var monster = ListBoxMonster.SelectedItem as Monster;
+				if (monster != null)
+				{
+					byte[] id = SaveData.Instance().ReadValue(monster.mAddress + 52, 4);
+					byte[] gene = SaveData.Instance().ReadValue(monster.mAddress + 332, 36);
+                    byte[] byteAll = new byte[EggLength + id.Length + smell.Length + gene.Length + CoOp.Length];
+					int length = EggLength;
+					Array.Copy(eggx, 0, byteAll, 0, eggx.Length);
+                    Array.Copy(id, 0, byteAll, length, id.Length);
+					length += id.Length;
+					Array.Copy(smell, 0, byteAll, length, smell.Length);
+					length += smell.Length;
+					Array.Copy(gene, 0, byteAll, length, gene.Length);
+					length += gene.Length;
+					Array.Copy(CoOp, 0, byteAll, length, CoOp.Length);
+
+                    File.WriteAllBytes(dlg.FileName, byteAll);
+				}
+			}
 		}
 		private void ButtonAppendEgg_Click(object sender, RoutedEventArgs e)
 		{

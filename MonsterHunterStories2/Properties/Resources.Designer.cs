@@ -115,7 +115,7 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Please select a Egg cell ! 的本地化字符串。
+        ///   查找类似 Please select a cell ! 的本地化字符串。
         /// </summary>
         public static string ErrorForEggChoice {
             get {

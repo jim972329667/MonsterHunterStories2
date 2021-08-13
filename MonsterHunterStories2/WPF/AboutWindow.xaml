@@ -4,27 +4,67 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MonsterHunterStories2"
+        xmlns:prop="clr-namespace:MonsterHunterStories2.Properties"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="中文特别版" Height="190" Width="300">
+        Title="中文特别版" Height="240" Width="400">
+    <Window.Resources>
+        <BitmapImage x:Key="Alipay" UriSource="../resource/Alipay.jpg"/>
+        <BitmapImage x:Key="Wechat" UriSource="../resource/Wechat.png"/>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <!--<RowDefinition/>-->
         </Grid.RowDefinitions>
-        <Label Content="原作者 ： turtle-insect(カメムシ)"/>
-        <Label Grid.Row="1" Content="项目 ：" />
-        <Label Grid.Row="1" Content=" https://github.com/turtle-insect/MonsterHunterStories2" MouseDown="LabelHP_MouseDown" Foreground="Blue" Margin="30,0,0,0"/>
-        <Label Grid.Row="2" Content="中文版作者 ： jim972329667"/>
-        <Label Grid.Row="3" Content="中文版项目 ： "/>
-        <Label Grid.Row="3" Content=" https://github.com/jim972329667/MonsterHunterStories2" MouseDown="LabelGH_MouseDown" Foreground="Blue" Margin="70,0,0,0"/>
-        <Label Grid.Row="4" Content="论坛地址 ：" />
-        <Label Grid.Row="4" Content=" https://bbs.naxgen.cn/thread-253594-1-1.html" MouseDown="LabelLT_MouseDown" Foreground="Blue" Margin="57,0,0,0"/>
-        <Label Grid.Row="5" Content="Release ：" />
-        <Label Grid.Row="5" Content=" https://github.com/jim972329667/MonsterHunterStories2/releases" MouseDown="LabelUp_MouseDown" Foreground="Blue" Margin="57,0,0,0"/>
+        <GroupBox x:Name="information" Header="信息">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label Content="原作者 ： turtle-insect(カメムシ)"/>
+                <Label Grid.Row="1" Content="项目 ：" />
+                <Label Grid.Row="1" Content=" https://github.com/turtle-insect/MonsterHunterStories2" MouseDown="LabelHP_MouseDown" Foreground="Blue" Margin="30,0,0,0"/>
+                <Label Grid.Row="2" Content="中文版作者 ： jim972329667"/>
+                <Label Grid.Row="3" Content="中文版项目 ： "/>
+                <Label Grid.Row="3" Content=" https://github.com/jim972329667/MonsterHunterStories2" MouseDown="LabelGH_MouseDown" Foreground="Blue" Margin="70,0,0,0"/>
+                <Label Grid.Row="4" Content="论坛地址 ：" />
+                <Label Grid.Row="4" Content=" https://bbs.naxgen.cn/thread-253594-1-1.html" MouseDown="LabelLT_MouseDown" Foreground="Blue" Margin="57,0,0,0"/>
+                <Label Grid.Row="5" Content="Release ：" />
+                <Label Grid.Row="5" Content=" https://github.com/jim972329667/MonsterHunterStories2/releases" MouseDown="LabelUp_MouseDown" Foreground="Blue" Margin="57,0,0,0"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="support" Header="{x:Static prop:Resources.AboutWindowSupport}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="62"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="{x:Static prop:Resources.AboutWindowMessage}" TextWrapping="Wrap"/>
+                <TabControl Grid.Row="1">
+                    <TabItem Header="{x:Static prop:Resources.AboutWindowAlipay}">
+                        <Image Source="{StaticResource Alipay}"/>
+                    </TabItem>
+                    <TabItem Header="{x:Static prop:Resources.AboutWindowWechat}">
+                        <Image Source="{StaticResource Wechat}"/>
+                    </TabItem>
+                    <TabItem Header="Paypel">
+                        <Label Content="https://paypal.me/jim972329667" MouseDown="Paypel" Foreground="Blue" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </TabItem>
+                    <TabItem Header="{x:Static prop:Resources.AboutWindowTabMessage}">
+                        <StackPanel Orientation="Vertical">
+                            <Label Content="https://bbs.naxgen.cn/thread-253594-1-1.html" MouseDown="LabelLT_MouseDown" Foreground="Blue"/>
+                            <Label Content="https://github.com/jim972329667/MonsterHunterStories2" MouseDown="LabelGH_MouseDown" Foreground="Blue"/>
+                            <Label Content="Email : jim972329667@foxmail.com"/>
+                        </StackPanel>
+                    </TabItem>
+                </TabControl>
+            </Grid>
+        </GroupBox>
     </Grid>
 </Window>

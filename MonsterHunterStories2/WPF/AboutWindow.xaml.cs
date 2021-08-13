@@ -28,5 +28,10 @@ namespace MonsterHunterStories2
 		{
 			System.Diagnostics.Process.Start("https://github.com/jim972329667/MonsterHunterStories2/releases");
 		}
+
+		private void Paypel(object sender, MouseButtonEventArgs e)
+        {
+			System.Diagnostics.Process.Start("https://paypal.me/jim972329667");
+		}
 	}
 }

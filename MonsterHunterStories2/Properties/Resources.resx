@@ -117,6 +117,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AboutWindowAlipay" xml:space="preserve">
+    <value>Alipay</value>
+  </data>
+  <data name="AboutWindowMessage" xml:space="preserve">
+    <value>This software is completely free, and there are no paid items for subsequent functions. If you like this software, you can support the author. Your support is the driving force for my development. Of course, you can also support the author by leaving a message.</value>
+  </data>
+  <data name="AboutWindowSupport" xml:space="preserve">
+    <value>Support</value>
+  </data>
+  <data name="AboutWindowTabMessage" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="AboutWindowWechat" xml:space="preserve">
+    <value>Wechat</value>
+  </data>
   <data name="AddDBCheckUpdate" xml:space="preserve">
     <value>Whether to update the database based on the save file?</value>
   </data>

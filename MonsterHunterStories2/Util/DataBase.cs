@@ -1,6 +1,7 @@
 ﻿using LiteDB;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 
 namespace MonsterHunterStories2
 {
@@ -62,9 +63,11 @@ namespace MonsterHunterStories2
             }
         }
 
-        public static string Path = @".\info\MHS2.db";
+        private static string Path = ConfigurationManager.ConnectionStrings["LiteDB"].ConnectionString;
 
-        public static LiteDatabase db = new LiteDatabase("Filename = info\\MHS2.db; ReadOnly=true");
+        private static string FPath = ConfigurationManager.ConnectionStrings["LiteDB"].ConnectionString + "; ReadOnly=true";
+
+        public static LiteDatabase db = new LiteDatabase(FPath);
         
         private static readonly string[] DBTABLE = new string[]
         {
@@ -137,7 +140,7 @@ namespace MonsterHunterStories2
                 }    
             }
             newdb.Dispose();
-            db = new LiteDatabase("Filename = info\\MHS2.db; ReadOnly=true");
+            db = new LiteDatabase(FPath);
 
         }
         public static void AddDB_Weapon(string DBName, List<KeyValuesInfo> items, uint type)
@@ -203,7 +206,7 @@ namespace MonsterHunterStories2
                 }
             }
             newdb.Dispose();
-            db = new LiteDatabase("Filename = info\\MHS2.db; ReadOnly=true");
+            db = new LiteDatabase(FPath);
         }
         public static void AddDB_PNGID(string DBName, List<DB_GenePNGID> GeneID)
         {
@@ -216,7 +219,7 @@ namespace MonsterHunterStories2
                 col.Upsert(x);
             }
             newdb.Dispose();
-            db = new LiteDatabase("Filename = info\\MHS2.db; ReadOnly=true");
+            db = new LiteDatabase(FPath);
         }
         public static DB_GenePNGID GetPNGID(uint ID)
         {
@@ -337,7 +340,7 @@ namespace MonsterHunterStories2
                 }
             }
             newdb.Dispose();
-            db = new LiteDatabase("Filename = info\\MHS2.db; ReadOnly=true");
+            db = new LiteDatabase(FPath);
         }
         public static void UpdateDB_General(string DBName, List<DB_General> items)
         {
@@ -364,7 +367,7 @@ namespace MonsterHunterStories2
                 }
             }
             newdb.Dispose();
-            db = new LiteDatabase("Filename = info\\MHS2.db; ReadOnly=true");
+            db = new LiteDatabase(FPath);
         }
         public static void GetUpdate(bool IsOpen)
         {

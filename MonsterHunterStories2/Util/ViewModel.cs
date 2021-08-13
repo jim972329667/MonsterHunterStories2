@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Drawing;
+using System.IO;
 
 namespace MonsterHunterStories2
 {
@@ -17,19 +19,15 @@ namespace MonsterHunterStories2
 		public ObservableCollection<Den> Dens { get; set; } = new ObservableCollection<Den>();
 		public ViewModel()
 		{
-			if (DataBase.GetConverList("Items") != null)
+            for (uint i = 1; i < 2000; i++)
 			{
-				foreach (var itemInfo in DataBase.GetConverList("Items"))
-				{
-					uint address = Util.ItemIDAddress(itemInfo.Key);
-					Item item = new Item(address);
-					if (item.ID == 0) continue;
-					if (item.Count == 0) continue;
-					item.Type = ItemType(item.ID);
-					Items.Add(item);
-				}
+				uint address = Util.ItemIDAddress(i);
+				Item item = new Item(address);
+				if (item.ID == 0) continue;
+				if (item.Count == 0) continue;
+				item.Type = ItemType(item.ID);
+				Items.Add(item);
 			}
-
 
 			for (uint i = 0; i < Util.CHARACTER_COUNT; i++)
 			{

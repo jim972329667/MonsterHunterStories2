@@ -38,10 +38,11 @@ namespace MonsterHunterStories2
 		}
 		private void Init()
         {
+			string connectionString = AppDomain.CurrentDomain.BaseDirectory + "info\\MHS2.db";
 			//初始化图片
 			GenePNG.Bitmaps();
 			//检查数据库
-			if (!File.Exists(@".\info\MHS2.db"))
+			if (!File.Exists(connectionString))
 			{
 				MessageBox.Show(Properties.Resources.ErrorLosingDBFile);
 				Directory.CreateDirectory(@".\info\");
@@ -96,6 +97,15 @@ namespace MonsterHunterStories2
 		private void MenuItemAbout_Click(object sender, RoutedEventArgs e)
 		{
 			var dlg = new AboutWindow();
+			dlg.support.Visibility = Visibility.Collapsed;
+			dlg.ShowDialog();
+		}
+		private void MenuSupport_Click(object sender, RoutedEventArgs e)
+		{
+			var dlg = new AboutWindow();
+			dlg.information.Visibility = Visibility.Collapsed;
+			dlg.Height = 500;
+			dlg.Width = 500;
 			dlg.ShowDialog();
 		}
 		private void MenuAddDB_Click(object sender, RoutedEventArgs e)
@@ -427,12 +437,12 @@ namespace MonsterHunterStories2
 				}
 			}
 		}
-		private void ButtonPasteEgg(object sender, RoutedEventArgs e)
-		{
-			string text = Clipboard.GetText();
-			AddEggFromFile(text);
-		}
-		private void AddEggFromFile(string info)
+        private void ButtonPasteEgg(object sender, RoutedEventArgs e)
+        {
+            string text = Clipboard.GetText();
+            AddEggFromFile(text);
+        }
+        private void AddEggFromFile(string info)
 		{
 			int index = ListBoxEgg.SelectedIndex;
 			if (index < 0) return;
@@ -756,6 +766,14 @@ namespace MonsterHunterStories2
 				else MessageBox.Show(Properties.Resources.MessageSuccess);
 			}
 		}
+
+		//private void ButtonDIY(object sender, RoutedEventArgs e)
+  //      {
+		//	string s = "11111001";
+		//	string xx = string.Format("{0:X}", Convert.ToInt32(s, 2));
+		//	if (DIY.IsChecked == true) DIY_Grid.Visibility = Visibility.Visible;
+		//	else DIY_Grid.Visibility = Visibility.Collapsed;
+		//}
 
 		//private void ButtonBaseGuide_Click(object sender, RoutedEventArgs e)
 		//{

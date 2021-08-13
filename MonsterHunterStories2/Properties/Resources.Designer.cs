@@ -61,6 +61,51 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Alipay 的本地化字符串。
+        /// </summary>
+        public static string AboutWindowAlipay {
+            get {
+                return ResourceManager.GetString("AboutWindowAlipay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 This software is completely free, and there are no paid items for subsequent functions. If you like this software, you can support the author. Your support is the driving force for my development. Of course, you can also support the author by leaving a message. 的本地化字符串。
+        /// </summary>
+        public static string AboutWindowMessage {
+            get {
+                return ResourceManager.GetString("AboutWindowMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Support 的本地化字符串。
+        /// </summary>
+        public static string AboutWindowSupport {
+            get {
+                return ResourceManager.GetString("AboutWindowSupport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Message 的本地化字符串。
+        /// </summary>
+        public static string AboutWindowTabMessage {
+            get {
+                return ResourceManager.GetString("AboutWindowTabMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Wechat 的本地化字符串。
+        /// </summary>
+        public static string AboutWindowWechat {
+            get {
+                return ResourceManager.GetString("AboutWindowWechat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Whether to update the database based on the save file? 的本地化字符串。
         /// </summary>
         public static string AddDBCheckUpdate {

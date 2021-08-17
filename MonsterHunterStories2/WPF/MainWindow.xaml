@@ -29,7 +29,7 @@
             <MenuItem Header="{x:Static prop:Resources.MainMenuAbout}" Click="MenuItemAbout_Click" Margin="10,0,0,0"/>
             <MenuItem Header="{x:Static prop:Resources.MainMenuUpdateDB}" Click="MenuAddDB_Click" Margin="10,0,0,0"/>
             <MenuItem Header="{x:Static prop:Resources.MainMenuFeedback}" Click="MenuFeedback_Click" Margin="10,0,0,0"/>
-            <MenuItem Header="{x:Static prop:Resources.AboutWindowSupport}" Click="MenuSupport_Click" Margin="10,0,0,0"  Opacity="0.4"/>
+            <MenuItem Header="{x:Static prop:Resources.AboutWindowSupport}" Click="MenuSupport_Click" Margin="10,0,0,0"/>
         </Menu>
         <ToolBar DockPanel.Dock="Top">
             <Button Height="32" ToolTip="Open" Click="MenuItemFileOpen_Click">

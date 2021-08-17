@@ -198,6 +198,15 @@
   <data name="MainBaseCoOpEgg" xml:space="preserve">
     <value>共斗获得的蛋</value>
   </data>
+  <data name="MainBaseCoOpQuestsCompleted" xml:space="preserve">
+    <value>共斗任务完成次数</value>
+  </data>
+  <data name="MainBaseCoOpQuestsCompleted1" xml:space="preserve">
+    <value>共斗任务完成次数 1</value>
+  </data>
+  <data name="MainBaseCoOpQuestsCompleted2" xml:space="preserve">
+    <value>共斗任务完成次数 2</value>
+  </data>
   <data name="MainBaseGuide" xml:space="preserve">
     <value>图鉴</value>
   </data>

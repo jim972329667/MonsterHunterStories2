@@ -55,6 +55,9 @@ namespace MonsterHunterStories2
 
 		public const uint EggHatched_ADDRESS = 0x15666; //size 0x16A
 
+		public const uint CoOp_COUNT1_ADDRESS = 0x141A8;
+		public const uint CoOp_COUNT2_ADDRESS = 0x141C8;
+
 		public static void WriteNumber(uint address, uint size, uint value, uint min, uint max)
 		{
 			if (value < min) value = min;

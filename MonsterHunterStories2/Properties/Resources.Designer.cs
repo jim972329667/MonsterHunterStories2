@@ -314,6 +314,33 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Co-Op Quests Completed 的本地化字符串。
+        /// </summary>
+        public static string MainBaseCoOpQuestsCompleted {
+            get {
+                return ResourceManager.GetString("MainBaseCoOpQuestsCompleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Co-Op Quests Completed 1 的本地化字符串。
+        /// </summary>
+        public static string MainBaseCoOpQuestsCompleted1 {
+            get {
+                return ResourceManager.GetString("MainBaseCoOpQuestsCompleted1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Co-Op Quests Completed 2 的本地化字符串。
+        /// </summary>
+        public static string MainBaseCoOpQuestsCompleted2 {
+            get {
+                return ResourceManager.GetString("MainBaseCoOpQuestsCompleted2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Guide 的本地化字符串。
         /// </summary>
         public static string MainBaseGuide {

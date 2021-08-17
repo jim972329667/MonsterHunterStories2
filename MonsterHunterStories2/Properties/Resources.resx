@@ -202,6 +202,15 @@
   <data name="MainBaseCoOpEgg" xml:space="preserve">
     <value>Co-Op Eggs</value>
   </data>
+  <data name="MainBaseCoOpQuestsCompleted" xml:space="preserve">
+    <value>Co-Op Quests Completed</value>
+  </data>
+  <data name="MainBaseCoOpQuestsCompleted1" xml:space="preserve">
+    <value>Co-Op Quests Completed 1</value>
+  </data>
+  <data name="MainBaseCoOpQuestsCompleted2" xml:space="preserve">
+    <value>Co-Op Quests Completed 2</value>
+  </data>
   <data name="MainBaseGuide" xml:space="preserve">
     <value>Guide</value>
   </data>

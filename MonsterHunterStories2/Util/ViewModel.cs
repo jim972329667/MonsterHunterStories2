@@ -133,6 +133,18 @@ namespace MonsterHunterStories2
 			get { return SaveData.Instance().ReadNumber(Util.MONSTER_SLAIN_ADDRESS, 4); }
 			set { Util.WriteNumber(Util.MONSTER_SLAIN_ADDRESS, 4, value, 0, 0xFFFF); }
 		}
+
+		public uint CoOpQuestsCompleted1
+		{
+			get { return SaveData.Instance().ReadNumber(Util.CoOp_COUNT1_ADDRESS, 4); }
+			set { Util.WriteNumber(Util.CoOp_COUNT1_ADDRESS, 4, value, 0, 0xFFFF); }
+		}
+
+		public uint CoOpQuestsCompleted2
+		{
+			get { return SaveData.Instance().ReadNumber(Util.CoOp_COUNT2_ADDRESS, 4); }
+			set { Util.WriteNumber(Util.CoOp_COUNT2_ADDRESS, 4, value, 0, 0xFFFF); }
+		}
 		private uint ItemType(uint ID)
         {
 			uint type;

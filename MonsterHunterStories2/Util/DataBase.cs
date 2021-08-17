@@ -1,7 +1,6 @@
 ﻿using LiteDB;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 
 namespace MonsterHunterStories2
 {
@@ -63,9 +62,9 @@ namespace MonsterHunterStories2
             }
         }
 
-        private static string Path = ConfigurationManager.ConnectionStrings["LiteDB"].ConnectionString;
+        private readonly static string Path = "Filename = info\\MHS2.db";
 
-        private static string FPath = ConfigurationManager.ConnectionStrings["LiteDB"].ConnectionString + "; ReadOnly=true";
+        private readonly static string FPath = "Filename = info\\MHS2.db" + "; ReadOnly=true";
 
         public static LiteDatabase db = new LiteDatabase(FPath);
         

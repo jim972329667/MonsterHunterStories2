@@ -89,7 +89,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converter\BattleConverter.cs" />
     <Compile Include="Converter\DenConverter.cs" />
+    <Compile Include="Core\Battle.cs" />
     <Compile Include="Core\Den.cs" />
     <Compile Include="Core\Guide.cs" />
     <Compile Include="WPF\AboutWindow.xaml.cs">

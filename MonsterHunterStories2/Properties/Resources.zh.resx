@@ -186,6 +186,9 @@
   <data name="ErrorWrongSave" xml:space="preserve">
     <value>错误的存档 / 未解密的存档</value>
   </data>
+  <data name="MainBaseAllBattles" xml:space="preserve">
+    <value>所有对战成绩</value>
+  </data>
   <data name="MainBaseAllGuide" xml:space="preserve">
     <value>获得全部图鉴</value>
   </data>
@@ -195,17 +198,35 @@
   <data name="MainBaseAllMedals" xml:space="preserve">
     <value>获得全部奖牌</value>
   </data>
+  <data name="MainBaseAllPairBattles" xml:space="preserve">
+    <value>所有双人对战成绩</value>
+  </data>
+  <data name="MainBaseAllSingleBattles" xml:space="preserve">
+    <value>所有单人对战成绩</value>
+  </data>
+  <data name="MainBaseBattles" xml:space="preserve">
+    <value>对战</value>
+  </data>
+  <data name="MainBaseBattlesLose" xml:space="preserve">
+    <value>负</value>
+  </data>
+  <data name="MainBaseBattlesWin" xml:space="preserve">
+    <value>胜</value>
+  </data>
+  <data name="MainBaseBattlesWinPercentage" xml:space="preserve">
+    <value>胜率</value>
+  </data>
   <data name="MainBaseCoOpEgg" xml:space="preserve">
     <value>共斗获得的蛋</value>
   </data>
   <data name="MainBaseCoOpQuestsCompleted" xml:space="preserve">
-    <value>共斗任务完成次数</value>
+    <value>共斗任务完成次数 : {0}</value>
   </data>
   <data name="MainBaseCoOpQuestsCompleted1" xml:space="preserve">
-    <value>共斗任务完成次数 1</value>
+    <value>完成次数 1</value>
   </data>
   <data name="MainBaseCoOpQuestsCompleted2" xml:space="preserve">
-    <value>共斗任务完成次数 2</value>
+    <value>完成次数 2</value>
   </data>
   <data name="MainBaseGuide" xml:space="preserve">
     <value>图鉴</value>
@@ -232,10 +253,40 @@
     <value>普通气味的蛋</value>
   </data>
   <data name="MainBaseNumberEgg" xml:space="preserve">
-    <value>获取蛋数量</value>
+    <value>获取蛋数量 : {0}</value>
+  </data>
+  <data name="MainBasePairBattlesFriends" xml:space="preserve">
+    <value>与好友双人对战成绩</value>
+  </data>
+  <data name="MainBasePartner" xml:space="preserve">
+    <value>伙伴</value>
+  </data>
+  <data name="MainBasePartnerAlwin" xml:space="preserve">
+    <value>阿尔玛</value>
+  </data>
+  <data name="MainBasePartnerKayna" xml:space="preserve">
+    <value>琪娜</value>
+  </data>
+  <data name="MainBasePartnerKyle" xml:space="preserve">
+    <value>卡伊</value>
+  </data>
+  <data name="MainBasePartnerNone" xml:space="preserve">
+    <value>空</value>
+  </data>
+  <data name="MainBasePartnerReverto" xml:space="preserve">
+    <value>李维特</value>
+  </data>
+  <data name="MainBasePartnerUnknow" xml:space="preserve">
+    <value>未知</value>
   </data>
   <data name="MainBaseRefreshMelynx" xml:space="preserve">
     <value>刷新梅拉露商会</value>
+  </data>
+  <data name="MainBaseResetOltura" xml:space="preserve">
+    <value>重置傲屠娜</value>
+  </data>
+  <data name="MainBaseSingleBattlesFriends" xml:space="preserve">
+    <value>与好友单人对战成绩</value>
   </data>
   <data name="MainBasicMoney" xml:space="preserve">
     <value>金币</value>

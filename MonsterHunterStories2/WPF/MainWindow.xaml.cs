@@ -8,6 +8,8 @@ using LiteDB;
 using System.Linq;
 using System.ComponentModel;
 using System.Windows.Data;
+using System.Diagnostics;
+using System.Collections.Generic;
 
 namespace MonsterHunterStories2
 {
@@ -141,7 +143,6 @@ namespace MonsterHunterStories2
 			SaveData.Instance().Adventure = PCconfirm ? Util.PC_ADDRESS : 0;
 			SaveData.Instance().Open(filename);
 			DataContext = new ViewModel();
-
 			ICollectionView cv = CollectionViewSource.GetDefaultView(ListBoxItem.ItemsSource);
 			cv.GroupDescriptions.Clear();
 			cv.GroupDescriptions.Add(new PropertyGroupDescription("Type"));
@@ -613,7 +614,7 @@ namespace MonsterHunterStories2
 			ViewModel viewmodel = DataContext as ViewModel;
 			if (viewmodel == null) return;
 			if (!IsOpen) return;
-			uint story = SaveData.Instance().ReadNumber(0x162C8, 4); //0x006c5660
+			uint story = SaveData.Instance().ReadNumber(Util.STORY_1, 4); //0x006c5660
 			foreach (Den x in viewmodel.Dens)
             {
                 if (!x.Isget)
@@ -699,6 +700,32 @@ namespace MonsterHunterStories2
             }
 			MessageBox.Show(Properties.Resources.MessageSuccess);
 		}
+		private void ButtonResetOltura(object sender, RoutedEventArgs e)
+		{
+			if (!IsOpen) return;
+			uint story = SaveData.Instance().ReadNumber(Util.STORY_1, 4); //0x006c5660
+			if (story == 0x006c5660)
+            {
+				Partner.SelectedIndex = 2;
+				Partner.IsEnabled = false;
+				byte[] story1 = new byte[] { 0xC0, 0x9A, 0x5E, 0x00 };
+				SaveData.Instance().WriteValue(Util.STORY_1, story1);
+				SaveData.Instance().WriteNumber(Util.STORY_2, 1, 0x36);
+				byte[] story3 = new byte[] { 0x65, 0x30, 0x36, 0x32 };
+				SaveData.Instance().WriteValue(Util.STORY_3, story3);
+				for (uint i = 0; i < 30; i++)
+				{
+					SaveData.Instance().WriteNumber(Util.STORY_4 + i, 1, 0x00);
+				}
+				byte[] story5 = new byte[] { 0x2B, 0x52, 0x20, 0x67 };
+				SaveData.Instance().WriteValue(Util.STORY_5, story5);
+				byte[] story6 = new byte[] { 0x57, 0x51, 0x22, 0x1D };
+				SaveData.Instance().WriteValue(Util.STORY_6, story6);
+				byte[] story7 = new byte[] { 0xC8, 0xA7, 0xA0, 0x86 };
+				SaveData.Instance().WriteValue(Util.STORY_7, story7);
+				MessageBox.Show(Properties.Resources.MessageSuccess);
+			}
+		}
 		private void ButtonAllItems(object sender, RoutedEventArgs e)
 		{
 			bool Get = true;
@@ -767,48 +794,99 @@ namespace MonsterHunterStories2
 			}
 		}
 
-		//private void ButtonDIY(object sender, RoutedEventArgs e)
-  //      {
-		//	string s = "11111001";
-		//	string xx = string.Format("{0:X}", Convert.ToInt32(s, 2));
-		//	if (DIY.IsChecked == true) DIY_Grid.Visibility = Visibility.Visible;
-		//	else DIY_Grid.Visibility = Visibility.Collapsed;
-		//}
 
-		//private void ButtonBaseGuide_Click(object sender, RoutedEventArgs e)
-		//{
-		//	foreach(int i in Util.GuideMonsterList)
-		//          {
-		//		uint x = Util.Guide_Monster + (uint)(i - 1) * 2;
-		//		SaveData.Instance().WriteNumber(x, 2, 1);
-		//	}
-		//	MessageBox.Show(Properties.Resources.MessageSuccess);
+        //private void ButtonDIY(object sender, RoutedEventArgs e)
+        //      {
+        //	string s = "11111001";
+        //	string xx = string.Format("{0:X}", Convert.ToInt32(s, 2));
+        //	if (DIY.IsChecked == true) DIY_Grid.Visibility = Visibility.Visible;
+        //	else DIY_Grid.Visibility = Visibility.Collapsed;
+        //}
+
+        //private void ButtonBaseGuide_Click(object sender, RoutedEventArgs e)
+        //{
+        //	foreach(int i in Util.GuideMonsterList)
+        //          {
+        //		uint x = Util.Guide_Monster + (uint)(i - 1) * 2;
+        //		SaveData.Instance().WriteNumber(x, 2, 1);
+        //	}
+        //	MessageBox.Show(Properties.Resources.MessageSuccess);
+        //}
+        //private void Button111(object sender, RoutedEventArgs e)
+        //{
+			//const string Path = "C:/Users/jim97/Desktop/info/new2.txt";
+			//OpenFileDialog dlg = new OpenFileDialog();
+			//if (dlg.ShowDialog() != false)
+			//{
+			//    if (System.IO.File.Exists(dlg.FileName))
+			//    {
+			//        string[] lines = System.IO.File.ReadAllLines(dlg.FileName);
+			//        for (int i = 0; i < lines.Length - 2; i++)
+			//        {
+			//            string x = lines[i + 2];
+			//            string y = lines[i];
+			//            if (i % 3 == 0 && i <= 3138)
+			//            {
+			//                //if (i <= 3138)
+			//                //{
+			//                //	System.IO.File.AppendAllText(Path, y + ";");
+			//                //}
+			//                System.IO.File.AppendAllText(Path, x + "\n");
+			//            }
+			//        }
+			//    }
+			//    MessageBox.Show("Success");
+			//}
+			//string filename = "MHS2BlowfishKeygen.exe";
+			//Process p = new Process();
+			//p.StartInfo.CreateNoWindow = true;
+			//p.StartInfo.UseShellExecute = false;
+			//p.StartInfo.RedirectStandardError = true;
+			//p.StartInfo.RedirectStandardInput = true;
+			//p.StartInfo.RedirectStandardOutput = true;
+			//p.StartInfo.FileName = filename;
+
+			//p.Start();
+
+			//p.StandardInput.WriteLine("76561198127564502" + "\n");
+			//p.StandardInput.AutoFlush = true;
+			//p.StandardInput.Close();
+
+			//string xx = p.StandardOutput.ReadLine();
+			//xx = p.StandardOutput.ReadLine();
+			//string output = p.StandardError.ReadToEnd();
+
+			//p.WaitForExit();
+			//p.Close();
+			//byte[] file1;
+			//byte[] file2;
+			//int i = 0;
+			//List<int> value = new List<int>();
+
+			//OpenFileDialog dlg = new OpenFileDialog
+			//{
+			//	Multiselect = true,
+				
+			//};
+			//if (dlg.ShowDialog() != false)
+			//{
+			//	string[] files = dlg.FileNames;
+			//	string[] filesName = dlg.SafeFileNames;
+
+			//	file1 = System.IO.File.ReadAllBytes(files[0]);
+			//	file2 = System.IO.File.ReadAllBytes(files[1]);
+				
+			//	for (; i < file1.Length; i++)
+   //             {
+			//		if(file1[i] != file2[i])
+   //                 {
+			//			value.Add(i);
+   //                 }
+   //             }
+
+			//	MessageBox.Show(Properties.Resources.MessageSuccess);
+			//}
+
 		//}
-		//private void Button111(object sender, RoutedEventArgs e)
-		//      {
-		//	const string Path = "C:/Users/jim97/Desktop/info/new2.txt";
-		//	OpenFileDialog dlg = new OpenFileDialog();
-		//	if (dlg.ShowDialog() != false)
-		//	{
-		//		if (System.IO.File.Exists(dlg.FileName))
-		//		{
-		//			string[] lines = System.IO.File.ReadAllLines(dlg.FileName);
-		//                  for (int i = 0; i < lines.Length - 2; i++)
-		//                  {
-		//                      string x = lines[i+2];
-		//				string y = lines[i];
-		//				if(i % 3 == 0 && i <= 3138)
-		//                      {
-		//					//if (i <= 3138)
-		//					//{
-		//					//	System.IO.File.AppendAllText(Path, y + ";");
-		//					//}
-		//					System.IO.File.AppendAllText(Path, x + "\n");
-		//				}
-		//                  }
-		//		}
-		//		MessageBox.Show("Success");
-		//	}
-		//}
-	}
+    }
 }

@@ -58,6 +58,28 @@ namespace MonsterHunterStories2
 		public const uint CoOp_COUNT1_ADDRESS = 0x141A8;
 		public const uint CoOp_COUNT2_ADDRESS = 0x141C8;
 
+		public const uint TOTAL_BATTLES_ADDRESS = 0x14138;
+		public const uint TOTAL_PAIR_BATTLES_ADDRESS = 0x14148;
+		public const uint TOTAL_WINS_ADDRESS = 0x141B8;
+		public const uint TOTAL_PAIR_WINS_ADDRESS = 0x141C0;
+
+		public const uint TOTAL_BATTLES_FRIENDS_ADDRESS = 0x14188;
+		public const uint TOTAL_PAIR_BATTLES_FRIENDS_ADDRESS = 0x14198;
+		public const uint TOTAL_WINS_FRIENDS_ADDRESS = 0x141E0;
+		public const uint TOTAL_PAIR_WINS_FRIENDS_ADDRESS = 0x141E8;
+
+		public const uint STORY_PARTNER_1 = 0x2D72C4; //13
+		public const uint STORY_PARTNER_2 = 0x30C7FC; //13
+		public const uint STORY_1 = 0x162C8;  //C0 9A 5E 00
+		public const uint STORY_2 = 0x1640E; //36
+		public const uint STORY_3 = 0x16534; //65 30 36 32
+		public const uint STORY_4 = 0x19070; //0x19070 - 0x19088  -> 00
+		public const uint STORY_5 = 0x1661C; //2B 52 20 67
+		public const uint STORY_6 = 0x164F4; //57 51 22 1D
+		public const uint STORY_7 = 0x163CC; //C8 A7 A0 86
+
+
+
 		public static void WriteNumber(uint address, uint size, uint value, uint min, uint max)
 		{
 			if (value < min) value = min;

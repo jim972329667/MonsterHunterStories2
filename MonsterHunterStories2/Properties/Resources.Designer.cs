@@ -278,6 +278,15 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
+        ///   查找类似 All Battles 的本地化字符串。
+        /// </summary>
+        public static string MainBaseAllBattles {
+            get {
+                return ResourceManager.GetString("MainBaseAllBattles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Get all Guide 的本地化字符串。
         /// </summary>
         public static string MainBaseAllGuide {
@@ -305,6 +314,60 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
+        ///   查找类似 All Pair Battles 的本地化字符串。
+        /// </summary>
+        public static string MainBaseAllPairBattles {
+            get {
+                return ResourceManager.GetString("MainBaseAllPairBattles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 All Single Battles 的本地化字符串。
+        /// </summary>
+        public static string MainBaseAllSingleBattles {
+            get {
+                return ResourceManager.GetString("MainBaseAllSingleBattles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Battles 的本地化字符串。
+        /// </summary>
+        public static string MainBaseBattles {
+            get {
+                return ResourceManager.GetString("MainBaseBattles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Lose 的本地化字符串。
+        /// </summary>
+        public static string MainBaseBattlesLose {
+            get {
+                return ResourceManager.GetString("MainBaseBattlesLose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Win 的本地化字符串。
+        /// </summary>
+        public static string MainBaseBattlesWin {
+            get {
+                return ResourceManager.GetString("MainBaseBattlesWin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Win Percentage 的本地化字符串。
+        /// </summary>
+        public static string MainBaseBattlesWinPercentage {
+            get {
+                return ResourceManager.GetString("MainBaseBattlesWinPercentage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Co-Op Eggs 的本地化字符串。
         /// </summary>
         public static string MainBaseCoOpEgg {
@@ -314,7 +377,7 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Co-Op Quests Completed 的本地化字符串。
+        ///   查找类似 Co-Op Quests Completed : {0} 的本地化字符串。
         /// </summary>
         public static string MainBaseCoOpQuestsCompleted {
             get {
@@ -323,7 +386,7 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Co-Op Quests Completed 1 的本地化字符串。
+        ///   查找类似 Completed Count 1 的本地化字符串。
         /// </summary>
         public static string MainBaseCoOpQuestsCompleted1 {
             get {
@@ -332,7 +395,7 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Co-Op Quests Completed 2 的本地化字符串。
+        ///   查找类似 Completed Count 2 的本地化字符串。
         /// </summary>
         public static string MainBaseCoOpQuestsCompleted2 {
             get {
@@ -413,11 +476,83 @@ namespace MonsterHunterStories2.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Eggs Acquired 的本地化字符串。
+        ///   查找类似 Eggs Acquired : {0} 的本地化字符串。
         /// </summary>
         public static string MainBaseNumberEgg {
             get {
                 return ResourceManager.GetString("MainBaseNumberEgg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Pair Battles with Friends 的本地化字符串。
+        /// </summary>
+        public static string MainBasePairBattlesFriends {
+            get {
+                return ResourceManager.GetString("MainBasePairBattlesFriends", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Partner 的本地化字符串。
+        /// </summary>
+        public static string MainBasePartner {
+            get {
+                return ResourceManager.GetString("MainBasePartner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Alwin 的本地化字符串。
+        /// </summary>
+        public static string MainBasePartnerAlwin {
+            get {
+                return ResourceManager.GetString("MainBasePartnerAlwin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Kayna 的本地化字符串。
+        /// </summary>
+        public static string MainBasePartnerKayna {
+            get {
+                return ResourceManager.GetString("MainBasePartnerKayna", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Kyle 的本地化字符串。
+        /// </summary>
+        public static string MainBasePartnerKyle {
+            get {
+                return ResourceManager.GetString("MainBasePartnerKyle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 None 的本地化字符串。
+        /// </summary>
+        public static string MainBasePartnerNone {
+            get {
+                return ResourceManager.GetString("MainBasePartnerNone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Reverto 的本地化字符串。
+        /// </summary>
+        public static string MainBasePartnerReverto {
+            get {
+                return ResourceManager.GetString("MainBasePartnerReverto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Unknow 的本地化字符串。
+        /// </summary>
+        public static string MainBasePartnerUnknow {
+            get {
+                return ResourceManager.GetString("MainBasePartnerUnknow", resourceCulture);
             }
         }
         
@@ -427,6 +562,24 @@ namespace MonsterHunterStories2.Properties {
         public static string MainBaseRefreshMelynx {
             get {
                 return ResourceManager.GetString("MainBaseRefreshMelynx", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Reset Oltura 的本地化字符串。
+        /// </summary>
+        public static string MainBaseResetOltura {
+            get {
+                return ResourceManager.GetString("MainBaseResetOltura", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Single Battles with Friends 的本地化字符串。
+        /// </summary>
+        public static string MainBaseSingleBattlesFriends {
+            get {
+                return ResourceManager.GetString("MainBaseSingleBattlesFriends", resourceCulture);
             }
         }
         

@@ -10,7 +10,9 @@ namespace MonsterHunterStories2
 		{
 			uint id = (uint)values[0];
 			uint type = (uint)values[1];
-			String name = DataBase.GetWeaponConver(id, type);
+			String name;
+			if (id == 0 && type == 0) name = "None";
+			else name = DataBase.GetWeaponConver(id, type);
 			if (String.IsNullOrEmpty(name))
 			{
 				if (type == 0x7fff)

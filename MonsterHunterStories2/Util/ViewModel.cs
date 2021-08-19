@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Drawing;
-using System.IO;
+using System.ComponentModel;
 
 namespace MonsterHunterStories2
 {
-	class ViewModel
+	class ViewModel : INotifyPropertyChanged
 	{
+		public event PropertyChangedEventHandler PropertyChanged;
 		public ObservableCollection<Item> Items { get; set; } = new ObservableCollection<Item>();
 		public ObservableCollection<Weapon> Weapons { get; set; } = new ObservableCollection<Weapon>();
 		public ObservableCollection<Armor> Armors { get; set; } = new ObservableCollection<Armor>();
@@ -17,6 +16,7 @@ namespace MonsterHunterStories2
 		public ObservableCollection<Monster> Monsters { get; set; } = new ObservableCollection<Monster>();
 		public ObservableCollection<Egg> Eggs { get; set; } = new ObservableCollection<Egg>();
 		public ObservableCollection<Den> Dens { get; set; } = new ObservableCollection<Den>();
+		public ObservableCollection<Battle> Battles { get; set; } = new ObservableCollection<Battle>();
 		public ViewModel()
 		{
             for (uint i = 1; i < 2000; i++)
@@ -80,6 +80,7 @@ namespace MonsterHunterStories2
 						Dens.Add(Den);
 					}
 			}
+			Battles.Add(new Battle());
 		}
 
 		public uint Money
@@ -87,7 +88,6 @@ namespace MonsterHunterStories2
 			get {return SaveData.Instance().ReadNumber(Util.MONEY_ADDRESS, 4);}
 			set {Util.WriteNumber(Util.MONEY_ADDRESS, 4, value, 0, 9999999);}
 		}
-		
 		public uint PlayTimeHour
 		{
 			get {return SaveData.Instance().ReadNumber(64, 4) / 3600;}
@@ -116,35 +116,95 @@ namespace MonsterHunterStories2
 		public uint AllCommonSmellEgg
 		{
 			get { return SaveData.Instance().ReadNumber(Util.EGG_AllCOUNT_CommonSmell_ADDRESS, 4); }
-			set { Util.WriteNumber(Util.EGG_AllCOUNT_CommonSmell_ADDRESS, 4, value, 0, 0xFFFF); }
+			set
+			{
+				Util.WriteNumber(Util.EGG_AllCOUNT_CommonSmell_ADDRESS, 4, value, 0, 0xFFFF);
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(AllEggCount)));
+			}
 		}
 		public uint AllHighSmellEgg
 		{
 			get { return SaveData.Instance().ReadNumber(Util.EGG_AllCOUNT_HighSmell_ADDRESS, 4); }
-			set { Util.WriteNumber(Util.EGG_AllCOUNT_HighSmell_ADDRESS, 4, value, 0, 0xFFFF); }
+			set
+			{
+				Util.WriteNumber(Util.EGG_AllCOUNT_HighSmell_ADDRESS, 4, value, 0, 0xFFFF);
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(AllEggCount)));
+			}
 		}
 		public uint AllCoOpEgg
 		{
 			get { return SaveData.Instance().ReadNumber(Util.EGG_AllCOUNT_CoOp_ADDRESS, 4); }
-			set { Util.WriteNumber(Util.EGG_AllCOUNT_CoOp_ADDRESS, 4, value, 0, 0xFFFF); }
+			set
+			{
+				Util.WriteNumber(Util.EGG_AllCOUNT_CoOp_ADDRESS, 4, value, 0, 0xFFFF);
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(AllEggCount)));
+			}
+		}
+		public uint AllEggCount
+		{
+			get { return AllCommonSmellEgg + AllHighSmellEgg + AllCoOpEgg; }
 		}
 		public uint MonstersSlain
 		{
 			get { return SaveData.Instance().ReadNumber(Util.MONSTER_SLAIN_ADDRESS, 4); }
 			set { Util.WriteNumber(Util.MONSTER_SLAIN_ADDRESS, 4, value, 0, 0xFFFF); }
 		}
-
 		public uint CoOpQuestsCompleted1
 		{
 			get { return SaveData.Instance().ReadNumber(Util.CoOp_COUNT1_ADDRESS, 4); }
-			set { Util.WriteNumber(Util.CoOp_COUNT1_ADDRESS, 4, value, 0, 0xFFFF); }
+			set
+			{
+				Util.WriteNumber(Util.CoOp_COUNT1_ADDRESS, 4, value, 0, 0xFFFF);
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(CoOpQuestsCompletedCount)));
+			}
 		}
-
 		public uint CoOpQuestsCompleted2
 		{
 			get { return SaveData.Instance().ReadNumber(Util.CoOp_COUNT2_ADDRESS, 4); }
-			set { Util.WriteNumber(Util.CoOp_COUNT2_ADDRESS, 4, value, 0, 0xFFFF); }
+			set
+			{
+				Util.WriteNumber(Util.CoOp_COUNT2_ADDRESS, 4, value, 0, 0xFFFF);
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(CoOpQuestsCompletedCount)));
+			}
 		}
+		public uint CoOpQuestsCompletedCount
+        {
+			get { return CoOpQuestsCompleted1 + CoOpQuestsCompleted2; }
+		}
+		public uint Partner
+		{
+			get
+			{
+				uint value = SaveData.Instance().ReadNumber(Util.STORY_PARTNER_1, 2);
+				uint revalue;
+				PartnerVisble = System.Windows.Visibility.Collapsed;
+				if (value == 0xFFFF || value == 0) revalue = 0;
+				else if (value == 0x12) revalue = 1;
+				else if (value == 0x13) revalue = 2;
+				else if (value == 0x14) revalue = 3;
+				else if (value == 0x15) revalue = 4;
+				else
+				{
+					revalue = 5;
+					PartnerVisble = System.Windows.Visibility.Visible;
+				}
+				return revalue;
+			}
+			set
+			{
+				uint revalue;
+				PartnerVisble = System.Windows.Visibility.Collapsed;
+				if (value == 0) revalue = 0xFFFF;
+				else if (value == 1) revalue = 0x12;
+				else if (value == 2) revalue = 0x13;
+				else if (value == 3) revalue = 0x14;
+				else if (value == 4) revalue = 0x15;
+				else revalue = SaveData.Instance().ReadNumber(Util.STORY_PARTNER_1, 2);
+				Util.WriteNumber(Util.STORY_PARTNER_1, 2, revalue, 0, 0xFFFF);
+				Util.WriteNumber(Util.STORY_PARTNER_2, 2, revalue, 0, 0xFFFF);//0x12 = Kayna(琪娜), 0x13 = Kyle(卡伊), 0x14 = Reverto(李维特), 0x15 = Alwin(阿尔玛)
+			}
+		}
+        public System.Windows.Visibility PartnerVisble { get; set; }
 		private uint ItemType(uint ID)
         {
 			uint type;
@@ -182,5 +242,6 @@ namespace MonsterHunterStories2
             }
 			return type;
 		}
+		
 	}
 }

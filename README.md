@@ -8,7 +8,7 @@ Switch Monster Hunter Stories 2 SaveDate Editor
 
 The original author: [turtle-insect](https://github.com/turtle-insect/MonsterHunterStories2) <mail : turtle.insect@gmail.com>
 
-Modified author:<mail : jim97232966@foxmail.com>
+Modified author:<mail : jim972329667@foxmail.com>
 
 # Official Game Site
 https://www.monsterhunter.com/stories2/uk/  

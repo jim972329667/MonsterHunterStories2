@@ -669,16 +669,32 @@ namespace MonsterHunterStories2
 			{
 				if (Guide1.IsChecked == true)
                 {
-					SaveData.Instance().WriteValue(Util.GUIDE_Monsterpedia_ADDRESS_1, Guide.Monsterpedia1);
-					SaveData.Instance().WriteValue(Util.GUIDE_Monsterpedia_ADDRESS_2, Guide.Monsterpedia2);
+					for (uint i = 0; i < 2037; i++)//总图鉴
+					{
+						SaveData.Instance().WriteNumber(Util.GUIDE_Monsterpedia_ADDRESS_1 + i, 1, 0xFF);
+					}
+					for (uint i = 0; i < 219; i++)//怪物掉落物
+					{
+						SaveData.Instance().WriteNumber(Util.GUIDE_Monsterpedia_ADDRESS_2 + i, 1, 0xFF);
+					}
+					//SaveData.Instance().WriteValue(Util.GUIDE_Monsterpedia_ADDRESS_1, Guide.Monsterpedia1);
+					//SaveData.Instance().WriteValue(Util.GUIDE_Monsterpedia_ADDRESS_2, Guide.Monsterpedia2);
 				}
 				if (Guide2.IsChecked == true)
                 {
-					SaveData.Instance().WriteValue(Util.GUIDE_Monstipedia_ADDRESS, Guide.Monstipedia);
+					for (uint i = 0; i < 173; i++)
+					{
+						SaveData.Instance().WriteNumber(Util.GUIDE_Monstipedia_ADDRESS + i, 1, 0xFF);
+					}
+					//SaveData.Instance().WriteValue(Util.GUIDE_Monstipedia_ADDRESS, Guide.Monstipedia);
 				}
                 if (Guide3.IsChecked == true)
                 {
-					SaveData.Instance().WriteValue(Util.GUIDE_BookofGenes_ADDRESS, Guide.BookofGenes);
+					for (uint i = 0; i < 211; i++)
+					{
+						SaveData.Instance().WriteNumber(Util.GUIDE_BookofGenes_ADDRESS + i, 1, 0xFF);
+					}
+					//SaveData.Instance().WriteValue(Util.GUIDE_BookofGenes_ADDRESS, Guide.BookofGenes);
 				}
 			}
 			else
